@@ -1,0 +1,235 @@
+.page {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.hero {
+  display: grid;
+  gap: 1.1rem;
+  padding: 0.4rem 0 0.2rem;
+}
+
+.heroPanel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(5.9rem, 7.8rem);
+  align-items: end;
+  gap: 0.7rem;
+  padding: 1.25rem 1.05rem 1rem 1.1rem;
+  border-radius: 1.7rem;
+  background:
+    linear-gradient(180deg, rgba(58, 47, 103, 0.72), rgba(104, 88, 170, 0.76)),
+    url("/design/hero-atmosphere.png");
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 28px 50px rgba(39, 29, 45, 0.18);
+  overflow: clip;
+}
+
+.heroCopy {
+  display: grid;
+  gap: 0.8rem;
+  min-width: 0;
+}
+
+.heroVisual {
+  display: grid;
+  justify-items: end;
+  align-self: end;
+  padding-bottom: 0.1rem;
+}
+
+.heroEyebrow {
+  margin: 0;
+  color: rgba(255, 244, 236, 0.74);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  margin: 0;
+  max-width: 9ch;
+  color: #fff8f2;
+  font-family: var(--font-heading), serif;
+  font-size: clamp(2.35rem, 12vw, 3.65rem);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+}
+
+.heroBody {
+  margin: 0;
+  max-width: 19rem;
+  color: rgba(255, 247, 237, 0.88);
+  font-size: 0.95rem;
+  line-height: 1.56;
+}
+
+.platformRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.platformBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  min-height: 1.9rem;
+  padding: 0.36rem 0.62rem;
+  border-radius: 999px;
+  background: rgba(255, 248, 242, 0.14);
+  color: #fff8f2;
+  box-shadow: inset 0 0 0 1px rgba(255, 244, 236, 0.18);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.platformIcon {
+  width: 0.9rem;
+  height: 0.9rem;
+  fill: currentColor;
+  flex: none;
+}
+
+.heroPreview {
+  width: min(7.4rem, 31vw);
+  padding: 0.3rem 0.32rem 0.14rem;
+  border-radius: 1.68rem;
+  filter: drop-shadow(0 20px 28px rgba(24, 18, 40, 0.34));
+}
+
+.heroPreview :global(.device-screen) {
+  position: relative;
+  border-radius: 1.28rem;
+  background: #f5f0f7;
+}
+
+.heroPreview :global(.device-screen-image) {
+  object-fit: contain;
+  object-position: center top;
+}
+
+@media (max-width: 359px) {
+  .heroPanel {
+    grid-template-columns: minmax(0, 1fr) 5.5rem;
+    gap: 0.55rem;
+    padding-right: 0.9rem;
+  }
+
+  .heroTitle {
+    font-size: clamp(2.1rem, 11vw, 3.1rem);
+  }
+
+  .heroBody {
+    font-size: 0.92rem;
+  }
+
+  .heroPreview {
+    width: min(6.7rem, 29vw);
+  }
+}
+
+.credibilitySection {
+  display: grid;
+  gap: 1.1rem;
+  margin: 0.7rem -1rem -1.8rem;
+  padding: 1.35rem 1rem calc(1.6rem + env(safe-area-inset-bottom));
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.14), transparent 36%),
+    linear-gradient(135deg, #8477ff 0%, #9381ff 58%, #b790f6 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.videoSection {
+  display: grid;
+  gap: 0.95rem;
+}
+
+.videoTitle {
+  justify-self: center;
+  max-width: 14ch;
+  text-align: center;
+  font-size: clamp(1.42rem, 6vw, 1.95rem);
+}
+
+.videoShell {
+  width: 100%;
+}
+
+.videoCta {
+  width: 100%;
+  min-height: 3rem;
+  border-radius: 1.1rem;
+  font-size: 0.86rem;
+  letter-spacing: 0.06em;
+}
+
+.sectionKicker {
+  margin: 0;
+  color: rgba(255, 245, 252, 0.82);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.credibilitySection .sectionKicker {
+  justify-self: center;
+  text-align: center;
+}
+
+.sectionTitle {
+  margin: 0;
+  color: #231d3a;
+  font-family: var(--font-heading), serif;
+  font-size: clamp(1.6rem, 7vw, 2.1rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.sectionBody {
+  margin: 0;
+  color: #5f5879;
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
+
+.partnerGrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.78rem;
+  align-items: stretch;
+  padding: 0.2rem 0.3rem 0;
+}
+
+.partner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: span 2;
+  min-height: 3.9rem;
+  padding: 0.55rem 0.55rem;
+  border-radius: 1rem;
+  background: transparent;
+  box-shadow: none;
+}
+
+.partner:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.partner:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
+.partner img,
+.partnerImage {
+  width: auto;
+  max-width: 82%;
+  max-height: 2rem;
+  height: auto;
+  object-fit: contain;
+}

@@ -1,0 +1,92 @@
+.page {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.hero,
+.section {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1.1rem;
+  border-radius: 1.45rem;
+  background:
+    radial-gradient(circle at top right, rgba(255, 170, 235, 0.16), transparent 42%),
+    rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(147, 129, 255, 0.12);
+  box-shadow: 0 18px 34px rgba(39, 29, 45, 0.06);
+}
+
+.eyebrow,
+.storyMeta {
+  margin: 0;
+  color: rgba(94, 76, 167, 0.74);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.title,
+.sectionTitle {
+  margin: 0;
+  color: #231d3a;
+  font-family: var(--font-heading), serif;
+  letter-spacing: -0.04em;
+}
+
+.title {
+  font-size: clamp(1.9rem, 10vw, 2.8rem);
+  line-height: 0.95;
+}
+
+.sectionTitle {
+  font-size: 1.26rem;
+  line-height: 1.04;
+}
+
+.body,
+.planNote,
+.pointBody,
+.storyBody {
+  margin: 0;
+  color: #5f5879;
+  font-size: 0.97rem;
+  line-height: 1.62;
+}
+
+.deviceWrap {
+  display: grid;
+  place-items: center;
+  padding-top: 0.2rem;
+}
+
+.device {
+  width: min(15rem, 68vw);
+}
+
+.plans,
+.points,
+.stories {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.plan,
+.point,
+.story {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.95rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(147, 129, 255, 0.1);
+}
+
+.planName,
+.pointTitle,
+.storyTitle {
+  margin: 0;
+  color: #231d3a;
+  font-size: 1rem;
+  line-height: 1.32;
+}

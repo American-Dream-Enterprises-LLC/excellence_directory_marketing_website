@@ -1,0 +1,60 @@
+.shell {
+  --mobile-header-height: calc(4.25rem + env(safe-area-inset-top));
+  min-height: 100svh;
+  background: transparent;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  background: rgba(255, 252, 249, 0.72);
+  border-bottom: 1px solid rgba(147, 129, 255, 0.14);
+  transition:
+    transform 220ms ease,
+    opacity 220ms ease,
+    border-color 220ms ease;
+}
+
+.headerHidden {
+  transform: translateY(calc(-100% - 0.4rem));
+  opacity: 0;
+  pointer-events: none;
+  border-bottom-color: transparent;
+}
+
+.masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  width: min(100%, 34rem);
+  margin: 0 auto;
+  padding: max(0.7rem, env(safe-area-inset-top)) 1rem 0.85rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.brandImage {
+  width: auto;
+  height: 2.4rem;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.main {
+  width: min(100%, 34rem);
+  margin: 0 auto;
+  padding: calc(var(--mobile-header-height) + 0.9rem) 1rem 1.8rem;
+}

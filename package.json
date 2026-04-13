@@ -1,0 +1,32 @@
+{
+  "name": "excellence_directory_marketing_website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Frontend-only Vercel marketing site for Excellence Directory landing pages.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "sync-copy": "node scripts/sync-copy-from-seo-root.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "nextjs",
+    "vercel",
+    "seo",
+    "landing-pages"
+  ],
+  "author": "Ryan Wilson",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "next": "^16.2.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^5.9.3"
+  }
+}

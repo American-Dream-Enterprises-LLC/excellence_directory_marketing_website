@@ -1,0 +1,112 @@
+.page {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.hero,
+.feature,
+.section {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1.1rem;
+  border-radius: 1.45rem;
+  background:
+    radial-gradient(circle at top right, rgba(255, 170, 235, 0.16), transparent 42%),
+    rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(147, 129, 255, 0.12);
+  box-shadow: 0 18px 34px rgba(39, 29, 45, 0.06);
+}
+
+.eyebrow,
+.storyMeta {
+  margin: 0;
+  color: rgba(94, 76, 167, 0.74);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  color: #231d3a;
+  font-family: var(--font-heading), serif;
+  font-size: clamp(1.9rem, 10vw, 2.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.body,
+.storyExcerpt,
+.storyDek {
+  margin: 0;
+  color: #5f5879;
+  font-size: 0.98rem;
+  line-height: 1.62;
+}
+
+.featureImageWrap {
+  overflow: clip;
+  border-radius: 1.2rem;
+}
+
+.featureImage {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.storyTitle,
+.sectionTitle {
+  margin: 0;
+  color: #231d3a;
+  font-family: var(--font-heading), serif;
+  font-size: 1.25rem;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+}
+
+.storyLink {
+  display: inline-flex;
+}
+
+.deskChips {
+  display: flex;
+  gap: 0.55rem;
+  overflow-x: auto;
+  padding-bottom: 0.15rem;
+  scrollbar-width: none;
+}
+
+.deskChips::-webkit-scrollbar {
+  display: none;
+}
+
+.deskChip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.4rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 999px;
+  color: #5e4ca7;
+  font-size: 0.8rem;
+  font-weight: 800;
+  white-space: nowrap;
+  background: rgba(147, 129, 255, 0.1);
+}
+
+.storyList {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.storyCard {
+  display: grid;
+  gap: 0.45rem;
+  padding: 0.95rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(147, 129, 255, 0.1);
+}

@@ -1,0 +1,349 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-03-20",
+  "note": "Editorial art manifest for Excellence Directory article imagery. Prompt files live in projects/seo/design/art/ and generated PNGs are synced into the marketing site's public/article-art/ directory.",
+  "paletteAnalysis": {
+    "logoBlue": {
+      "hex": "#9381FF",
+      "name": "Periwinkle blue",
+      "source": "ImageMagick histogram from excellence_directory_marketing_website/logo.webp on 2026-03-20"
+    },
+    "logoPink": {
+      "hex": "#FFAAEB",
+      "name": "Pastel pink",
+      "source": "ImageMagick histogram from excellence_directory_marketing_website/logo.webp on 2026-03-20"
+    },
+    "darkPurple": {
+      "hex": "#793272",
+      "name": "Royal plum",
+      "source": "Current footer CTA color in src/app/globals.css"
+    },
+    "lightPurple": {
+      "hex": "#C89AE4",
+      "name": "Soft orchid",
+      "source": "Lightened companion tone derived from the footer purple for editorial illustration prompts"
+    },
+    "paperCream": {
+      "hex": "#F8F4EA",
+      "name": "Paper cream",
+      "source": "Neutral editorial paper tone chosen to keep the palette airy and legible"
+    }
+  },
+  "styleDirection": {
+    "intent": "Make the site feel closer to a literary Christian magazine than a generic landing-page stack.",
+    "visualGoals": [
+      "editorial, literary, intelligent, calm",
+      "hopeful and warm rather than dark or cynical",
+      "hand-painted and illustrated rather than photoreal",
+      "clear focal subjects with generous negative space",
+      "subtle Christian cues without stock-photo church clichés"
+    ],
+    "visualLanguage": [
+      "ink-and-gouache editorial illustration",
+      "soft watercolor edges",
+      "restrained magazine-cover composition",
+      "elegant silhouettes and symbolic scenes",
+      "paper texture, quiet atmosphere, story-first composition"
+    ],
+    "avoid": [
+      "photorealism",
+      "stock-photo poses",
+      "3D marketing renders",
+      "text embedded in the image",
+      "generic handshake hero art",
+      "dark apocalyptic religious imagery",
+      "busy neon palettes",
+      "interface mockups inside the illustration"
+    ]
+  },
+  "articles": [
+    {
+      "slug": "find-christian-coaching-clients-who-share-your-values",
+      "alt": "A Christian coach at a desk sees a small circle of value-aligned clients gathering around her in soft periwinkle and pink light.",
+      "promptPath": "design/art/find-christian-coaching-clients-who-share-your-values.md",
+      "sourceImagePath": "design/art/find-christian-coaching-clients-who-share-your-values.png",
+      "publicImagePath": "/article-art/find-christian-coaching-clients-who-share-your-values.png",
+      "available": true,
+      "cacheKey": "1774526864008-2964864"
+    },
+    {
+      "slug": "grow-your-christian-business-with-faith-aligned-customers",
+      "alt": "A Christian storefront glows with clear trust signals while the right customers move toward it through a calm city street.",
+      "promptPath": "design/art/grow-your-christian-business-with-faith-aligned-customers.md",
+      "sourceImagePath": "design/art/grow-your-christian-business-with-faith-aligned-customers.png",
+      "publicImagePath": "/article-art/grow-your-christian-business-with-faith-aligned-customers.png",
+      "available": true,
+      "cacheKey": "1774526864110-3407059"
+    },
+    {
+      "slug": "help-people-trust-your-christian-business-before-the-first-call",
+      "alt": "A family studies a business listing in quiet discernment before making a call, while signals of trust gather around the page.",
+      "promptPath": "design/art/help-people-trust-your-christian-business-before-the-first-call.md",
+      "sourceImagePath": "design/art/help-people-trust-your-christian-business-before-the-first-call.png",
+      "publicImagePath": "/article-art/help-people-trust-your-christian-business-before-the-first-call.png",
+      "available": true,
+      "cacheKey": "1774526864197-3268215"
+    },
+    {
+      "slug": "turn-your-directory-profile-into-a-trustworthy-christian-homepage",
+      "alt": "A simple profile page opens like the front door of a warm Christian business, with light spilling onto the street.",
+      "promptPath": "design/art/turn-your-directory-profile-into-a-trustworthy-christian-homepage.md",
+      "sourceImagePath": "design/art/turn-your-directory-profile-into-a-trustworthy-christian-homepage.png",
+      "publicImagePath": "/article-art/turn-your-directory-profile-into-a-trustworthy-christian-homepage.png",
+      "available": true,
+      "cacheKey": "1774526864298-3071926"
+    },
+    {
+      "slug": "get-more-referrals-for-your-christian-service-business",
+      "alt": "A thread of trusted referrals passes from household to household until it reaches a Christian service provider ready to help.",
+      "promptPath": "design/art/get-more-referrals-for-your-christian-service-business.md",
+      "sourceImagePath": "design/art/get-more-referrals-for-your-christian-service-business.png",
+      "publicImagePath": "/article-art/get-more-referrals-for-your-christian-service-business.png",
+      "available": true,
+      "cacheKey": "1774526864076-3490660"
+    },
+    {
+      "slug": "find-a-christian-job-without-compromising-your-faith",
+      "alt": "A believer carrying a briefcase and Bible walks between two career paths, choosing the brighter path of aligned work.",
+      "promptPath": "design/art/find-a-christian-job-without-compromising-your-faith.md",
+      "sourceImagePath": "design/art/find-a-christian-job-without-compromising-your-faith.png",
+      "publicImagePath": "/article-art/find-a-christian-job-without-compromising-your-faith.png",
+      "available": true,
+      "cacheKey": "1774606146173-3856771"
+    },
+    {
+      "slug": "find-clients-looking-for-christian-freelancers",
+      "alt": "A freelance Christian creative works at a small table while the right client inquiries drift toward the desk like lit windows.",
+      "promptPath": "design/art/find-clients-looking-for-christian-freelancers.md",
+      "sourceImagePath": "design/art/find-clients-looking-for-christian-freelancers.png",
+      "publicImagePath": "/article-art/find-clients-looking-for-christian-freelancers.png",
+      "available": true,
+      "cacheKey": "1774526864042-3740129"
+    },
+    {
+      "slug": "find-a-christian-internship-that-builds-your-calling",
+      "alt": "A young intern steps into a workshop where craft, mentorship, and calling converge under gentle morning light.",
+      "promptPath": "design/art/find-a-christian-internship-that-builds-your-calling.md",
+      "sourceImagePath": "design/art/find-a-christian-internship-that-builds-your-calling.png",
+      "publicImagePath": "/article-art/find-a-christian-internship-that-builds-your-calling.png",
+      "available": true,
+      "cacheKey": "1774526863971-3799159"
+    },
+    {
+      "slug": "find-remote-work-with-christian-companies",
+      "alt": "A remote worker at home is connected by light to a faraway Christian company that feels human rather than anonymous.",
+      "promptPath": "design/art/find-remote-work-with-christian-companies.md",
+      "sourceImagePath": "design/art/find-remote-work-with-christian-companies.png",
+      "publicImagePath": "/article-art/find-remote-work-with-christian-companies.png",
+      "available": true,
+      "cacheKey": "1774526864054-3530674"
+    },
+    {
+      "slug": "hire-christian-talent-without-sorting-through-noise",
+      "alt": "A hiring manager looks over a crowded field until a few aligned candidates emerge clearly from the noise.",
+      "promptPath": "design/art/hire-christian-talent-without-sorting-through-noise.md",
+      "sourceImagePath": "design/art/hire-christian-talent-without-sorting-through-noise.png",
+      "publicImagePath": "/article-art/hire-christian-talent-without-sorting-through-noise.png",
+      "available": true,
+      "cacheKey": "1774526864232-3438667"
+    },
+    {
+      "slug": "get-more-people-to-find-your-church",
+      "alt": "A neighborhood church, quiet but luminous, becomes visible to people searching through a city at dusk.",
+      "promptPath": "design/art/get-more-people-to-find-your-church.md",
+      "sourceImagePath": "design/art/get-more-people-to-find-your-church.png",
+      "publicImagePath": "/article-art/get-more-people-to-find-your-church.png",
+      "available": true,
+      "cacheKey": "1774526864065-3331162"
+    },
+    {
+      "slug": "help-more-people-discover-your-christian-ministry",
+      "alt": "A ministry leader opens a door to service while people in need begin to notice the work from different corners of the city.",
+      "promptPath": "design/art/help-more-people-discover-your-christian-ministry.md",
+      "sourceImagePath": "design/art/help-more-people-discover-your-christian-ministry.png",
+      "publicImagePath": "/article-art/help-more-people-discover-your-christian-ministry.png",
+      "available": true,
+      "cacheKey": "1774526864135-3655925"
+    },
+    {
+      "slug": "help-new-believers-find-a-home-church",
+      "alt": "A new believer stands at a crossroads until a warm church community comes into view like a lit home.",
+      "promptPath": "design/art/help-new-believers-find-a-home-church.md",
+      "sourceImagePath": "design/art/help-new-believers-find-a-home-church.png",
+      "publicImagePath": "/article-art/help-new-believers-find-a-home-church.png",
+      "available": true,
+      "cacheKey": "1774526864156-3229324"
+    },
+    {
+      "slug": "make-your-church-events-easier-for-people-to-find",
+      "alt": "A church event poster becomes a visible beacon that guides local people toward fellowship before the evening begins.",
+      "promptPath": "design/art/make-your-church-events-easier-for-people-to-find.md",
+      "sourceImagePath": "design/art/make-your-church-events-easier-for-people-to-find.png",
+      "publicImagePath": "/article-art/make-your-church-events-easier-for-people-to-find.png",
+      "available": true,
+      "cacheKey": "1774526864256-3382691"
+    },
+    {
+      "slug": "help-people-find-christian-support-groups-near-them",
+      "alt": "People carrying quiet burdens are guided toward a small circle of Christian support in a calm local setting.",
+      "promptPath": "design/art/help-people-find-christian-support-groups-near-them.md",
+      "sourceImagePath": "design/art/help-people-find-christian-support-groups-near-them.png",
+      "publicImagePath": "/article-art/help-people-find-christian-support-groups-near-them.png",
+      "available": true,
+      "cacheKey": "1774526864187-2967206"
+    },
+    {
+      "slug": "find-christian-professionals-you-can-trust",
+      "alt": "A Christian family studies a trusted directory of local professionals as a few clearly trustworthy names come into focus.",
+      "promptPath": "design/art/find-christian-professionals-you-can-trust.md",
+      "sourceImagePath": "design/art/find-christian-professionals-you-can-trust.png",
+      "publicImagePath": "/article-art/find-christian-professionals-you-can-trust.png",
+      "available": true,
+      "cacheKey": "1774526864029-3164776"
+    },
+    {
+      "slug": "find-a-christian-contractor-you-wont-regret-hiring",
+      "alt": "A contractor studies a home blueprint with a family, framed as a scene of peace and wise stewardship rather than sales pressure.",
+      "promptPath": "design/art/find-a-christian-contractor-you-wont-regret-hiring.md",
+      "sourceImagePath": "design/art/find-a-christian-contractor-you-wont-regret-hiring.png",
+      "publicImagePath": "/article-art/find-a-christian-contractor-you-wont-regret-hiring.png",
+      "available": true,
+      "cacheKey": "1774526863943-3605698"
+    },
+    {
+      "slug": "find-a-christian-counselor-who-respects-biblical-conviction",
+      "alt": "A counseling room is portrayed as a place of honest care, discernment, and biblical conviction.",
+      "promptPath": "design/art/find-a-christian-counselor-who-respects-biblical-conviction.md",
+      "sourceImagePath": "design/art/find-a-christian-counselor-who-respects-biblical-conviction.png",
+      "publicImagePath": "/article-art/find-a-christian-counselor-who-respects-biblical-conviction.png",
+      "available": true,
+      "cacheKey": "1774526863959-4187121"
+    },
+    {
+      "slug": "find-a-christian-realtor-who-understands-family-stewardship",
+      "alt": "A Christian family and realtor pause before a potential home, treating the decision as stewardship rather than status.",
+      "promptPath": "design/art/find-a-christian-realtor-who-understands-family-stewardship.md",
+      "sourceImagePath": "design/art/find-a-christian-realtor-who-understands-family-stewardship.png",
+      "publicImagePath": "/article-art/find-a-christian-realtor-who-understands-family-stewardship.png",
+      "available": true,
+      "cacheKey": "1774526863998-3949277"
+    },
+    {
+      "slug": "find-christian-family-services-you-can-feel-good-about",
+      "alt": "Parents evaluate child and family services with calm discernment while a few trustworthy options rise to the surface.",
+      "promptPath": "design/art/find-christian-family-services-you-can-feel-good-about.md",
+      "sourceImagePath": "design/art/find-christian-family-services-you-can-feel-good-about.png",
+      "publicImagePath": "/article-art/find-christian-family-services-you-can-feel-good-about.png",
+      "available": true,
+      "cacheKey": "1774526864019-3349081"
+    },
+    {
+      "slug": "promote-your-christian-conference-to-the-right-people",
+      "alt": "A Christian conference hall glows like a destination while the right attendees are drawn toward it from a wider city map.",
+      "promptPath": "design/art/promote-your-christian-conference-to-the-right-people.md",
+      "sourceImagePath": "design/art/promote-your-christian-conference-to-the-right-people.png",
+      "publicImagePath": "/article-art/promote-your-christian-conference-to-the-right-people.png",
+      "available": true,
+      "cacheKey": "1774526864267-3434262"
+    },
+    {
+      "slug": "get-more-registrations-for-your-christian-event",
+      "alt": "Registration momentum is visualized as invitation cards and people moving steadily toward a Christian event.",
+      "promptPath": "design/art/get-more-registrations-for-your-christian-event.md",
+      "sourceImagePath": "design/art/get-more-registrations-for-your-christian-event.png",
+      "publicImagePath": "/article-art/get-more-registrations-for-your-christian-event.png",
+      "available": true,
+      "cacheKey": "1774526864088-3330532"
+    },
+    {
+      "slug": "help-people-find-christian-fellowship-events-near-them",
+      "alt": "Local believers notice a nearby fellowship gathering and begin moving toward a warm evening of community.",
+      "promptPath": "design/art/help-people-find-christian-fellowship-events-near-them.md",
+      "sourceImagePath": "design/art/help-people-find-christian-fellowship-events-near-them.png",
+      "publicImagePath": "/article-art/help-people-find-christian-fellowship-events-near-them.png",
+      "available": true,
+      "cacheKey": "1774526864177-3415541"
+    },
+    {
+      "slug": "promote-your-christian-podcast-to-people-who-will-share-it",
+      "alt": "A podcast microphone becomes the center of a listening community as thoughtful Christian listeners pass episodes between them.",
+      "promptPath": "design/art/promote-your-christian-podcast-to-people-who-will-share-it.md",
+      "sourceImagePath": "design/art/promote-your-christian-podcast-to-people-who-will-share-it.png",
+      "publicImagePath": "/article-art/promote-your-christian-podcast-to-people-who-will-share-it.png",
+      "available": true,
+      "cacheKey": "1774526864278-3227857"
+    },
+    {
+      "slug": "help-more-people-discover-your-christian-mission-trip",
+      "alt": "Travelers prepare for a Christian mission trip as maps, prayer, and service come together in one hopeful scene.",
+      "promptPath": "design/art/help-more-people-discover-your-christian-mission-trip.md",
+      "sourceImagePath": "design/art/help-more-people-discover-your-christian-mission-trip.png",
+      "publicImagePath": "/article-art/help-more-people-discover-your-christian-mission-trip.png",
+      "available": true,
+      "cacheKey": "1774526864145-3143490"
+    },
+    {
+      "slug": "help-people-find-a-christian-coach-they-can-trust",
+      "alt": "A bright, welcoming coaching room suggests a Christian coach whose care and convictions feel trustworthy before the first session.",
+      "promptPath": "design/art/help-people-find-a-christian-coach-they-can-trust.md",
+      "sourceImagePath": "design/art/help-people-find-a-christian-coach-they-can-trust.png",
+      "publicImagePath": "/article-art/help-people-find-a-christian-coach-they-can-trust.png",
+      "available": true,
+      "cacheKey": "1774526864165-2839845"
+    },
+    {
+      "slug": "help-people-trust-your-christian-coaching-before-the-first-call",
+      "alt": "A Christian coach prepares thoughtful notes and profile materials in morning light so trust is visible before the first call.",
+      "promptPath": "design/art/help-people-trust-your-christian-coaching-before-the-first-call.md",
+      "sourceImagePath": "design/art/help-people-trust-your-christian-coaching-before-the-first-call.png",
+      "publicImagePath": "/article-art/help-people-trust-your-christian-coaching-before-the-first-call.png",
+      "available": true,
+      "cacheKey": "1774526864208-3159794"
+    },
+    {
+      "slug": "help-people-trust-your-christian-freelance-work-before-the-first-invoice",
+      "alt": "A Christian freelancer prepares polished work and a clear proposal in a bright studio, making trust visible before the first invoice.",
+      "promptPath": "design/art/help-people-trust-your-christian-freelance-work-before-the-first-invoice.md",
+      "sourceImagePath": "design/art/help-people-trust-your-christian-freelance-work-before-the-first-invoice.png",
+      "publicImagePath": "/article-art/help-people-trust-your-christian-freelance-work-before-the-first-invoice.png",
+      "available": true,
+      "cacheKey": "1774526864220-3724049"
+    },
+    {
+      "slug": "turn-your-christian-freelancer-profile-into-a-better-client-filter",
+      "alt": "A Christian freelancer profile is imagined as an open doorway that naturally draws the right clients closer while others pass by.",
+      "promptPath": "design/art/turn-your-christian-freelancer-profile-into-a-better-client-filter.md",
+      "sourceImagePath": "design/art/turn-your-christian-freelancer-profile-into-a-better-client-filter.png",
+      "publicImagePath": "/article-art/turn-your-christian-freelancer-profile-into-a-better-client-filter.png",
+      "available": true,
+      "cacheKey": "1774526864288-2966300"
+    },
+    {
+      "slug": "get-more-repeat-work-as-a-christian-freelancer",
+      "alt": "A Christian freelancer returns to a familiar desk and trusted client rhythm, showing repeat work growing from remembered reliability.",
+      "promptPath": "design/art/get-more-repeat-work-as-a-christian-freelancer.md",
+      "sourceImagePath": "design/art/get-more-repeat-work-as-a-christian-freelancer.png",
+      "publicImagePath": "/article-art/get-more-repeat-work-as-a-christian-freelancer.png",
+      "available": true,
+      "cacheKey": "1774526864099-3378306"
+    },
+    {
+      "slug": "help-families-find-christian-care-without-feeling-alone",
+      "alt": "A family in a hard season is gently oriented toward nearby Christian care that feels visible, warm, and merciful.",
+      "promptPath": "design/art/help-families-find-christian-care-without-feeling-alone.md",
+      "sourceImagePath": "design/art/help-families-find-christian-care-without-feeling-alone.png",
+      "publicImagePath": "/article-art/help-families-find-christian-care-without-feeling-alone.png",
+      "available": true,
+      "cacheKey": "1774526864122-3475222"
+    },
+    {
+      "slug": "make-it-easier-to-find-your-christian-ministry-before-the-crisis-hits",
+      "alt": "A neighborhood Christian ministry becomes clearly visible in morning light before need turns into crisis.",
+      "promptPath": "design/art/make-it-easier-to-find-your-christian-ministry-before-the-crisis-hits.md",
+      "sourceImagePath": "design/art/make-it-easier-to-find-your-christian-ministry-before-the-crisis-hits.png",
+      "publicImagePath": "/article-art/make-it-easier-to-find-your-christian-ministry-before-the-crisis-hits.png",
+      "available": true,
+      "cacheKey": "1774526864244-3588796"
+    }
+  ]
+}
