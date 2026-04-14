@@ -3,9 +3,12 @@
 import Image from "next/image";
 import { useState } from "react";
 
+import { trackEvent } from "@/lib/analytics";
+
 import styles from "./youtube-video-preview.module.css";
 
 type YouTubeVideoPreviewProps = {
+  analyticsSurface?: string;
   className?: string;
   posterSrc: string;
   startSeconds?: number;
@@ -18,6 +21,7 @@ function joinClasses(...values: Array<string | undefined>) {
 }
 
 export function YouTubeVideoPreview({
+  analyticsSurface = "unknown",
   className,
   posterSrc,
   startSeconds = 0,
@@ -53,7 +57,14 @@ export function YouTubeVideoPreview({
           type="button"
           className={styles.surface}
           aria-label={`Play ${title}`}
-          onClick={() => setIsPlaying(true)}
+          onClick={() => {
+            trackEvent("youtube_video_play", {
+              start_seconds: startSeconds,
+              surface: analyticsSurface,
+              video_id: videoId,
+            });
+            setIsPlaying(true);
+          }}
         >
           <Image src={posterSrc} alt="" fill sizes="100vw" className={styles.poster} />
           <span className={styles.playBadge} aria-hidden="true">

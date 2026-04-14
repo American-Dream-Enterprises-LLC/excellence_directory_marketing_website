@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, Fraunces } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 import { JsonLd } from "@/components/json-ld";
 import { siteFrame } from "@/content/landing-page-data";
@@ -110,6 +111,7 @@ export default function RootLayout({
           }}
         />
         <SiteChrome>{children}</SiteChrome>
+        <Analytics />
       </body>
     </html>
   );

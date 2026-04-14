@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type MouseEvent as ReactMouseEvent } from "react";
 
 import type { LaunchWaitlistModal as LaunchWaitlistModalCopy } from "@/content/landing-page-data";
+import { trackEvent } from "@/lib/analytics";
 
 type LaunchWaitlistModalProps = {
   modal: LaunchWaitlistModalCopy;
@@ -10,6 +11,7 @@ type LaunchWaitlistModalProps = {
 
 export function LaunchWaitlistModal({ modal }: LaunchWaitlistModalProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [triggerSource, setTriggerSource] = useState("unknown");
   const dialogRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -22,6 +24,11 @@ export function LaunchWaitlistModal({ modal }: LaunchWaitlistModalProps) {
       }
 
       event.preventDefault();
+      const source = ctaTarget.dataset.homeCta ?? "unknown";
+      setTriggerSource(source);
+      trackEvent("waitlist_modal_open", {
+        source,
+      });
       setIsOpen(true);
     };
 
@@ -84,7 +91,16 @@ export function LaunchWaitlistModal({ modal }: LaunchWaitlistModalProps) {
           <p className="mini-kicker">{modal.eyebrow}</p>
           <h2 id="launch-waitlist-title">{modal.heading}</h2>
           <p id="launch-waitlist-body">{modal.body}</p>
-          <a href={modal.primaryCta.href} className="home-button home-button-primary">
+          <a
+            href={modal.primaryCta.href}
+            className="home-button home-button-primary"
+            onClick={() => {
+              trackEvent("waitlist_continue_click", {
+                destination: modal.primaryCta.href,
+                source: triggerSource,
+              });
+            }}
+          >
             {modal.primaryCta.label}
           </a>
         </section>

@@ -78,6 +78,7 @@ export function DesktopHomePage() {
           <h2>{homeVideo.heading}</h2>
         </div>
         <YouTubeVideoPreview
+          analyticsSurface="desktop"
           className="home-feature-video"
           title={homeVideo.title}
           videoId={homeVideo.videoId}

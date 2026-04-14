@@ -58,6 +58,7 @@ export function MobileHomePage() {
       <section className={styles.videoSection}>
         <h2 className={`${styles.sectionTitle} ${styles.videoTitle}`}>{homeVideo.heading}</h2>
         <YouTubeVideoPreview
+          analyticsSurface="mobile"
           className={styles.videoShell}
           title={homeVideo.title}
           videoId={homeVideo.videoId}

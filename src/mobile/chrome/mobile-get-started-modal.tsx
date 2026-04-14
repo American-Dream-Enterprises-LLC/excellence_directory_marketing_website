@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
 import type { HomePagePersonalization } from "@/content/landing-page-data";
+import { trackEvent } from "@/lib/analytics";
 
 import styles from "./mobile-get-started-modal.module.css";
 
@@ -55,7 +56,12 @@ export function MobileGetStartedModal({
     };
   }, [isOpen]);
 
-  const handleProfileSelect = useEffectEvent(() => {
+  const handleProfileSelect = useEffectEvent((profileId: string) => {
+    trackEvent("persona_selected", {
+      profile_id: profileId,
+      source: ctaSource,
+      surface: "mobile",
+    });
     setIsOpen(false);
     window.setTimeout(() => {
       waitlistTriggerRef.current?.dispatchEvent(
@@ -69,7 +75,13 @@ export function MobileGetStartedModal({
       <button
         type="button"
         className={`${styles.trigger} ${styles.triggerPrimary}${className ? ` ${className}` : ""}`}
-        onClick={() => setIsOpen(true)}
+        onClick={() => {
+          trackEvent("get_started_modal_open", {
+            source: ctaSource,
+            surface: "mobile",
+          });
+          setIsOpen(true);
+        }}
       >
         {personalization.primaryCta.label}
       </button>
@@ -129,7 +141,7 @@ export function MobileGetStartedModal({
                       key={profile.id}
                       type="button"
                       className={styles.option}
-                      onClick={handleProfileSelect}
+                      onClick={() => handleProfileSelect(profile.id)}
                     >
                       <span className={styles.optionLabel}>{profile.label}</span>
                     </button>

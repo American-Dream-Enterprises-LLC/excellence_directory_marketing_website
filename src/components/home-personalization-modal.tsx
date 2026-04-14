@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type MouseEvent as ReactMouseEvent } from "react";
 
 import type { HomePagePersonalization } from "@/content/landing-page-data";
+import { trackEvent } from "@/lib/analytics";
 
 type HomePersonalizationModalProps = {
   personalization: HomePagePersonalization;
@@ -24,6 +25,10 @@ export function HomePersonalizationModal({
     }
 
     const timer = window.setTimeout(() => {
+      trackEvent("personalization_modal_open", {
+        source: "desktop_timer",
+        surface: "desktop",
+      });
       setIsOpen(true);
     }, 7000);
 
@@ -101,6 +106,11 @@ export function HomePersonalizationModal({
   }
 
   function handleProfileSelect(profileId: string) {
+    trackEvent("persona_selected", {
+      profile_id: profileId,
+      source: "desktop_personalization_modal",
+      surface: "desktop",
+    });
     setSelectedProfileId(profileId);
   }
 
