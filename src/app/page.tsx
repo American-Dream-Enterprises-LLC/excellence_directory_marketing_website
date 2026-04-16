@@ -5,6 +5,13 @@ import { MobileHomePage } from "@/mobile/home/mobile-home-page";
 import { siteFrame } from "@/content/landing-page-data";
 import { machinePaths } from "@/content/site-urls";
 
+const homepageSocialShareImage = {
+  alt: `${siteFrame.brand} homepage preview`,
+  height: 630,
+  url: "/design/homepage-social-share.png",
+  width: 1200,
+} as const;
+
 export const metadata: Metadata = {
   title: { absolute: "Excellence" },
   description: siteFrame.layoutDescription,
@@ -41,19 +48,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     description: siteFrame.layoutDescription,
-    images: [
-      {
-        alt: `${siteFrame.brand} homepage preview`,
-        url: "/design/hero-atmosphere.png",
-      },
-    ],
+    images: [homepageSocialShareImage],
     title: siteFrame.brand,
     url: "/",
   },
   twitter: {
     card: "summary_large_image",
     description: siteFrame.layoutDescription,
-    images: ["/design/hero-atmosphere.png"],
+    images: [homepageSocialShareImage.url],
     title: siteFrame.brand,
   },
 };
