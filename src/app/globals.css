@@ -2519,8 +2519,10 @@ code {
 }
 
 .home-personalization-contact-card {
+  appearance: none;
   display: grid;
   gap: 0.2rem;
+  width: 100%;
   margin: 0;
   padding: 0.78rem 0.9rem;
   border: 1px solid rgba(147, 129, 255, 0.14);
@@ -2528,6 +2530,9 @@ code {
   background:
     linear-gradient(135deg, rgba(147, 129, 255, 0.1), rgba(255, 255, 255, 0.82)),
     rgba(255, 255, 255, 0.72);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
 }
 
 .home-personalization-contact-label {
@@ -2541,10 +2546,16 @@ code {
 }
 
 .home-personalization-contact-link {
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: var(--plum);
+  cursor: pointer;
+  font: inherit;
   font-size: 0.92rem;
   font-weight: 850;
   line-height: 1.35;
+  text-align: left;
   text-decoration: none;
   word-break: break-word;
   transition: color 160ms ease;
@@ -2561,12 +2572,16 @@ code {
 }
 
 .home-personalization-primary {
+  appearance: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 2.75rem;
   padding: 0.72rem 1.1rem;
+  border: 0;
   border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
   font-size: 0.9rem;
   font-weight: 800;
   letter-spacing: 0.04em;

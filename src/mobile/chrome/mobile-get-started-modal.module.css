@@ -146,8 +146,10 @@
 }
 
 .detailContact {
+  appearance: none;
   display: grid;
   gap: 0.18rem;
+  width: 100%;
   margin: 0;
   padding: 0.72rem 0.8rem;
   border: 1px solid rgba(147, 129, 255, 0.14);
@@ -155,6 +157,9 @@
   background:
     linear-gradient(135deg, rgba(147, 129, 255, 0.12), rgba(255, 255, 255, 0.86)),
     rgba(255, 255, 255, 0.72);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
 }
 
 .detailContactLabel {
@@ -168,11 +173,17 @@
 }
 
 .detailContactLink {
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: #6b56d8;
+  cursor: pointer;
+  font: inherit;
   font-size: 0.84rem;
   font-weight: 800;
   letter-spacing: -0.01em;
   line-height: 1.34;
+  text-align: left;
   text-decoration: none;
   word-break: break-word;
 }
@@ -208,6 +219,7 @@
 }
 
 .detailAction {
+  appearance: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -215,6 +227,8 @@
   min-height: 2.9rem;
   padding: 0.78rem 1rem;
   border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
   font-size: 0.84rem;
   font-weight: 800;
   letter-spacing: 0.03em;
