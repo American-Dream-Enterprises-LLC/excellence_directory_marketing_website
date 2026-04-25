@@ -22,7 +22,6 @@ export function HomePersonalizationModal({
 }: HomePersonalizationModalProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedProfileId, setSelectedProfileId] = useState<string | null>(null);
-  const [isEmailCopied, setIsEmailCopied] = useState(false);
   const dialogRef = useRef<HTMLDivElement | null>(null);
   const selectedProfile =
     personalization.profiles.find((profile) => profile.id === selectedProfileId) ?? null;
@@ -95,27 +94,7 @@ export function HomePersonalizationModal({
 
   function closeModal() {
     setSelectedProfileId(null);
-    setIsEmailCopied(false);
     setIsOpen(false);
-  }
-
-  async function handleCopyEmail() {
-    if (!selectedProfileEmail || typeof navigator === "undefined" || !navigator.clipboard) {
-      return;
-    }
-
-    try {
-      await navigator.clipboard.writeText(selectedProfileEmail);
-      setIsEmailCopied(true);
-      trackEvent("partnership_email_copy", {
-        email: selectedProfileEmail,
-        profile_id: selectedProfile?.id,
-        source: "desktop_personalization_modal",
-        surface: "desktop",
-      });
-    } catch {
-      setIsEmailCopied(false);
-    }
   }
 
   function handleBackdropClick(event: ReactMouseEvent<HTMLDivElement>) {
@@ -134,7 +113,7 @@ export function HomePersonalizationModal({
       return;
     }
 
-    if (target.closest("[data-home-cta], [data-personalization-direct-link], [data-copy-email]")) {
+    if (target.closest("[data-home-cta], [data-personalization-direct-link]")) {
       return;
     }
 
@@ -148,7 +127,6 @@ export function HomePersonalizationModal({
       surface: "desktop",
     });
     setSelectedProfileId(profileId);
-    setIsEmailCopied(false);
   }
 
   if (!isOpen) {
@@ -180,7 +158,28 @@ export function HomePersonalizationModal({
                   <p id="home-personalization-detail">{selectedProfile.detailBody}</p>
                 ) : null}
                 {selectedProfileEmail ? (
-                  <p className="home-personalization-contact-line">{selectedProfileEmail}</p>
+                  <div className="home-personalization-contact-card">
+                    <p className="home-personalization-contact-label">Email us at</p>
+                    <a
+                      href={selectedProfileCta.href}
+                      className="home-personalization-contact-link"
+                      data-personalization-direct-link="true"
+                      onClick={() => {
+                        if (!selectedProfile) {
+                          return;
+                        }
+
+                        trackEvent("partnership_contact_click", {
+                          destination: selectedProfileCta.href,
+                          profile_id: selectedProfile.id,
+                          source: "desktop_personalization_modal",
+                          surface: "desktop",
+                        });
+                      }}
+                    >
+                      {selectedProfileEmail}
+                    </a>
+                  </div>
                 ) : null}
                 <ul
                   id={selectedProfile.detailBody ? undefined : "home-personalization-summary"}
@@ -211,18 +210,6 @@ export function HomePersonalizationModal({
                   >
                     {selectedProfileCta.label}
                   </a>
-                  {selectedProfileEmail ? (
-                    <button
-                      type="button"
-                      className="home-personalization-secondary"
-                      data-copy-email="true"
-                      onClick={() => {
-                        void handleCopyEmail();
-                      }}
-                    >
-                      {isEmailCopied ? "Email Copied" : "Copy Email ID"}
-                    </button>
-                  ) : null}
                 </div>
               </>
             ) : (
