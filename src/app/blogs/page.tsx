@@ -76,22 +76,6 @@ export default function BrandBlogArchivePage() {
         }}
       />
 
-      <section className="blog-feature">
-        <div className="blog-feature-copy">
-          <p className="section-kicker">Excellence Blog</p>
-          <h1 className="brand-blog-archive-title">Insights for faith and business.</h1>
-          <p className="blog-feature-dek">
-            Articles from the public Excellence Directory blog on Christian work,
-            business, stewardship, and marketplace trust.
-          </p>
-        </div>
-        <div className="brand-blog-feature-card" aria-hidden="true">
-          <span>Faith</span>
-          <span>Business</span>
-          <span>Community</span>
-        </div>
-      </section>
-
       {featuredPost ? (
         <section className="blog-feature brand-blog-featured-post">
           <div className="blog-feature-copy">
