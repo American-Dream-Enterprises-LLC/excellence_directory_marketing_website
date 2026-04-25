@@ -91,18 +91,35 @@ export function LaunchWaitlistModal({ modal }: LaunchWaitlistModalProps) {
           <p className="mini-kicker">{modal.eyebrow}</p>
           <h2 id="launch-waitlist-title">{modal.heading}</h2>
           <p id="launch-waitlist-body">{modal.body}</p>
-          <a
-            href={modal.primaryCta.href}
-            className="home-button home-button-primary"
-            onClick={() => {
-              trackEvent("waitlist_continue_click", {
-                destination: modal.primaryCta.href,
-                source: triggerSource,
-              });
-            }}
-          >
-            {modal.primaryCta.label}
-          </a>
+          <div className="launch-waitlist-actions">
+            <a
+              href={modal.primaryCta.href}
+              className="home-button home-button-primary"
+              onClick={() => {
+                trackEvent("waitlist_continue_click", {
+                  cta: "waitlist",
+                  destination: modal.primaryCta.href,
+                  source: triggerSource,
+                });
+              }}
+            >
+              {modal.primaryCta.label}
+            </a>
+            {modal.secondaryCta ? (
+              <a
+                href={modal.secondaryCta.href}
+                className="home-button home-button-secondary launch-waitlist-secondary"
+                onClick={() => {
+                  trackEvent("early_access_pricing_click", {
+                    destination: modal.secondaryCta?.href,
+                    source: triggerSource,
+                  });
+                }}
+              >
+                {modal.secondaryCta.label}
+              </a>
+            ) : null}
+          </div>
         </section>
       </div>
     </div>

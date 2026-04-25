@@ -2297,6 +2297,22 @@ code {
   line-height: 1.6;
 }
 
+.launch-waitlist-actions {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.launch-waitlist-actions .home-button {
+  width: 100%;
+}
+
+.launch-waitlist-secondary {
+  border-color: rgba(147, 129, 255, 0.22);
+  background: rgba(255, 255, 255, 0.74);
+  color: var(--plum);
+  box-shadow: inset 0 0 0 1px rgba(147, 129, 255, 0.08);
+}
+
 .home-personalization-dialog {
   position: relative;
   width: min(500px, 100%);

@@ -17,7 +17,13 @@ export function HomePersonalizationModal({
   const dialogRef = useRef<HTMLDivElement | null>(null);
   const selectedProfile =
     personalization.profiles.find((profile) => profile.id === selectedProfileId) ?? null;
-  const descriptionId = selectedProfile ? "home-personalization-summary" : undefined;
+  const selectedProfileCta = selectedProfile?.cta ?? personalization.primaryCta;
+  const isDirectProfileCta = Boolean(selectedProfile?.cta);
+  const descriptionId = selectedProfile
+    ? selectedProfile.detailBody
+      ? "home-personalization-detail"
+      : "home-personalization-summary"
+    : undefined;
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -98,7 +104,7 @@ export function HomePersonalizationModal({
       return;
     }
 
-    if (target.closest("[data-home-cta]")) {
+    if (target.closest("[data-home-cta], [data-personalization-direct-link]")) {
       return;
     }
 
@@ -136,19 +142,40 @@ export function HomePersonalizationModal({
           >
             {selectedProfile ? (
               <>
-                <h2 id="home-personalization-title">Excellence can help you:</h2>
-                <ul id="home-personalization-summary" className="home-personalization-checkpoints">
+                <h2 id="home-personalization-title">
+                  {selectedProfile.detailHeading ?? "Excellence can help you:"}
+                </h2>
+                {selectedProfile.detailBody ? (
+                  <p id="home-personalization-detail">{selectedProfile.detailBody}</p>
+                ) : null}
+                <ul
+                  id={selectedProfile.detailBody ? undefined : "home-personalization-summary"}
+                  className="home-personalization-checkpoints"
+                >
                   {selectedProfile.bullets.map((bullet) => (
                     <li key={bullet}>{bullet}</li>
                   ))}
                 </ul>
                 <div className="home-personalization-actions">
                   <a
-                    href={personalization.primaryCta.href}
+                    href={selectedProfileCta.href}
                     className="home-personalization-primary"
-                    data-home-cta="personalization-modal"
+                    data-home-cta={isDirectProfileCta ? undefined : "personalization-modal"}
+                    data-personalization-direct-link={isDirectProfileCta ? "true" : undefined}
+                    onClick={() => {
+                      if (!selectedProfile || !isDirectProfileCta) {
+                        return;
+                      }
+
+                      trackEvent("partnership_contact_click", {
+                        destination: selectedProfileCta.href,
+                        profile_id: selectedProfile.id,
+                        source: "desktop_personalization_modal",
+                        surface: "desktop",
+                      });
+                    }}
                   >
-                    {personalization.primaryCta.label}
+                    {selectedProfileCta.label}
                   </a>
                 </div>
               </>
@@ -173,11 +200,12 @@ export function HomePersonalizationModal({
                   {personalization.profiles.map((profile) => (
                     <label
                       key={profile.id}
-                      className={`home-personalization-checkbox-row${
-                        selectedProfileId === profile.id
+                      className={
+                        "home-personalization-checkbox-row" +
+                        (selectedProfileId === profile.id
                           ? " home-personalization-checkbox-row-active"
-                          : ""
-                      }`}
+                          : "")
+                      }
                     >
                       <input
                         type="radio"
@@ -192,7 +220,6 @@ export function HomePersonalizationModal({
                 </div>
               </>
             )}
-
           </section>
         </div>
       </div>

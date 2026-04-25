@@ -186,6 +186,10 @@
       "primaryCta": {
         "label": "Join the Waitlist",
         "href": "https://linktr.ee/excellencebusinessdirectory"
+      },
+      "secondaryCta": {
+        "label": "Sign Up Early Access Pricing",
+        "href": "https://buy.stripe.com/eVq6oH0yi5xkagCf1X53O03"
       }
     },
     "footer": {
@@ -394,6 +398,29 @@
             "Put your event in front of believers who are actually likely to attend, share, or register.",
             "Make the purpose, audience, and Christian context obvious at a glance.",
             "Help conferences, gatherings, and special events gain momentum earlier."
+          ]
+        },
+        {
+          "id": "partnership-explorer",
+          "label": "Explore Partnerships with Excellence",
+          "promptLines": {
+            "line1": "Exploring a partnership",
+            "line2": "with Excellence?"
+          },
+          "summary": "Start a conversation if you see a ministry, event, or strategic partnership fit.",
+          "headline": "Explore a partnership with Excellence.",
+          "body": "Excellence is open to conversations around ministry, event, brand, and strategic partnerships that can serve the Christian community well.",
+          "detailHeading": "Explore Partnerships with Excellence",
+          "detailBody": "If you are exploring a ministry, event, brand, or strategic partnership with Excellence Directory, please write to us at partner@excellencedirectory.com and tell us a little about the opportunity.",
+          "cta": {
+            "label": "Email partner@excellencedirectory.com",
+            "mailtoSubject": "Excellence Partnership Inquiry"
+          },
+          "showInRotator": false,
+          "bullets": [
+            "Share the organization, event, ministry, or business you have in mind.",
+            "Tell us what kind of partnership you are exploring and who it would serve.",
+            "We will review it and continue the conversation from there."
           ]
         }
       ]

@@ -22,8 +22,11 @@ export function MobileGetStartedModal({
 }: MobileGetStartedModalProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [selectedProfileId, setSelectedProfileId] = useState<string | null>(null);
   const dialogRef = useRef<HTMLDivElement | null>(null);
   const waitlistTriggerRef = useRef<HTMLAnchorElement | null>(null);
+  const selectedProfile =
+    personalization.profiles.find((profile) => profile.id === selectedProfileId) ?? null;
 
   useEffect(() => {
     setIsMounted(true);
@@ -35,6 +38,7 @@ export function MobileGetStartedModal({
 
   useEffect(() => {
     if (!isOpen) {
+      setSelectedProfileId(null);
       return;
     }
 
@@ -44,6 +48,7 @@ export function MobileGetStartedModal({
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
+        setSelectedProfileId(null);
         setIsOpen(false);
       }
     };
@@ -56,12 +61,8 @@ export function MobileGetStartedModal({
     };
   }, [isOpen]);
 
-  const handleProfileSelect = useEffectEvent((profileId: string) => {
-    trackEvent("persona_selected", {
-      profile_id: profileId,
-      source: ctaSource,
-      surface: "mobile",
-    });
+  const openWaitlistModal = useEffectEvent(() => {
+    setSelectedProfileId(null);
     setIsOpen(false);
     window.setTimeout(() => {
       waitlistTriggerRef.current?.dispatchEvent(
@@ -70,11 +71,28 @@ export function MobileGetStartedModal({
     }, 0);
   });
 
+  const handleProfileSelect = useEffectEvent((profileId: string) => {
+    trackEvent("persona_selected", {
+      profile_id: profileId,
+      source: ctaSource,
+      surface: "mobile",
+    });
+
+    const profile = personalization.profiles.find((item) => item.id === profileId);
+
+    if (profile?.cta || profile?.detailHeading || profile?.detailBody) {
+      setSelectedProfileId(profileId);
+      return;
+    }
+
+    openWaitlistModal();
+  });
+
   return (
     <>
       <button
         type="button"
-        className={`${styles.trigger} ${styles.triggerPrimary}${className ? ` ${className}` : ""}`}
+        className={styles.trigger + " " + styles.triggerPrimary + (className ? " " + className : "")}
         onClick={() => {
           trackEvent("get_started_modal_open", {
             source: ctaSource,
@@ -102,6 +120,7 @@ export function MobileGetStartedModal({
               className={styles.overlay}
               onClick={(event) => {
                 if (event.target === event.currentTarget) {
+                  setSelectedProfileId(null);
                   setIsOpen(false);
                 }
               }}
@@ -115,11 +134,25 @@ export function MobileGetStartedModal({
                 className={styles.dialog}
               >
                 <div className={styles.topbar}>
+                  {selectedProfile ? (
+                    <button
+                      type="button"
+                      className={styles.back}
+                      onClick={() => setSelectedProfileId(null)}
+                    >
+                      Back
+                    </button>
+                  ) : (
+                    <span className={styles.topbarSpacer} aria-hidden="true" />
+                  )}
                   <button
                     type="button"
                     className={styles.close}
                     aria-label="Close"
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => {
+                      setSelectedProfileId(null);
+                      setIsOpen(false);
+                    }}
                   >
                     Close
                   </button>
@@ -127,26 +160,63 @@ export function MobileGetStartedModal({
 
                 <div className={styles.headingBlock}>
                   <h2 id="mobile-start-title" className={styles.title}>
-                    {personalization.modalHeading}
+                    {selectedProfile
+                      ? selectedProfile.detailHeading ?? selectedProfile.headline
+                      : personalization.modalHeading}
                   </h2>
                 </div>
 
-                <div
-                  className={styles.options}
-                  role="group"
-                  aria-label={personalization.modalHeading}
-                >
-                  {personalization.profiles.map((profile) => (
-                    <button
-                      key={profile.id}
-                      type="button"
-                      className={styles.option}
-                      onClick={() => handleProfileSelect(profile.id)}
-                    >
-                      <span className={styles.optionLabel}>{profile.label}</span>
-                    </button>
-                  ))}
-                </div>
+                {selectedProfile ? (
+                  <div className={styles.detail}>
+                    {selectedProfile.detailBody ? (
+                      <p className={styles.detailBody}>{selectedProfile.detailBody}</p>
+                    ) : null}
+                    <ul className={styles.detailBullets}>
+                      {selectedProfile.bullets.map((bullet) => (
+                        <li key={bullet}>{bullet}</li>
+                      ))}
+                    </ul>
+                    {selectedProfile.cta ? (
+                      <a
+                        href={selectedProfile.cta.href}
+                        className={styles.detailAction}
+                        onClick={() => {
+                          trackEvent("partnership_contact_click", {
+                            destination: selectedProfile.cta?.href,
+                            profile_id: selectedProfile.id,
+                            source: ctaSource,
+                            surface: "mobile",
+                          });
+                          setSelectedProfileId(null);
+                          setIsOpen(false);
+                        }}
+                      >
+                        {selectedProfile.cta.label}
+                      </a>
+                    ) : (
+                      <button type="button" className={styles.detailAction} onClick={openWaitlistModal}>
+                        {personalization.primaryCta.label}
+                      </button>
+                    )}
+                  </div>
+                ) : (
+                  <div
+                    className={styles.options}
+                    role="group"
+                    aria-label={personalization.modalHeading}
+                  >
+                    {personalization.profiles.map((profile) => (
+                      <button
+                        key={profile.id}
+                        type="button"
+                        className={styles.option}
+                        onClick={() => handleProfileSelect(profile.id)}
+                      >
+                        <span className={styles.optionLabel}>{profile.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>,
             document.body,

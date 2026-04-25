@@ -10,6 +10,9 @@ import { homeVideo } from "@/content/home-video";
 
 const credibilityPartnersTopRow = credibilityPartners.slice(0, 3);
 const credibilityPartnersBottomRow = credibilityPartners.slice(3);
+const rotatorProfiles = homePageCopy.personalization.profiles.filter(
+  (profile) => profile.showInRotator !== false,
+);
 
 export function DesktopHomePage() {
   return (
@@ -137,7 +140,7 @@ export function DesktopHomePage() {
       </section>
 
       <section className="home-personalization-preview">
-        <HomePersonaRotator profiles={homePageCopy.personalization.profiles} />
+        <HomePersonaRotator profiles={rotatorProfiles} />
       </section>
 
       <HomePersonalizationModal personalization={homePageCopy.personalization} />

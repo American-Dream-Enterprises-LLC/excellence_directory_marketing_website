@@ -22,6 +22,7 @@ type LaunchWaitlistModalSource = {
   heading: string;
   body: string;
   primaryCta: CallToActionCopy;
+  secondaryCta?: CallToActionCopy;
 };
 
 export type VariantStatus = "ready" | "draft";
@@ -152,11 +153,16 @@ export type HomeAudienceProfile = {
   summary: string;
   headline: string;
   body: string;
+  detailHeading?: string;
+  detailBody?: string;
+  cta?: CallToAction;
+  showInRotator?: boolean;
   bullets: string[];
 };
 
-type HomeAudienceProfileSource = Omit<HomeAudienceProfile, "prompt"> & {
+type HomeAudienceProfileSource = Omit<HomeAudienceProfile, "prompt" | "cta"> & {
   prompt?: string;
+  cta?: CallToActionCopy;
 };
 
 type HomePagePersonalizationSource = {
@@ -256,8 +262,12 @@ export type HomePageCopy = {
   rail: HomePageCopySource["rail"];
 };
 
-export type LaunchWaitlistModal = Omit<LaunchWaitlistModalSource, "primaryCta"> & {
+export type LaunchWaitlistModal = Omit<
+  LaunchWaitlistModalSource,
+  "primaryCta" | "secondaryCta"
+> & {
   primaryCta: CallToAction;
+  secondaryCta?: CallToAction;
 };
 
 export type NotFoundPageCopy = {
@@ -358,7 +368,7 @@ function normalizePromptLines(profile: HomeAudienceProfileSource) {
 }
 
 function normalizeHomeAudienceProfile(profile: HomeAudienceProfileSource): HomeAudienceProfile {
-  const { prompt: _prompt, ...rest } = profile;
+  const { prompt: _prompt, cta, ...rest } = profile;
   const promptLines = normalizePromptLines(profile);
   const prompt = promptLines.line2
     ? `${promptLines.line1}\n${promptLines.line2}`
@@ -368,6 +378,7 @@ function normalizeHomeAudienceProfile(profile: HomeAudienceProfileSource): HomeA
     ...rest,
     promptLines,
     prompt,
+    cta: cta ? resolveCta(cta) : undefined,
   };
 }
 
@@ -388,6 +399,9 @@ export const siteFrame = siteCopy.siteFrame;
 export const launchWaitlistModal: LaunchWaitlistModal = {
   ...siteCopy.siteFrame.waitlistModal,
   primaryCta: resolveCta(siteCopy.siteFrame.waitlistModal.primaryCta),
+  secondaryCta: siteCopy.siteFrame.waitlistModal.secondaryCta
+    ? resolveCta(siteCopy.siteFrame.waitlistModal.secondaryCta)
+    : undefined,
 };
 export const landingPageUi = siteCopy.landingPageUi;
 export const homePageCopy: HomePageCopy = {
