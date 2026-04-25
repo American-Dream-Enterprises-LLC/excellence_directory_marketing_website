@@ -7,7 +7,10 @@ import appStoreBadge from "../../../public/platforms/app-store.png";
 import googlePlayBadge from "../../../public/platforms/google-play.png";
 
 import { LaunchWaitlistModal } from "@/components/launch-waitlist-modal";
-import { launchWaitlistModal, siteFrame } from "@/content/landing-page-data";
+import { PartnershipFooterCta } from "@/components/partnership-footer-cta";
+import { homePageCopy, launchWaitlistModal, siteFrame } from "@/content/landing-page-data";
+
+import { DesktopPersonalizationModalController } from "./desktop-personalization-modal-controller";
 
 type DesktopSiteChromeProps = {
   children: React.ReactNode;
@@ -50,6 +53,7 @@ export function DesktopSiteChrome({ children }: DesktopSiteChromeProps) {
       </header>
       {children}
       <LaunchWaitlistModal modal={launchWaitlistModal} />
+      <DesktopPersonalizationModalController personalization={homePageCopy.personalization} />
       <footer className="site-footer">
         <div className="footer-cta-shell">
           <Image
@@ -62,9 +66,9 @@ export function DesktopSiteChrome({ children }: DesktopSiteChromeProps) {
             Christ-centered discovery should feel trustworthy before the first call, search, or
             introduction.
           </p>
+          <PartnershipFooterCta />
         </div>
       </footer>
     </div>
   );
 }
-

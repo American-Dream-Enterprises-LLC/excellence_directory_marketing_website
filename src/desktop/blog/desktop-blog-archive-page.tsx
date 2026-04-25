@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { HomePersonalizationModal } from "@/components/home-personalization-modal";
 import { JsonLd } from "@/components/json-ld";
 import { getArticleArt, getArticleArtUrl } from "@/content/article-art";
 import {
@@ -119,8 +118,6 @@ export function DesktopBlogArchivePage() {
           </div>
         </section>
       </main>
-      <HomePersonalizationModal personalization={homePageCopy.personalization} />
     </>
   );
 }
-

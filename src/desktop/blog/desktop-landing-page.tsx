@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { HomePersonalizationModal } from "@/components/home-personalization-modal";
 import { getArticleArt, getArticleArtUrl } from "@/content/article-art";
 import {
   getArticleReadTimeLabel,
@@ -10,7 +9,6 @@ import {
   getRelatedVariants,
   type LandingPageVariant,
   getStatusLongLabel,
-  homePageCopy,
   landingPageUi,
   renderCopyTemplate,
 } from "@/content/landing-page-data";
@@ -209,8 +207,6 @@ export function DesktopLandingPage({ variant }: DesktopLandingPageProps) {
           </aside>
         </section>
       </main>
-      <HomePersonalizationModal personalization={homePageCopy.personalization} />
     </>
   );
 }
-

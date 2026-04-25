@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import { DeviceMockup } from "@/components/device-mockup";
-import { HomePersonalizationModal } from "@/components/home-personalization-modal";
 import { HomePersonaRotator } from "@/components/home-persona-rotator";
 import { YouTubeVideoPreview } from "@/components/youtube-video-preview";
 import { credibilityPartners } from "@/content/credibility-partners";
@@ -142,8 +141,6 @@ export function DesktopHomePage() {
       <section className="home-personalization-preview">
         <HomePersonaRotator profiles={rotatorProfiles} />
       </section>
-
-      <HomePersonalizationModal personalization={homePageCopy.personalization} />
     </main>
   );
 }

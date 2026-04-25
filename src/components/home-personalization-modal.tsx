@@ -6,6 +6,9 @@ import type { HomePagePersonalization } from "@/content/landing-page-data";
 import { trackEvent } from "@/lib/analytics";
 
 type HomePersonalizationModalProps = {
+  autoOpenDelayMs?: number | null;
+  openEventName?: string;
+  openEventProfileId?: string;
   personalization: HomePagePersonalization;
 };
 
@@ -18,6 +21,9 @@ function getMailtoEmail(href: string) {
 }
 
 export function HomePersonalizationModal({
+  autoOpenDelayMs = 7000,
+  openEventName,
+  openEventProfileId,
   personalization,
 }: HomePersonalizationModalProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,13 +45,26 @@ export function HomePersonalizationModal({
       return;
     }
 
-    const timer = window.setTimeout(() => {
-      trackEvent("personalization_modal_open", {
-        source: "desktop_timer",
-        surface: "desktop",
-      });
-      setIsOpen(true);
-    }, 7000);
+    let timer: number | null = null;
+
+    if (autoOpenDelayMs !== null) {
+      timer = window.setTimeout(() => {
+        trackEvent("personalization_modal_open", {
+          source: "desktop_timer",
+          surface: "desktop",
+        });
+        setIsOpen(true);
+      }, autoOpenDelayMs);
+    }
+
+    const clearAutoOpenTimer = () => {
+      if (timer === null) {
+        return;
+      }
+
+      window.clearTimeout(timer);
+      timer = null;
+    };
 
     const handleDocumentClick = (event: MouseEvent) => {
       const ctaTarget =
@@ -55,17 +74,38 @@ export function HomePersonalizationModal({
         return;
       }
 
-      window.clearTimeout(timer);
+      clearAutoOpenTimer();
       closeModal();
     };
 
+    const handlePartnershipOpen = () => {
+      if (!openEventProfileId) {
+        return;
+      }
+
+      clearAutoOpenTimer();
+      setSelectedProfileId(openEventProfileId);
+      setIsOpen(true);
+      trackEvent("partnership_modal_open", {
+        profile_id: openEventProfileId,
+        source: "desktop_footer",
+        surface: "desktop",
+      });
+    };
+
     document.addEventListener("click", handleDocumentClick);
+    if (openEventName) {
+      window.addEventListener(openEventName, handlePartnershipOpen);
+    }
 
     return () => {
-      window.clearTimeout(timer);
+      clearAutoOpenTimer();
       document.removeEventListener("click", handleDocumentClick);
+      if (openEventName) {
+        window.removeEventListener(openEventName, handlePartnershipOpen);
+      }
     };
-  }, []);
+  }, [autoOpenDelayMs, openEventName, openEventProfileId]);
 
   useEffect(() => {
     if (!isOpen) {
