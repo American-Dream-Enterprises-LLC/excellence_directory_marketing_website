@@ -13,6 +13,7 @@ export function LaunchWaitlistModal({ modal }: LaunchWaitlistModalProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [triggerSource, setTriggerSource] = useState("unknown");
   const dialogRef = useRef<HTMLDivElement | null>(null);
+  const waitlistCta = modal.secondaryCta;
 
   useEffect(() => {
     const handleDocumentClick = (event: MouseEvent) => {
@@ -96,8 +97,7 @@ export function LaunchWaitlistModal({ modal }: LaunchWaitlistModalProps) {
               href={modal.primaryCta.href}
               className="home-button home-button-primary"
               onClick={() => {
-                trackEvent("waitlist_continue_click", {
-                  cta: "waitlist",
+                trackEvent("early_access_pricing_click", {
                   destination: modal.primaryCta.href,
                   source: triggerSource,
                 });
@@ -105,19 +105,25 @@ export function LaunchWaitlistModal({ modal }: LaunchWaitlistModalProps) {
             >
               {modal.primaryCta.label}
             </a>
-            {modal.secondaryCta ? (
-              <a
-                href={modal.secondaryCta.href}
-                className="home-button home-button-secondary launch-waitlist-secondary"
-                onClick={() => {
-                  trackEvent("early_access_pricing_click", {
-                    destination: modal.secondaryCta?.href,
-                    source: triggerSource,
-                  });
-                }}
-              >
-                {modal.secondaryCta.label}
-              </a>
+            {waitlistCta ? (
+              <>
+                <div className="launch-waitlist-divider" aria-hidden="true">
+                  <span>or</span>
+                </div>
+                <a
+                  href={waitlistCta.href}
+                  className="home-button launch-waitlist-secondary"
+                  onClick={() => {
+                    trackEvent("waitlist_continue_click", {
+                      cta: "waitlist",
+                      destination: waitlistCta.href,
+                      source: triggerSource,
+                    });
+                  }}
+                >
+                  {waitlistCta.label}
+                </a>
+              </>
             ) : null}
           </div>
         </section>

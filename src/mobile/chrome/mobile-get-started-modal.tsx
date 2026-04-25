@@ -15,6 +15,14 @@ type MobileGetStartedModalProps = {
   ctaSource?: string;
 };
 
+function getMailtoEmail(href: string) {
+  if (!href.startsWith("mailto:")) {
+    return null;
+  }
+
+  return decodeURIComponent(href.replace(/^mailto:/, "").split("?")[0] ?? "");
+}
+
 export function MobileGetStartedModal({
   personalization,
   className,
@@ -23,10 +31,13 @@ export function MobileGetStartedModal({
   const [isOpen, setIsOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const [selectedProfileId, setSelectedProfileId] = useState<string | null>(null);
+  const [isEmailCopied, setIsEmailCopied] = useState(false);
   const dialogRef = useRef<HTMLDivElement | null>(null);
   const waitlistTriggerRef = useRef<HTMLAnchorElement | null>(null);
   const selectedProfile =
     personalization.profiles.find((profile) => profile.id === selectedProfileId) ?? null;
+  const selectedProfileCta = selectedProfile?.cta ?? personalization.primaryCta;
+  const selectedProfileEmail = getMailtoEmail(selectedProfileCta.href);
 
   useEffect(() => {
     setIsMounted(true);
@@ -39,6 +50,7 @@ export function MobileGetStartedModal({
   useEffect(() => {
     if (!isOpen) {
       setSelectedProfileId(null);
+      setIsEmailCopied(false);
       return;
     }
 
@@ -49,6 +61,7 @@ export function MobileGetStartedModal({
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setSelectedProfileId(null);
+        setIsEmailCopied(false);
         setIsOpen(false);
       }
     };
@@ -63,6 +76,7 @@ export function MobileGetStartedModal({
 
   const openWaitlistModal = useEffectEvent(() => {
     setSelectedProfileId(null);
+    setIsEmailCopied(false);
     setIsOpen(false);
     window.setTimeout(() => {
       waitlistTriggerRef.current?.dispatchEvent(
@@ -79,6 +93,7 @@ export function MobileGetStartedModal({
     });
 
     const profile = personalization.profiles.find((item) => item.id === profileId);
+    setIsEmailCopied(false);
 
     if (profile?.cta || profile?.detailHeading || profile?.detailBody) {
       setSelectedProfileId(profileId);
@@ -88,11 +103,30 @@ export function MobileGetStartedModal({
     openWaitlistModal();
   });
 
+  const handleCopyEmail = useEffectEvent(async () => {
+    if (!selectedProfileEmail || typeof navigator === "undefined" || !navigator.clipboard) {
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(selectedProfileEmail);
+      setIsEmailCopied(true);
+      trackEvent("partnership_email_copy", {
+        email: selectedProfileEmail,
+        profile_id: selectedProfile?.id,
+        source: ctaSource,
+        surface: "mobile",
+      });
+    } catch {
+      setIsEmailCopied(false);
+    }
+  });
+
   return (
     <>
       <button
         type="button"
-        className={styles.trigger + " " + styles.triggerPrimary + (className ? " " + className : "")}
+        className={[styles.trigger, styles.triggerPrimary, className].filter(Boolean).join(" ")}
         onClick={() => {
           trackEvent("get_started_modal_open", {
             source: ctaSource,
@@ -121,6 +155,7 @@ export function MobileGetStartedModal({
               onClick={(event) => {
                 if (event.target === event.currentTarget) {
                   setSelectedProfileId(null);
+                  setIsEmailCopied(false);
                   setIsOpen(false);
                 }
               }}
@@ -138,7 +173,10 @@ export function MobileGetStartedModal({
                     <button
                       type="button"
                       className={styles.back}
-                      onClick={() => setSelectedProfileId(null)}
+                      onClick={() => {
+                        setSelectedProfileId(null);
+                        setIsEmailCopied(false);
+                      }}
                     >
                       Back
                     </button>
@@ -151,6 +189,7 @@ export function MobileGetStartedModal({
                     aria-label="Close"
                     onClick={() => {
                       setSelectedProfileId(null);
+                      setIsEmailCopied(false);
                       setIsOpen(false);
                     }}
                   >
@@ -171,33 +210,50 @@ export function MobileGetStartedModal({
                     {selectedProfile.detailBody ? (
                       <p className={styles.detailBody}>{selectedProfile.detailBody}</p>
                     ) : null}
+                    {selectedProfileEmail ? (
+                      <p className={styles.detailEmail}>{selectedProfileEmail}</p>
+                    ) : null}
                     <ul className={styles.detailBullets}>
                       {selectedProfile.bullets.map((bullet) => (
                         <li key={bullet}>{bullet}</li>
                       ))}
                     </ul>
-                    {selectedProfile.cta ? (
-                      <a
-                        href={selectedProfile.cta.href}
-                        className={styles.detailAction}
-                        onClick={() => {
-                          trackEvent("partnership_contact_click", {
-                            destination: selectedProfile.cta?.href,
-                            profile_id: selectedProfile.id,
-                            source: ctaSource,
-                            surface: "mobile",
-                          });
-                          setSelectedProfileId(null);
-                          setIsOpen(false);
-                        }}
-                      >
-                        {selectedProfile.cta.label}
-                      </a>
-                    ) : (
-                      <button type="button" className={styles.detailAction} onClick={openWaitlistModal}>
-                        {personalization.primaryCta.label}
-                      </button>
-                    )}
+                    <div className={styles.detailActions}>
+                      {selectedProfile.cta ? (
+                        <a
+                          href={selectedProfile.cta.href}
+                          className={styles.detailAction}
+                          onClick={() => {
+                            trackEvent("partnership_contact_click", {
+                              destination: selectedProfile.cta?.href,
+                              profile_id: selectedProfile.id,
+                              source: ctaSource,
+                              surface: "mobile",
+                            });
+                            setSelectedProfileId(null);
+                            setIsEmailCopied(false);
+                            setIsOpen(false);
+                          }}
+                        >
+                          {selectedProfile.cta.label}
+                        </a>
+                      ) : (
+                        <button type="button" className={styles.detailAction} onClick={openWaitlistModal}>
+                          {personalization.primaryCta.label}
+                        </button>
+                      )}
+                      {selectedProfileEmail ? (
+                        <button
+                          type="button"
+                          className={styles.detailSecondaryAction}
+                          onClick={() => {
+                            void handleCopyEmail();
+                          }}
+                        >
+                          {isEmailCopied ? "Email Copied" : "Copy Email ID"}
+                        </button>
+                      ) : null}
+                    </div>
                   </div>
                 ) : (
                   <div
