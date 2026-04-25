@@ -25,7 +25,7 @@ export default async function LegacyVariantPage({ params }: LegacyVariantPagePro
     const brandBlogPost = getBrandBlogPost(slug);
 
     if (brandBlogPost) {
-      permanentRedirect(getBrandBlogPath(brandBlogPost.slug));
+      permanentRedirect(getBrandBlogPath(brandBlogPost.routeSlug));
     }
 
     notFound();

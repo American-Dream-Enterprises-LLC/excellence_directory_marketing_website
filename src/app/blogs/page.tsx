@@ -4,6 +4,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import {
   brandBlogPosts,
+  formatBrandBlogPostDate,
   getBrandBlogReadTimeLabel,
 } from "@/content/brand-blog";
 import { siteFrame } from "@/content/landing-page-data";
@@ -47,7 +48,7 @@ export default function BrandBlogArchivePage() {
               "@type": "ListItem",
               name: post.title,
               position: index + 1,
-              url: getAbsoluteUrl(getBrandBlogPath(post.slug)),
+              url: getAbsoluteUrl(getBrandBlogPath(post.routeSlug)),
             })),
           },
           name: `${siteFrame.brand} Blog`,
@@ -95,14 +96,15 @@ export default function BrandBlogArchivePage() {
         <section className="blog-feature brand-blog-featured-post">
           <div className="blog-feature-copy">
             <p className="blog-feature-meta">
-              {featuredPost.category} / {getBrandBlogReadTimeLabel(featuredPost)}
+              {featuredPost.category} / {formatBrandBlogPostDate(featuredPost.publishedAt)} /{" "}
+              {getBrandBlogReadTimeLabel(featuredPost)}
             </p>
             <h2>
-              <Link href={getBrandBlogPath(featuredPost.slug)}>{featuredPost.title}</Link>
+              <Link href={getBrandBlogPath(featuredPost.routeSlug)}>{featuredPost.title}</Link>
             </h2>
             <p className="blog-feature-excerpt">{featuredPost.excerpt}</p>
             <div className="hero-actions">
-              <Link href={getBrandBlogPath(featuredPost.slug)} className="button button-primary">
+              <Link href={getBrandBlogPath(featuredPost.routeSlug)} className="button button-primary">
                 Read post
               </Link>
             </div>
@@ -113,14 +115,14 @@ export default function BrandBlogArchivePage() {
       <section className="blog-posts-section">
         <div className="home-section-heading">
           <p className="section-kicker">Blog archive</p>
-          <h2>Read the latest Excellence blog posts.</h2>
         </div>
         <div className="blog-post-grid">
           {secondaryPosts.map((post) => (
-            <Link key={post.slug} href={getBrandBlogPath(post.slug)} className="blog-post-card">
+            <Link key={post.slug} href={getBrandBlogPath(post.routeSlug)} className="blog-post-card">
               <article>
                 <p className="blog-post-card-meta">
-                  {post.category} / {getBrandBlogReadTimeLabel(post)}
+                  {post.category} / {formatBrandBlogPostDate(post.publishedAt)} /{" "}
+                  {getBrandBlogReadTimeLabel(post)}
                 </p>
                 <h3>{post.title}</h3>
                 <p>{post.excerpt}</p>

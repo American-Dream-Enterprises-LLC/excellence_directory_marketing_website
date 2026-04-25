@@ -5,7 +5,8 @@ import { notFound, permanentRedirect } from "next/navigation";
 import { JsonLd } from "@/components/json-ld";
 import {
   brandBlogPosts,
-  getBrandBlogPost,
+  formatBrandBlogPostDate,
+  getBrandBlogPostByRouteSlug,
   getBrandBlogReadTimeLabel,
   getRelatedBrandBlogPosts,
   type BrandBlogBlock,
@@ -23,16 +24,6 @@ type BrandBlogPostPageProps = {
     slug: string;
   }>;
 };
-
-const dateFormatter = new Intl.DateTimeFormat("en-US", {
-  day: "numeric",
-  month: "long",
-  year: "numeric",
-});
-
-function formatPostDate(value: string) {
-  return dateFormatter.format(new Date(value));
-}
 
 function BrandBlogBlockView({ block }: { block: BrandBlogBlock }) {
   if (block.type === "heading") {
@@ -53,20 +44,20 @@ function BrandBlogBlockView({ block }: { block: BrandBlogBlock }) {
 }
 
 export function generateStaticParams() {
-  return brandBlogPosts.map((post) => ({ slug: post.slug }));
+  return brandBlogPosts.map((post) => ({ slug: post.routeSlug }));
 }
 
 export async function generateMetadata({
   params,
 }: BrandBlogPostPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = getBrandBlogPost(slug);
+  const post = getBrandBlogPostByRouteSlug(slug);
 
   if (!post) {
     return {};
   }
 
-  const canonicalPath = getBrandBlogPath(post.slug);
+  const canonicalPath = getBrandBlogPath(post.routeSlug);
 
   return {
     title: post.title,
@@ -96,7 +87,7 @@ export async function generateMetadata({
 
 export default async function BrandBlogPostPage({ params }: BrandBlogPostPageProps) {
   const { slug } = await params;
-  const post = getBrandBlogPost(slug);
+  const post = getBrandBlogPostByRouteSlug(slug);
 
   if (!post) {
     const whyExcellenceArticle = getCanonicalVariant(slug);
@@ -108,7 +99,11 @@ export default async function BrandBlogPostPage({ params }: BrandBlogPostPagePro
     notFound();
   }
 
-  const postUrl = getAbsoluteUrl(getBrandBlogPath(post.slug));
+  if (slug !== post.routeSlug) {
+    permanentRedirect(getBrandBlogPath(post.routeSlug));
+  }
+
+  const postUrl = getAbsoluteUrl(getBrandBlogPath(post.routeSlug));
   const archiveUrl = getAbsoluteUrl(machinePaths.brandBlogArchive);
   const relatedPosts = getRelatedBrandBlogPosts(post);
 
@@ -175,7 +170,7 @@ export default async function BrandBlogPostPage({ params }: BrandBlogPostPagePro
                 <span aria-hidden="true">/</span>
                 <span>{post.category}</span>
                 <span aria-hidden="true">/</span>
-                <span>{formatPostDate(post.publishedAt)}</span>
+                <span>{formatBrandBlogPostDate(post.publishedAt)}</span>
                 <span aria-hidden="true">/</span>
                 <span>{getBrandBlogReadTimeLabel(post)}</span>
               </p>
@@ -214,7 +209,7 @@ export default async function BrandBlogPostPage({ params }: BrandBlogPostPagePro
                 {relatedPosts.map((relatedPost) => (
                   <Link
                     key={relatedPost.slug}
-                    href={getBrandBlogPath(relatedPost.slug)}
+                    href={getBrandBlogPath(relatedPost.routeSlug)}
                     className="brand-blog-related-card"
                   >
                     <span>{relatedPost.category}</span>

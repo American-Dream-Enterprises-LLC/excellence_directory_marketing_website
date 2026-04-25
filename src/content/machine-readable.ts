@@ -95,11 +95,12 @@ function buildBrandBlogSummary(post: (typeof brandBlogPosts)[number]) {
     excerpt: post.excerpt,
     readTimeLabel: getBrandBlogReadTimeLabel(post),
     readTimeMinutes: post.readTimeMinutes,
+    routeSlug: post.routeSlug,
     slug: post.slug,
     sourceUrl: post.sourceUrl,
     title: post.title,
     updatedAt: post.updatedAt,
-    url: getAbsoluteUrl(getBrandBlogPath(post.slug)),
+    url: getAbsoluteUrl(getBrandBlogPath(post.routeSlug)),
   };
 }
 
@@ -205,7 +206,7 @@ export function buildLlmsText() {
     ...featuredArticles.map((variant) => `- ${variant.headline}: ${getAbsoluteUrl(getArticlePath(variant.slug))}`),
     "",
     "## Blog",
-    ...brandBlogPosts.map((post) => `- ${post.title}: ${getAbsoluteUrl(getBrandBlogPath(post.slug))}`),
+    ...brandBlogPosts.map((post) => `- ${post.title}: ${getAbsoluteUrl(getBrandBlogPath(post.routeSlug))}`),
     "",
     "## Notes For AI Agents",
     "- Canonical slugs are written as prospect-thought copy.",
@@ -244,7 +245,7 @@ export function buildRssXml() {
 
   const brandBlogItems = brandBlogPosts
     .map((post) => {
-      const url = getAbsoluteUrl(getBrandBlogPath(post.slug));
+      const url = getAbsoluteUrl(getBrandBlogPath(post.routeSlug));
       const description = escapeXml(post.excerpt);
       const title = escapeXml(post.title);
 

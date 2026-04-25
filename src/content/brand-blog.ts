@@ -2,7 +2,7 @@ export type BrandBlogBlock =
   | { type: "heading" | "paragraph"; text: string }
   | { type: "list"; items: readonly string[] };
 
-export type BrandBlogPost = {
+type RawBrandBlogPost = {
   slug: string;
   title: string;
   author: string;
@@ -13,6 +13,11 @@ export type BrandBlogPost = {
   excerpt: string;
   readTimeMinutes: number;
   blocks: readonly BrandBlogBlock[];
+};
+
+export type BrandBlogPost = RawBrandBlogPost & {
+  publishedDateSlug: string;
+  routeSlug: string;
 };
 
 const sourceBlogSlugs = new Set<string>([
@@ -1199,18 +1204,51 @@ const allBrandBlogPosts = [
       }
     ]
   }
-] as const satisfies readonly BrandBlogPost[];
+] as const satisfies readonly RawBrandBlogPost[];
 
-export const brandBlogPosts: readonly BrandBlogPost[] = allBrandBlogPosts.filter((post) =>
-  sourceBlogSlugs.has(post.slug),
-);
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+
+function getPublishedDateSlug(publishedAt: string) {
+  return publishedAt.slice(0, 10);
+}
+
+function toBrandBlogPost(post: RawBrandBlogPost): BrandBlogPost {
+  const publishedDateSlug = getPublishedDateSlug(post.publishedAt);
+
+  return {
+    ...post,
+    publishedDateSlug,
+    routeSlug: `${publishedDateSlug}-${post.slug}`,
+  };
+}
+
+export function formatBrandBlogPostDate(value: string) {
+  return dateFormatter.format(new Date(value));
+}
+
+export const brandBlogPosts: readonly BrandBlogPost[] = allBrandBlogPosts
+  .filter((post) => sourceBlogSlugs.has(post.slug))
+  .map(toBrandBlogPost)
+  .sort((left, right) => Date.parse(right.publishedAt) - Date.parse(left.publishedAt));
 
 const brandBlogPostBySlug = new Map<string, BrandBlogPost>(
   brandBlogPosts.map((post) => [post.slug, post] as const),
 );
 
+const brandBlogPostByRouteSlug = new Map<string, BrandBlogPost>(
+  brandBlogPosts.map((post) => [post.routeSlug, post] as const),
+);
+
 export function getBrandBlogPost(slug: string) {
   return brandBlogPostBySlug.get(slug);
+}
+
+export function getBrandBlogPostByRouteSlug(routeSlug: string) {
+  return brandBlogPostByRouteSlug.get(routeSlug) ?? brandBlogPostBySlug.get(routeSlug);
 }
 
 export function getBrandBlogReadTimeLabel(post: BrandBlogPost) {

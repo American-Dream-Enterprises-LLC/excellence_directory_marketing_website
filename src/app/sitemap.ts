@@ -59,7 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     })),
     ...brandBlogPosts.map((post) => ({
-      url: getAbsoluteUrl(getBrandBlogPath(post.slug)),
+      url: getAbsoluteUrl(getBrandBlogPath(post.routeSlug)),
       changeFrequency: "monthly" as const,
       priority: 0.62,
     })),

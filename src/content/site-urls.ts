@@ -23,8 +23,8 @@ export function getArticlePath(slug: string) {
   return `/why-excellence/${slug}`;
 }
 
-export function getBrandBlogPath(slug: string) {
-  return `/blog/${slug}`;
+export function getBrandBlogPath(routeSlug: string) {
+  return `/blogs/${routeSlug}`;
 }
 
 export function getDeskPath(slug: string) {
