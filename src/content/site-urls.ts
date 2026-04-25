@@ -2,7 +2,7 @@ const productionSiteUrl = "https://info.excellencedirectory.com";
 
 export const machinePaths = {
   articleArchive: "/why-excellence",
-  brandBlogArchive: "/blogs",
+  brandBlogArchive: "/blog",
   articleIndex: "/articles/index.json",
   copyJson: "/copy.json",
   llms: "/llms.txt",
@@ -24,7 +24,7 @@ export function getArticlePath(slug: string) {
 }
 
 export function getBrandBlogPath(slug: string) {
-  return `/blogs/${slug}`;
+  return `/blog/${slug}`;
 }
 
 export function getDeskPath(slug: string) {

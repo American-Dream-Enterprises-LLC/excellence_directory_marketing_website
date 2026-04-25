@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 
 import { JsonLd } from "@/components/json-ld";
 import {
@@ -10,9 +10,10 @@ import {
   getRelatedBrandBlogPosts,
   type BrandBlogBlock,
 } from "@/content/brand-blog";
-import { siteFrame } from "@/content/landing-page-data";
+import { getCanonicalVariant, siteFrame } from "@/content/landing-page-data";
 import {
   getAbsoluteUrl,
+  getArticlePath,
   getBrandBlogPath,
   machinePaths,
 } from "@/content/site-urls";
@@ -98,6 +99,12 @@ export default async function BrandBlogPostPage({ params }: BrandBlogPostPagePro
   const post = getBrandBlogPost(slug);
 
   if (!post) {
+    const whyExcellenceArticle = getCanonicalVariant(slug);
+
+    if (whyExcellenceArticle) {
+      permanentRedirect(getArticlePath(whyExcellenceArticle.slug));
+    }
+
     notFound();
   }
 
@@ -144,7 +151,7 @@ export default async function BrandBlogPostPage({ params }: BrandBlogPostPagePro
             {
               "@type": "ListItem",
               item: archiveUrl,
-              name: "Blogs",
+              name: "Blog",
               position: 2,
             },
             {
@@ -163,7 +170,7 @@ export default async function BrandBlogPostPage({ params }: BrandBlogPostPagePro
             <div className="hero-copy">
               <p className="article-meta-line">
                 <Link href={machinePaths.brandBlogArchive} className="article-meta-link">
-                  Blogs
+                  Blog
                 </Link>
                 <span aria-hidden="true">/</span>
                 <span>{post.category}</span>
@@ -202,7 +209,7 @@ export default async function BrandBlogPostPage({ params }: BrandBlogPostPagePro
 
           {relatedPosts.length > 0 ? (
             <section className="rail-note">
-              <p className="section-label">More brand essays</p>
+              <p className="section-label">More blog posts</p>
               <div className="brand-blog-related-list">
                 {relatedPosts.map((relatedPost) => (
                   <Link

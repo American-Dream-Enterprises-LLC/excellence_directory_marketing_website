@@ -15,7 +15,19 @@ export type BrandBlogPost = {
   blocks: readonly BrandBlogBlock[];
 };
 
-export const brandBlogPosts = [
+const sourceBlogSlugs = new Set<string>([
+  "what-is-the-excellence-directory",
+  "5-benefits-of-hiring-christians-in-business-a-biblical-perspective",
+  "five-biblical-ways-to-grow-your-business",
+  "challenges-christian-business-owners-face-in-the-business-industry-how-to-overcome-them-biblically",
+  "elementor-196",
+  "5-faith-based-ways-to-reduce-stress-and-stay-aligned-with-god",
+  "god-was-the-first-entrepreneur",
+  "what-is-a-christian-business",
+  "the-biblical-concept-of-stewardship",
+]);
+
+const allBrandBlogPosts = [
   {
     "slug": "what-is-the-excellence-directory",
     "title": "What is the Excellence Directory?",
@@ -1188,6 +1200,10 @@ export const brandBlogPosts = [
     ]
   }
 ] as const satisfies readonly BrandBlogPost[];
+
+export const brandBlogPosts: readonly BrandBlogPost[] = allBrandBlogPosts.filter((post) =>
+  sourceBlogSlugs.has(post.slug),
+);
 
 const brandBlogPostBySlug = new Map<string, BrandBlogPost>(
   brandBlogPosts.map((post) => [post.slug, post] as const),

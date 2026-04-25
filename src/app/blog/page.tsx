@@ -1,7 +1,2 @@
-import { permanentRedirect } from "next/navigation";
-
-import { machinePaths } from "@/content/site-urls";
-
-export default function LegacyBlogArchivePage() {
-  permanentRedirect(machinePaths.articleArchive);
-}
+export { metadata } from "../blogs/page";
+export { default } from "../blogs/page";

@@ -14,17 +14,17 @@ import {
 } from "@/content/site-urls";
 
 const brandBlogDescription =
-  "Read Excellence brand essays, founder thinking, and faith-and-business reflections from the public Excellence blog.";
+  "Read the public Excellence blog on faith, business, stewardship, and Christian marketplace leadership.";
 
 export const metadata: Metadata = {
-  title: "Blogs",
+  title: "Blog",
   description: brandBlogDescription,
   alternates: {
     canonical: machinePaths.brandBlogArchive,
   },
   openGraph: {
     description: brandBlogDescription,
-    title: `Blogs | ${siteFrame.brand}`,
+    title: `Blog | ${siteFrame.brand}`,
     type: "website",
     url: machinePaths.brandBlogArchive,
   },
@@ -50,7 +50,7 @@ export default function BrandBlogArchivePage() {
               url: getAbsoluteUrl(getBrandBlogPath(post.slug)),
             })),
           },
-          name: `${siteFrame.brand} Blogs`,
+          name: `${siteFrame.brand} Blog`,
           url: archiveUrl,
         }}
       />
@@ -68,7 +68,7 @@ export default function BrandBlogArchivePage() {
             {
               "@type": "ListItem",
               item: archiveUrl,
-              name: "Blogs",
+              name: "Blog",
               position: 2,
             },
           ],
@@ -77,11 +77,11 @@ export default function BrandBlogArchivePage() {
 
       <section className="blog-feature">
         <div className="blog-feature-copy">
-          <p className="section-kicker">Excellence Blogs</p>
-          <h1 className="brand-blog-archive-title">Brand essays for the Christian marketplace.</h1>
+          <p className="section-kicker">Excellence Blog</p>
+          <h1 className="brand-blog-archive-title">Insights for faith and business.</h1>
           <p className="blog-feature-dek">
-            A more durable home for founder thinking, product belief, biblical marketplace
-            reflections, and the convictions behind Excellence.
+            Articles from the public Excellence Directory blog on Christian work,
+            business, stewardship, and marketplace trust.
           </p>
         </div>
         <div className="brand-blog-feature-card" aria-hidden="true">
@@ -112,8 +112,8 @@ export default function BrandBlogArchivePage() {
 
       <section className="blog-posts-section">
         <div className="home-section-heading">
-          <p className="section-kicker">Brand archive</p>
-          <h2>Read the public Excellence blog.</h2>
+          <p className="section-kicker">Blog archive</p>
+          <h2>Read the latest Excellence blog posts.</h2>
         </div>
         <div className="blog-post-grid">
           {secondaryPosts.map((post) => (
