@@ -28,7 +28,7 @@ export function MobileLandingPage({ variant }: MobileLandingPageProps) {
     <main className={styles.page}>
       <section className={styles.hero}>
         <p className={styles.meta}>
-          <Link href={machinePaths.articleArchive}>Blog</Link>
+          <Link href={machinePaths.articleArchive}>Why Excellence</Link>
           {desk ? (
             <>
               {" · "}
@@ -136,7 +136,7 @@ export function MobileLandingPage({ variant }: MobileLandingPageProps) {
               <article key={relatedVariant.slug} className={styles.relatedItem}>
                 <Link href={getArticlePath(relatedVariant.slug)} className={styles.relatedLink}>
                   <span className={styles.relatedMeta}>
-                    {desk?.label ?? "Blog"} · {getArticleReadTimeLabel(relatedVariant)}
+                    {desk?.label ?? "Why Excellence"} · {getArticleReadTimeLabel(relatedVariant)}
                   </span>
                   <h3 className={styles.relatedHeadline}>{relatedVariant.headline}</h3>
                   <p className={styles.relatedDek}>{relatedVariant.subheadline}</p>

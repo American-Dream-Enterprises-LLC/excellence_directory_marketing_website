@@ -1,6 +1,7 @@
 import "server-only";
 
 import { getArticleArt } from "@/content/article-art";
+import { brandBlogPosts, getBrandBlogReadTimeLabel } from "@/content/brand-blog";
 import {
   copyUpdatedAt,
   deskNavigation,
@@ -19,6 +20,7 @@ import {
   getAbsoluteUrl,
   getArticleJsonPath,
   getArticlePath,
+  getBrandBlogPath,
   getDeskPath,
   getSiteUrl,
   machinePaths,
@@ -86,6 +88,21 @@ function buildArticleRecord(variant: LandingPageVariant) {
   };
 }
 
+function buildBrandBlogSummary(post: (typeof brandBlogPosts)[number]) {
+  return {
+    author: post.author,
+    category: post.category,
+    excerpt: post.excerpt,
+    readTimeLabel: getBrandBlogReadTimeLabel(post),
+    readTimeMinutes: post.readTimeMinutes,
+    slug: post.slug,
+    sourceUrl: post.sourceUrl,
+    title: post.title,
+    updatedAt: post.updatedAt,
+    url: getAbsoluteUrl(getBrandBlogPath(post.slug)),
+  };
+}
+
 export function buildPublicCopyPayload() {
   return {
     schemaVersion: rawSiteCopy.schemaVersion,
@@ -96,6 +113,7 @@ export function buildPublicCopyPayload() {
     machineEndpoints: {
       articleArchive: getAbsoluteUrl(machinePaths.articleArchive),
       articleIndex: getAbsoluteUrl(machinePaths.articleIndex),
+      brandBlogArchive: getAbsoluteUrl(machinePaths.brandBlogArchive),
       copyJson: getAbsoluteUrl(machinePaths.copyJson),
       llms: getAbsoluteUrl(machinePaths.llms),
       rss: getAbsoluteUrl(machinePaths.rss),
@@ -116,6 +134,10 @@ export function buildPublicCopyPayload() {
       articles: desk.variants.map((variant) => buildArticleSummary(variant)),
     })),
     articles: landingPageVariants.map((variant) => buildArticleRecord(variant)),
+    brandBlogs: brandBlogPosts.map((post) => ({
+      ...buildBrandBlogSummary(post),
+      blocks: post.blocks,
+    })),
   };
 }
 
@@ -163,7 +185,8 @@ export function buildLlmsText() {
     "",
     "## Canonical URLs",
     `- Home: ${getAbsoluteUrl("/")}`,
-    `- Blog archive: ${getAbsoluteUrl(machinePaths.articleArchive)}`,
+    `- Why Excellence archive: ${getAbsoluteUrl(machinePaths.articleArchive)}`,
+    `- Brand blog: ${getAbsoluteUrl(machinePaths.brandBlogArchive)}`,
     `- Search: ${getAbsoluteUrl(machinePaths.search)}`,
     `- LLMs: ${getAbsoluteUrl(machinePaths.llms)}`,
     `- RSS: ${getAbsoluteUrl(machinePaths.rss)}`,
@@ -180,6 +203,9 @@ export function buildLlmsText() {
     "",
     "## Featured Articles",
     ...featuredArticles.map((variant) => `- ${variant.headline}: ${getAbsoluteUrl(getArticlePath(variant.slug))}`),
+    "",
+    "## Brand Blog",
+    ...brandBlogPosts.map((post) => `- ${post.title}: ${getAbsoluteUrl(getBrandBlogPath(post.slug))}`),
     "",
     "## Notes For AI Agents",
     "- Canonical slugs are written as prospect-thought copy.",
@@ -198,7 +224,7 @@ function escapeXml(value: string) {
 }
 
 export function buildRssXml() {
-  const items = landingPageVariants
+  const whyExcellenceItems = landingPageVariants
     .map((variant) => {
       const url = getAbsoluteUrl(getArticlePath(variant.slug));
       const description = escapeXml(variant.seoDescription);
@@ -216,6 +242,24 @@ export function buildRssXml() {
     })
     .join("");
 
+  const brandBlogItems = brandBlogPosts
+    .map((post) => {
+      const url = getAbsoluteUrl(getBrandBlogPath(post.slug));
+      const description = escapeXml(post.excerpt);
+      const title = escapeXml(post.title);
+
+      return [
+        "<item>",
+        `<title>${title}</title>`,
+        `<link>${url}</link>`,
+        `<guid>${url}</guid>`,
+        `<description>${description}</description>`,
+        `<pubDate>${new Date(post.updatedAt).toUTCString()}</pubDate>`,
+        "</item>",
+      ].join("");
+    })
+    .join("");
+
   return [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<rss version="2.0">',
@@ -224,7 +268,8 @@ export function buildRssXml() {
     `<link>${getAbsoluteUrl("/")}</link>`,
     `<description>${escapeXml(siteFrame.layoutDescription)}</description>`,
     `<lastBuildDate>${new Date(copyUpdatedAt).toUTCString()}</lastBuildDate>`,
-    items,
+    whyExcellenceItems,
+    brandBlogItems,
     "</channel>",
     "</rss>",
   ].join("");

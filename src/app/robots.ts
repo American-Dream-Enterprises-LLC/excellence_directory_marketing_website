@@ -10,7 +10,9 @@ export default function robots(): MetadataRoute.Robots {
         allow: [
           "/",
           machinePaths.articleArchive,
-          "/blog/",
+          "/why-excellence/",
+          machinePaths.brandBlogArchive,
+          "/blogs/",
           machinePaths.copyJson,
           machinePaths.llms,
           machinePaths.articleIndex,
@@ -32,7 +34,9 @@ export default function robots(): MetadataRoute.Robots {
         allow: [
           "/",
           machinePaths.articleArchive,
-          "/blog/",
+          "/why-excellence/",
+          machinePaths.brandBlogArchive,
+          "/blogs/",
           machinePaths.copyJson,
           machinePaths.llms,
           machinePaths.articleIndex,

@@ -14,7 +14,11 @@ type DesktopPersonalizationModalControllerProps = {
 };
 
 function shouldAutoOpenPersonalizationModal(pathname: string | null) {
-  return pathname === "/" || pathname === "/blog" || pathname?.startsWith("/blog/");
+  return (
+    pathname === "/" ||
+    pathname === "/why-excellence" ||
+    pathname?.startsWith("/why-excellence/")
+  );
 }
 
 export function DesktopPersonalizationModalController({

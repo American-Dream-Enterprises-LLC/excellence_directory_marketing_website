@@ -12,7 +12,7 @@ import {
 import { getAbsoluteUrl, getArticlePath, machinePaths } from "@/content/site-urls";
 
 const blogDescription =
-  "Browse the Excellence Directory blog for Christian business, church, ministry, job, coaching, and event content.";
+  "Explore why Excellence exists through Christian discovery articles about trust, work, community, and faith-aligned opportunity.";
 
 export function DesktopBlogArchivePage() {
   const archiveUrl = getAbsoluteUrl(machinePaths.articleArchive);
@@ -44,7 +44,7 @@ export function DesktopBlogArchivePage() {
                 url: getAbsoluteUrl(getArticlePath(variant.slug)),
               })),
             },
-            name: `${siteFrame.brand} Blog`,
+            name: `${siteFrame.brand} Why Excellence`,
             url: archiveUrl,
           }}
         />
@@ -62,7 +62,7 @@ export function DesktopBlogArchivePage() {
               {
                 "@type": "ListItem",
                 item: archiveUrl,
-                name: "Blog",
+                name: "Why Excellence",
                 position: 2,
               },
             ],
@@ -103,8 +103,8 @@ export function DesktopBlogArchivePage() {
 
         <section className="blog-posts-section">
           <div className="home-section-heading">
-            <p className="section-kicker">All posts</p>
-            <h2>Browse the full archive.</h2>
+            <p className="section-kicker">Why Excellence</p>
+            <h2>Browse the full article set.</h2>
           </div>
           <div className="blog-post-grid">
             {secondaryStories.map(({ variant }) => (

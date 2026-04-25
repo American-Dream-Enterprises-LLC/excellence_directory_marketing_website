@@ -14,7 +14,7 @@ import { getAbsoluteUrl, getArticlePath, getDeskPath, machinePaths } from "@/con
 import styles from "./mobile-blog-archive-page.module.css";
 
 const blogDescription =
-  "Browse the Excellence Directory blog for Christian business, church, ministry, job, coaching, and event content.";
+  "Explore why Excellence exists through Christian discovery articles about trust, work, community, and faith-aligned opportunity.";
 
 export function MobileBlogArchivePage() {
   const archiveUrl = getAbsoluteUrl(machinePaths.articleArchive);
@@ -46,15 +46,15 @@ export function MobileBlogArchivePage() {
               url: getAbsoluteUrl(getArticlePath(variant.slug)),
             })),
           },
-          name: `${siteFrame.brand} Blog`,
+          name: `${siteFrame.brand} Why Excellence`,
           url: archiveUrl,
         }}
       />
 
       <section className={styles.hero}>
-        <p className={styles.eyebrow}>Excellence blog</p>
+        <p className={styles.eyebrow}>Why Excellence</p>
         <h1 className={styles.title}>
-          Articles that help believers find the right business, church, job, or next step.
+          Articles that explain why Christian discovery needs a clearer path.
         </h1>
         <p className={styles.body}>
           Start with the question already on your mind, then follow the path that leads into a
@@ -96,7 +96,7 @@ export function MobileBlogArchivePage() {
       ) : null}
 
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>All posts</h2>
+        <h2 className={styles.sectionTitle}>All articles</h2>
         <div className={styles.storyList}>
           {secondaryStories.map(({ desk, variant }) => (
             <article key={variant.slug} className={styles.storyCard}>

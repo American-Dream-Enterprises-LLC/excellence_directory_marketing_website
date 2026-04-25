@@ -965,6 +965,75 @@ code {
   line-height: 1.68;
 }
 
+.brand-blog-archive-title {
+  margin: 0;
+  font-family: var(--font-heading), serif;
+  font-size: clamp(2.2rem, 4vw, 3.45rem);
+  font-weight: 600;
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+}
+
+.brand-blog-feature-card {
+  display: grid;
+  align-content: end;
+  gap: 0.45rem;
+  min-height: 22rem;
+  padding: 1.35rem;
+  overflow: clip;
+  border-radius: 1.35rem;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.3), transparent 28%),
+    linear-gradient(135deg, #32244a 0%, #7e6dff 54%, #d1a377 100%);
+  color: #fff8f0;
+  box-shadow: 0 30px 70px rgba(47, 35, 87, 0.2);
+}
+
+.brand-blog-feature-card span {
+  display: block;
+  font-family: var(--font-heading), serif;
+  font-size: clamp(2rem, 4.2vw, 3.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+.brand-blog-featured-post {
+  grid-template-columns: minmax(0, 0.78fr);
+}
+
+.brand-blog-source-link {
+  color: var(--plum);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.brand-blog-related-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.brand-blog-related-card {
+  display: grid;
+  gap: 0.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
+  color: inherit;
+}
+
+.brand-blog-related-card span {
+  color: rgba(103, 99, 125, 0.72);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.brand-blog-related-card strong {
+  font-family: var(--font-heading), serif;
+  font-size: 1.05rem;
+  line-height: 1.12;
+}
+
 .search-modal-backdrop {
   position: fixed;
   inset: 0;
@@ -1452,6 +1521,24 @@ code {
 .article-inline-cta-link:hover,
 .article-inline-cta-link:focus-visible {
   color: var(--link-hover);
+}
+
+.article-body h2 {
+  margin: 1.25rem 0 0;
+  font-family: var(--font-heading), serif;
+  font-size: clamp(1.18rem, 2vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+}
+
+.article-body ul {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0.75rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--ink-soft);
+  line-height: 1.65;
 }
 
 .rail-note {

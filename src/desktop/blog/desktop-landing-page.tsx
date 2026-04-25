@@ -37,7 +37,7 @@ export function DesktopLandingPage({ variant }: DesktopLandingPageProps) {
               <div className="hero-copy">
                 <p className="article-meta-line">
                   <Link href={machinePaths.articleArchive} className="article-meta-link">
-                    Blog
+                    Why Excellence
                   </Link>
                   <span aria-hidden="true">/</span>
                   {desk ? (
