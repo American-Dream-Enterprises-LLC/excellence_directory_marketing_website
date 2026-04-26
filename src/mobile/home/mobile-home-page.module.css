@@ -68,53 +68,49 @@
 .foundersCta {
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.7rem;
-  width: min(100%, 18rem);
-  min-height: 2.9rem;
-  padding: 0.58rem 0.62rem 0.58rem 0.82rem;
-  border-radius: 999px;
-  background: linear-gradient(135deg, rgba(255, 248, 239, 0.98), rgba(252, 226, 255, 0.94));
-  color: #31204f;
-  box-shadow:
-    0 16px 30px rgba(28, 18, 54, 0.24),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+  justify-content: flex-start;
+  gap: 0.46rem;
+  width: max-content;
+  max-width: 100%;
+  min-height: 0;
+  padding: 0 0 0.28rem;
+  border-bottom: 1px solid rgba(255, 248, 239, 0.44);
+  color: #fff8f2;
   text-decoration: none;
 }
 
 .foundersCta::after {
   content: "→";
-  display: inline-grid;
-  width: 1.9rem;
-  height: 1.9rem;
-  place-items: center;
+  display: inline-block;
   flex: none;
-  border-radius: 999px;
-  background: #7a62f2;
-  color: #fff8f2;
+  color: rgba(255, 248, 239, 0.88);
+  font-size: 0.88rem;
   font-weight: 900;
-  box-shadow: 0 10px 18px rgba(78, 54, 164, 0.2);
+  line-height: 1;
+  transform: translateY(-0.02rem);
 }
 
 .foundersCta span,
 .foundersCta strong {
-  display: block;
+  display: inline;
 }
 
 .foundersCta span {
-  color: rgba(70, 45, 105, 0.68);
-  font-size: 0.62rem;
+  color: rgba(255, 248, 239, 0.68);
+  font-size: 0.6rem;
   font-weight: 900;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .foundersCta strong {
-  margin-top: 0.16rem;
-  color: #2d1d4a;
-  font-size: 0.82rem;
+  margin-top: 0;
+  color: #fff8f2;
+  font-size: 0.76rem;
   font-weight: 900;
   line-height: 1.05;
+  white-space: nowrap;
 }
 
 .platformRow {

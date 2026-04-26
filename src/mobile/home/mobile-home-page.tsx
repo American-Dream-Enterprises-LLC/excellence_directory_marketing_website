@@ -32,12 +32,12 @@ export function MobileHomePage() {
         <div className={styles.heroPanel}>
           <div className={styles.heroCopy}>
             <p className={styles.heroEyebrow}>{siteFrame.brand}</p>
-            <h1 className={styles.heroTitle}>Finding Christians you can trust.</h1>
-            <p className={styles.heroBody}>{homePageCopy.leadStory.dek}</p>
             <a href={launchWaitlistModal.primaryCta.href} className={styles.foundersCta}>
               <span>Founders Pricing</span>
               <strong>Early access is open</strong>
             </a>
+            <h1 className={styles.heroTitle}>Finding Christians you can trust.</h1>
+            <p className={styles.heroBody}>{homePageCopy.leadStory.dek}</p>
             <div className={styles.platformRow} aria-label="Available on iOS and Android">
               <span className={styles.platformBadge}>
                 <AppleMark />
