@@ -1944,6 +1944,69 @@ code {
   line-height: 1.65;
 }
 
+.home-founders-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.78rem;
+  max-width: 100%;
+  min-height: 3rem;
+  padding: 0.56rem 0.74rem 0.56rem 1rem;
+  border-radius: 999px;
+  background:
+    linear-gradient(135deg, rgba(255, 248, 239, 0.96), rgba(252, 226, 255, 0.92)),
+    rgba(255, 248, 239, 0.9);
+  color: #342258;
+  box-shadow:
+    0 18px 36px rgba(37, 23, 68, 0.24),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.68);
+  font-size: 0.82rem;
+  line-height: 1;
+  text-decoration: none;
+  isolation: isolate;
+  overflow: clip;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.home-founders-cta::after {
+  content: "→";
+  display: inline-grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 999px;
+  background: #7a62f2;
+  color: #fff8f2;
+  font-size: 1rem;
+  font-weight: 900;
+  box-shadow: 0 10px 18px rgba(78, 54, 164, 0.22);
+}
+
+.home-founders-cta span {
+  color: rgba(70, 45, 105, 0.7);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.home-founders-cta strong {
+  color: #2d1d4a;
+  font-size: 0.95rem;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.home-founders-cta:hover,
+.home-founders-cta:focus-visible {
+  transform: translateY(-2px);
+  box-shadow:
+    0 22px 44px rgba(37, 23, 68, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.82);
+}
+
 .home-hero-actions,
 .subscription-hero-actions {
   display: flex;

@@ -4,7 +4,7 @@ import { DeviceMockup } from "@/components/device-mockup";
 import { YouTubeVideoPreview } from "@/components/youtube-video-preview";
 import { credibilityPartners } from "@/content/credibility-partners";
 import { homeVideo } from "@/content/home-video";
-import { homePageCopy, siteFrame } from "@/content/landing-page-data";
+import { homePageCopy, launchWaitlistModal, siteFrame } from "@/content/landing-page-data";
 import { MobileGetStartedModal } from "@/mobile/chrome/mobile-get-started-modal";
 
 import styles from "./mobile-home-page.module.css";
@@ -34,6 +34,10 @@ export function MobileHomePage() {
             <p className={styles.heroEyebrow}>{siteFrame.brand}</p>
             <h1 className={styles.heroTitle}>Finding Christians you can trust.</h1>
             <p className={styles.heroBody}>{homePageCopy.leadStory.dek}</p>
+            <a href={launchWaitlistModal.primaryCta.href} className={styles.foundersCta}>
+              <span>Founders Pricing</span>
+              <strong>Early access is open</strong>
+            </a>
             <div className={styles.platformRow} aria-label="Available on iOS and Android">
               <span className={styles.platformBadge}>
                 <AppleMark />

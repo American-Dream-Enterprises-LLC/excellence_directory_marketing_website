@@ -4,7 +4,7 @@ import { DeviceMockup } from "@/components/device-mockup";
 import { HomePersonaRotator } from "@/components/home-persona-rotator";
 import { YouTubeVideoPreview } from "@/components/youtube-video-preview";
 import { credibilityPartners } from "@/content/credibility-partners";
-import { homePageCopy, siteFrame } from "@/content/landing-page-data";
+import { homePageCopy, launchWaitlistModal, siteFrame } from "@/content/landing-page-data";
 import { homeVideo } from "@/content/home-video";
 
 const credibilityPartnersTopRow = credibilityPartners.slice(0, 3);
@@ -30,6 +30,10 @@ export function DesktopHomePage() {
         </div>
         <div className="home-hero-overlay">
           <div className="home-hero-content home-reveal">
+            <a href={launchWaitlistModal.primaryCta.href} className="home-founders-cta">
+              <span>Founders Pricing</span>
+              <strong>Early access is open</strong>
+            </a>
             <p className="home-brand-label">{siteFrame.brand}</p>
             <h1>Finding Christians you can trust.</h1>
             <p className="home-hero-body">{homePageCopy.leadStory.dek}</p>
