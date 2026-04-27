@@ -1947,24 +1947,25 @@ code {
 .home-founders-cta {
   position: relative;
   display: inline-grid;
-  grid-template-columns: minmax(0, auto) 2.7rem;
+  grid-template-columns: minmax(0, 1fr) 3.35rem;
   grid-template-rows: auto auto;
   align-items: center;
-  column-gap: 1rem;
-  row-gap: 0.24rem;
+  column-gap: 1.25rem;
+  row-gap: 0.3rem;
+  width: min(100%, 24.5rem);
   max-width: 100%;
-  min-height: 4.15rem;
-  margin-bottom: 1.05rem;
-  padding: 0.84rem 0.78rem 0.84rem 1.08rem;
+  min-height: 5.35rem;
+  margin-bottom: 1.25rem;
+  padding: 1.08rem 1.02rem 1.08rem 1.32rem;
   border: 1px solid rgba(255, 248, 239, 0.28);
-  border-left: 4px solid rgba(255, 170, 235, 0.82);
-  border-radius: 1.08rem;
+  border-left: 5px solid rgba(255, 170, 235, 0.84);
+  border-radius: 1.32rem;
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(123, 93, 220, 0.36)),
     rgba(42, 31, 76, 0.46);
   color: #fff8f2;
   box-shadow:
-    0 20px 42px rgba(31, 22, 55, 0.26),
+    0 26px 56px rgba(31, 22, 55, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.18);
   font-size: 0.82rem;
   line-height: 1;
@@ -1982,13 +1983,13 @@ code {
   display: inline-grid;
   grid-column: 2;
   grid-row: 1 / span 2;
-  width: 2.45rem;
-  height: 2.45rem;
+  width: 3.05rem;
+  height: 3.05rem;
   place-items: center;
   border-radius: 999px;
   background: rgba(255, 248, 239, 0.18);
   color: #fff8f2;
-  font-size: 1.1rem;
+  font-size: 1.36rem;
   font-weight: 900;
   line-height: 1;
   box-shadow: inset 0 0 0 1px rgba(255, 248, 239, 0.22);
@@ -1998,7 +1999,7 @@ code {
   grid-column: 1;
   grid-row: 1;
   color: rgba(255, 248, 239, 0.68);
-  font-size: 0.74rem;
+  font-size: 0.84rem;
   font-weight: 900;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -2009,7 +2010,7 @@ code {
   grid-column: 1;
   grid-row: 2;
   color: #fff8f2;
-  font-size: 1.18rem;
+  font-size: 1.45rem;
   font-weight: 900;
   white-space: nowrap;
 }
@@ -2019,7 +2020,7 @@ code {
   transform: translateY(-2px);
   border-color: rgba(255, 248, 239, 0.48);
   box-shadow:
-    0 24px 50px rgba(31, 22, 55, 0.34),
+    0 30px 66px rgba(31, 22, 55, 0.36),
     inset 0 1px 0 rgba(255, 255, 255, 0.24);
 }
 
