@@ -1957,12 +1957,23 @@ code {
   min-height: 5.35rem;
   margin-bottom: 1.25rem;
   padding: 1.08rem 1.02rem 1.08rem 1.32rem;
-  border: 1px solid rgba(255, 248, 239, 0.28);
-  border-left: 5px solid rgba(255, 170, 235, 0.84);
+  border: 1px solid transparent;
+  border-left-width: 5px;
   border-radius: 1.32rem;
-  background:
+  background-image:
     linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(123, 93, 220, 0.36)),
-    rgba(42, 31, 76, 0.46);
+    linear-gradient(rgba(42, 31, 76, 0.46), rgba(42, 31, 76, 0.46)),
+    linear-gradient(
+      115deg,
+      rgba(255, 170, 235, 0.92),
+      rgba(255, 248, 239, 0.38),
+      rgba(255, 255, 255, 0.78),
+      rgba(123, 93, 220, 0.52),
+      rgba(255, 170, 235, 0.92)
+    );
+  background-origin: padding-box, padding-box, border-box;
+  background-clip: padding-box, padding-box, border-box;
+  background-size: 100% 100%, 100% 100%, 260% 100%;
   color: #fff8f2;
   box-shadow:
     0 26px 56px rgba(31, 22, 55, 0.3),
@@ -1972,9 +1983,13 @@ code {
   text-decoration: none;
   isolation: isolate;
   overflow: clip;
+  animation:
+    home-founders-cta-border-sweep 4.8s ease-in-out infinite,
+    home-founders-cta-halo 3.8s ease-in-out infinite;
   transition:
     transform 180ms ease,
     border-color 180ms ease,
+    filter 180ms ease,
     box-shadow 180ms ease;
 }
 
@@ -2028,9 +2043,40 @@ code {
 .home-founders-cta:focus-visible {
   transform: translateY(-2px);
   border-color: rgba(255, 248, 239, 0.48);
+  animation-duration: 2.8s, 2.4s;
   box-shadow:
     0 30px 66px rgba(31, 22, 55, 0.36),
     inset 0 1px 0 rgba(255, 255, 255, 0.24);
+}
+
+@keyframes home-founders-cta-border-sweep {
+  0%,
+  100% {
+    background-position:
+      0 0,
+      0 0,
+      0% 50%;
+  }
+
+  50% {
+    background-position:
+      0 0,
+      0 0,
+      100% 50%;
+  }
+}
+
+@keyframes home-founders-cta-halo {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0 rgba(255, 170, 235, 0));
+  }
+
+  50% {
+    filter:
+      drop-shadow(0 0 13px rgba(255, 170, 235, 0.28))
+      drop-shadow(0 0 22px rgba(255, 248, 239, 0.12));
+  }
 }
 
 .home-hero-actions,
@@ -3207,6 +3253,10 @@ code {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .home-founders-cta {
+    animation: none;
+  }
+
   .home-persona-typed-row-active::after {
     animation: none;
   }
