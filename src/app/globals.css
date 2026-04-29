@@ -1843,9 +1843,10 @@ code {
 
 .home-hero {
   position: relative;
+  width: 100vw;
   min-height: calc((100svh - 6.8rem) * 1.2);
-  margin-left: calc(var(--page-gutter) * -1);
-  margin-right: calc(var(--page-gutter) * -1);
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   margin-top: 0;
   overflow: clip;
   background: #1b1830;
@@ -1875,7 +1876,9 @@ code {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
+  max-width: 1280px;
   min-height: calc((100svh - 6.8rem) * 1.2);
+  margin: 0 auto;
   padding: 2rem var(--page-gutter) 0;
 }
 
