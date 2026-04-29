@@ -35,7 +35,7 @@ export function DesktopHomePage() {
               <strong>Early access is open</strong>
             </a>
             <p className="home-brand-label">{siteFrame.brand}</p>
-            <h1>Finding Christians you can trust.</h1>
+            <h1>Find Christian businesses, jobs, events, and more.</h1>
             <p className="home-hero-body">{homePageCopy.leadStory.dek}</p>
           </div>
           <div className="home-hero-device-column" aria-hidden="true">

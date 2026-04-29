@@ -36,7 +36,7 @@ export function MobileHomePage() {
               <span>Founders Pricing</span>
               <strong>Early access is open</strong>
             </a>
-            <h1 className={styles.heroTitle}>Finding Christians you can trust.</h1>
+            <h1 className={styles.heroTitle}>Find Christian businesses, jobs, events, and more.</h1>
             <p className={styles.heroBody}>{homePageCopy.leadStory.dek}</p>
             <div className={styles.platformRow} aria-label="Available on iOS and Android">
               <span className={styles.platformBadge}>
