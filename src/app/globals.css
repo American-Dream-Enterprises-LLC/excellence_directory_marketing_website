@@ -2337,10 +2337,10 @@ code {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(8rem, 0.34fr) minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 1.6rem;
-  max-width: 1280px;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: start;
+  gap: 0.72rem;
+  max-width: 860px;
   margin: 0 auto;
   padding: 2.2rem var(--page-gutter);
 }
@@ -2409,6 +2409,7 @@ code {
   font-weight: 900;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  margin-top: 0.25rem;
   transition:
     transform 180ms ease,
     background 180ms ease;
@@ -3202,14 +3203,6 @@ code {
     max-width: 38rem;
   }
 
-  .home-news-inner {
-    grid-template-columns: minmax(0, 1fr) auto;
-  }
-
-  .home-news-kicker {
-    grid-column: 1 / -1;
-  }
-
   .home-personalization-shell {
     grid-template-columns: 1fr;
   }
@@ -3277,7 +3270,6 @@ code {
   }
 
   .home-news-inner {
-    grid-template-columns: 1fr;
     gap: 0.9rem;
     padding: 1.55rem var(--page-gutter);
   }
