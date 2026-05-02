@@ -5,6 +5,7 @@ import { YouTubeVideoPreview } from "@/components/youtube-video-preview";
 import { credibilityPartners } from "@/content/credibility-partners";
 import { homeVideo } from "@/content/home-video";
 import { homePageCopy, launchWaitlistModal, siteFrame } from "@/content/landing-page-data";
+import { homeNewsMention } from "@/content/news-mentions";
 import { MobileGetStartedModal } from "@/mobile/chrome/mobile-get-started-modal";
 
 import styles from "./mobile-home-page.module.css";
@@ -57,6 +58,25 @@ export function MobileHomePage() {
             />
           </div>
         </div>
+      </section>
+
+      <section className={styles.newsSection} aria-labelledby="mobile-home-news-heading">
+        <p className={styles.newsKicker}>In the news</p>
+        <p className={styles.newsSource}>
+          {homeNewsMention.publication} <span>{homeNewsMention.date}</span>
+        </p>
+        <h2 id="mobile-home-news-heading" className={styles.newsTitle}>
+          {homeNewsMention.title}
+        </h2>
+        <p className={styles.newsBody}>{homeNewsMention.excerpt}</p>
+        <a
+          href={homeNewsMention.href}
+          className={styles.newsLink}
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          {homeNewsMention.ctaLabel}
+        </a>
       </section>
 
       <section className={styles.videoSection}>

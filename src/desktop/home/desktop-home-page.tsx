@@ -6,6 +6,7 @@ import { YouTubeVideoPreview } from "@/components/youtube-video-preview";
 import { credibilityPartners } from "@/content/credibility-partners";
 import { homePageCopy, launchWaitlistModal, siteFrame } from "@/content/landing-page-data";
 import { homeVideo } from "@/content/home-video";
+import { homeNewsMention } from "@/content/news-mentions";
 
 const credibilityPartnersTopRow = credibilityPartners.slice(0, 3);
 const credibilityPartnersBottomRow = credibilityPartners.slice(3);
@@ -77,6 +78,25 @@ export function DesktopHomePage() {
             className="home-proof-mobile home-reveal-late"
           />
         </div>
+      </section>
+
+      <section className="home-news-section" aria-labelledby="home-news-heading">
+        <p className="home-news-kicker">In the news</p>
+        <div className="home-news-copy">
+          <p className="home-news-source">
+            {homeNewsMention.publication} <span>{homeNewsMention.date}</span>
+          </p>
+          <h2 id="home-news-heading">{homeNewsMention.title}</h2>
+          <p>{homeNewsMention.excerpt}</p>
+        </div>
+        <a
+          href={homeNewsMention.href}
+          className="home-news-link"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          {homeNewsMention.ctaLabel}
+        </a>
       </section>
 
       <section className="home-video-section">

@@ -317,6 +317,73 @@
   letter-spacing: -0.04em;
 }
 
+.newsSection {
+  display: grid;
+  gap: 0.52rem;
+  padding: 1.25rem 1.05rem 1.3rem;
+  border-top: 1px solid rgba(147, 129, 255, 0.2);
+  border-bottom: 1px solid rgba(147, 129, 255, 0.16);
+  background:
+    radial-gradient(circle at top right, rgba(255, 170, 235, 0.22), transparent 34%),
+    linear-gradient(135deg, rgba(255, 248, 252, 0.9), rgba(242, 239, 255, 0.82));
+}
+
+.newsKicker {
+  margin: 0;
+  color: rgba(147, 129, 255, 0.84);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.newsSource {
+  margin: 0;
+  color: rgba(77, 54, 89, 0.62);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.newsSource span {
+  color: rgba(77, 54, 89, 0.44);
+}
+
+.newsTitle {
+  margin: 0.1rem 0 0;
+  color: #231d3a;
+  font-family: var(--font-heading), serif;
+  font-size: clamp(1.65rem, 7vw, 2.1rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
+.newsBody {
+  margin: 0.2rem 0 0;
+  color: rgba(42, 39, 64, 0.72);
+  font-size: 0.93rem;
+  line-height: 1.58;
+}
+
+.newsLink {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.55rem;
+  margin-top: 0.35rem;
+  padding: 0 0.95rem;
+  border-radius: 999px;
+  background: #2a2740;
+  color: #fff8f2;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
 .sectionBody {
   margin: 0;
   color: #5f5879;
