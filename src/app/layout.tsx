@@ -3,6 +3,7 @@ import { DM_Sans, Fraunces } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 
 import { JsonLd } from "@/components/json-ld";
+import { KeyboardPageScroll } from "@/components/keyboard-page-scroll";
 import { siteFrame } from "@/content/landing-page-data";
 import { getAbsoluteUrl, getSiteUrl, machinePaths } from "@/content/site-urls";
 import { SiteChrome } from "@/components/site-chrome";
@@ -110,6 +111,7 @@ export default function RootLayout({
             ],
           }}
         />
+        <KeyboardPageScroll />
         <SiteChrome>{children}</SiteChrome>
         <Analytics />
       </body>
