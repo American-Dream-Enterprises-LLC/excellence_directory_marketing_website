@@ -2314,7 +2314,10 @@ code {
   grid-template-columns: minmax(8rem, 0.34fr) minmax(0, 1fr) auto;
   align-items: center;
   gap: 1.6rem;
-  padding: 2.2rem clamp(1.2rem, 3vw, 2.8rem);
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 2.2rem max(var(--page-gutter), calc((100vw - 1280px) / 2 + var(--page-gutter)));
   overflow: clip;
   border-top: 1px solid rgba(147, 129, 255, 0.24);
   border-bottom: 1px solid rgba(147, 129, 255, 0.18);
