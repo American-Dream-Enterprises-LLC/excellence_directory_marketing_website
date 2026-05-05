@@ -13,9 +13,27 @@ import {
   getBrandBlogPath,
   machinePaths,
 } from "@/content/site-urls";
+import { getRequestDeviceView } from "@/lib/device-view";
 
 const brandBlogDescription =
   "Read the public Excellence blog on faith, business, stewardship, and Christian marketplace leadership.";
+const mobilePostsPerPage = 5;
+
+type BrandBlogArchivePageProps = {
+  searchParams: Promise<{
+    page?: string;
+  }>;
+};
+
+function getMobilePage(rawPage: string | undefined, pageCount: number) {
+  const parsedPage = rawPage ? Number.parseInt(rawPage, 10) : 1;
+
+  if (!Number.isFinite(parsedPage) || parsedPage < 1) {
+    return 1;
+  }
+
+  return Math.min(parsedPage, Math.max(pageCount, 1));
+}
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -31,9 +49,23 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BrandBlogArchivePage() {
+export default async function BrandBlogArchivePage({
+  searchParams,
+}: BrandBlogArchivePageProps) {
+  const deviceView = await getRequestDeviceView();
+  const { page } = await searchParams;
   const [featuredPost, ...secondaryPosts] = brandBlogPosts;
   const archiveUrl = getAbsoluteUrl(machinePaths.brandBlogArchive);
+  const pageCount = Math.ceil(brandBlogPosts.length / mobilePostsPerPage);
+  const mobilePage = getMobilePage(page, pageCount);
+  const mobilePagePosts = brandBlogPosts.slice(
+    (mobilePage - 1) * mobilePostsPerPage,
+    mobilePage * mobilePostsPerPage,
+  );
+  const mobilePageHref = (pageNumber: number) =>
+    pageNumber === 1
+      ? machinePaths.brandBlogArchive
+      : `${machinePaths.brandBlogArchive}?page=${pageNumber}`;
 
   return (
     <main className="content-stack blog-archive-page brand-blog-page">
@@ -76,45 +108,122 @@ export default function BrandBlogArchivePage() {
         }}
       />
 
-      {featuredPost ? (
-        <section className="blog-feature brand-blog-featured-post">
-          <div className="blog-feature-copy">
-            <p className="blog-feature-meta">
-              {featuredPost.category} / {formatBrandBlogPostDate(featuredPost.publishedAt)} /{" "}
-              {getBrandBlogReadTimeLabel(featuredPost)}
-            </p>
-            <h2>
-              <Link href={getBrandBlogPath(featuredPost.routeSlug)}>{featuredPost.title}</Link>
-            </h2>
-            <p className="blog-feature-excerpt">{featuredPost.excerpt}</p>
-            <div className="hero-actions">
-              <Link href={getBrandBlogPath(featuredPost.routeSlug)} className="button button-primary">
-                Read post
-              </Link>
-            </div>
+      {deviceView === "mobile" ? (
+        <section className="blog-posts-section brand-blog-mobile-archive">
+          <div className="home-section-heading">
+            <p className="section-kicker">Blog archive</p>
+            <h1 className="brand-blog-archive-title">All articles</h1>
           </div>
-        </section>
-      ) : null}
+          <div className="brand-blog-mobile-list">
+            {mobilePagePosts.map((post) => (
+              <Link
+                key={post.slug}
+                href={getBrandBlogPath(post.routeSlug)}
+                className="brand-blog-mobile-card"
+              >
+                <article>
+                  <p className="blog-post-card-meta">
+                    {post.category} / {formatBrandBlogPostDate(post.publishedAt)} /{" "}
+                    {getBrandBlogReadTimeLabel(post)}
+                  </p>
+                  <h2>{post.title}</h2>
+                  <p>{post.excerpt}</p>
+                </article>
+              </Link>
+            ))}
+          </div>
 
-      <section className="blog-posts-section">
-        <div className="home-section-heading">
-          <p className="section-kicker">Blog archive</p>
-        </div>
-        <div className="blog-post-grid">
-          {secondaryPosts.map((post) => (
-            <Link key={post.slug} href={getBrandBlogPath(post.routeSlug)} className="blog-post-card">
-              <article>
-                <p className="blog-post-card-meta">
-                  {post.category} / {formatBrandBlogPostDate(post.publishedAt)} /{" "}
-                  {getBrandBlogReadTimeLabel(post)}
+          {pageCount > 1 ? (
+            <nav
+              className="brand-blog-pagination"
+              aria-label="Blog archive pagination"
+            >
+              <Link
+                href={mobilePageHref(Math.max(mobilePage - 1, 1))}
+                className="brand-blog-page-link"
+                aria-disabled={mobilePage === 1}
+                tabIndex={mobilePage === 1 ? -1 : undefined}
+              >
+                Previous
+              </Link>
+              <span className="brand-blog-page-status">
+                Page {mobilePage} of {pageCount}
+              </span>
+              <div className="brand-blog-page-numbers">
+                {Array.from({ length: pageCount }, (_, index) => index + 1).map(
+                  (pageNumber) => (
+                    <Link
+                      key={pageNumber}
+                      href={mobilePageHref(pageNumber)}
+                      className="brand-blog-page-number"
+                      aria-current={pageNumber === mobilePage ? "page" : undefined}
+                    >
+                      {pageNumber}
+                    </Link>
+                  ),
+                )}
+              </div>
+              <Link
+                href={mobilePageHref(Math.min(mobilePage + 1, pageCount))}
+                className="brand-blog-page-link"
+                aria-disabled={mobilePage === pageCount}
+                tabIndex={mobilePage === pageCount ? -1 : undefined}
+              >
+                Next
+              </Link>
+            </nav>
+          ) : null}
+        </section>
+      ) : (
+        <>
+          {featuredPost ? (
+            <section className="blog-feature brand-blog-featured-post">
+              <div className="blog-feature-copy">
+                <p className="blog-feature-meta">
+                  {featuredPost.category} / {formatBrandBlogPostDate(featuredPost.publishedAt)} /{" "}
+                  {getBrandBlogReadTimeLabel(featuredPost)}
                 </p>
-                <h3>{post.title}</h3>
-                <p>{post.excerpt}</p>
-              </article>
-            </Link>
-          ))}
-        </div>
-      </section>
+                <h2>
+                  <Link href={getBrandBlogPath(featuredPost.routeSlug)}>{featuredPost.title}</Link>
+                </h2>
+                <p className="blog-feature-excerpt">{featuredPost.excerpt}</p>
+                <div className="hero-actions">
+                  <Link
+                    href={getBrandBlogPath(featuredPost.routeSlug)}
+                    className="button button-primary"
+                  >
+                    Read post
+                  </Link>
+                </div>
+              </div>
+            </section>
+          ) : null}
+
+          <section className="blog-posts-section">
+            <div className="home-section-heading">
+              <p className="section-kicker">Blog archive</p>
+            </div>
+            <div className="blog-post-grid">
+              {secondaryPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={getBrandBlogPath(post.routeSlug)}
+                  className="blog-post-card"
+                >
+                  <article>
+                    <p className="blog-post-card-meta">
+                      {post.category} / {formatBrandBlogPostDate(post.publishedAt)} /{" "}
+                      {getBrandBlogReadTimeLabel(post)}
+                    </p>
+                    <h3>{post.title}</h3>
+                    <p>{post.excerpt}</p>
+                  </article>
+                </Link>
+              ))}
+            </div>
+          </section>
+        </>
+      )}
     </main>
   );
 }
