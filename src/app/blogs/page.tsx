@@ -149,20 +149,6 @@ export default async function BrandBlogArchivePage({
               <span className="brand-blog-page-status">
                 Page {mobilePage} of {pageCount}
               </span>
-              <div className="brand-blog-page-numbers">
-                {Array.from({ length: pageCount }, (_, index) => index + 1).map(
-                  (pageNumber) => (
-                    <Link
-                      key={pageNumber}
-                      href={mobilePageHref(pageNumber)}
-                      className="brand-blog-page-number"
-                      aria-current={pageNumber === mobilePage ? "page" : undefined}
-                    >
-                      {pageNumber}
-                    </Link>
-                  ),
-                )}
-              </div>
               <Link
                 href={mobilePageHref(Math.min(mobilePage + 1, pageCount))}
                 className="brand-blog-page-link"
