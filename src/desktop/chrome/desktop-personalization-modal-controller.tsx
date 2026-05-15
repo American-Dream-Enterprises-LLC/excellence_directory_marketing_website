@@ -7,6 +7,7 @@ import {
   OPEN_PARTNERSHIP_MODAL_EVENT,
   PARTNERSHIP_PROFILE_ID,
 } from "@/components/partnership-modal-events";
+import { campaignOnePath } from "@/content/campaign-one";
 import type { HomePagePersonalization } from "@/content/landing-page-data";
 
 type DesktopPersonalizationModalControllerProps = {
@@ -25,6 +26,10 @@ export function DesktopPersonalizationModalController({
   personalization,
 }: DesktopPersonalizationModalControllerProps) {
   const pathname = usePathname();
+
+  if (pathname === campaignOnePath) {
+    return null;
+  }
 
   return (
     <HomePersonalizationModal

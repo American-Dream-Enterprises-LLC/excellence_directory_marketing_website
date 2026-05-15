@@ -53,6 +53,25 @@
   align-items: center;
 }
 
+.campaignCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.45rem;
+  padding: 0 0.82rem;
+  border: 0;
+  border-radius: 999px;
+  background: #2a2740;
+  color: #fff8f2;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .main {
   width: min(100%, 34rem);
   margin: 0 auto;

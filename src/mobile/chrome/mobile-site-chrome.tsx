@@ -3,10 +3,12 @@
 import { useEffect, useEffectEvent, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import logo from "../../../logo.webp";
 
 import { LaunchWaitlistModal } from "@/components/launch-waitlist-modal";
+import { campaignOneOffer, campaignOnePath } from "@/content/campaign-one";
 import { homePageCopy, siteFrame } from "@/content/landing-page-data";
 import { launchWaitlistModal } from "@/content/landing-page-data";
 
@@ -22,6 +24,8 @@ export function MobileSiteChrome({ children }: MobileSiteChromeProps) {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const lastScrollYRef = useRef(0);
   const headerVisibleRef = useRef(true);
+  const pathname = usePathname();
+  const isCampaignOne = pathname === campaignOnePath;
 
   const syncHeaderVisibility = useEffectEvent((nextVisible: boolean) => {
     if (headerVisibleRef.current === nextVisible) {
@@ -65,7 +69,13 @@ export function MobileSiteChrome({ children }: MobileSiteChromeProps) {
             <Image src={logo} alt={siteFrame.brand} className={styles.brandImage} priority />
           </Link>
           <div className={styles.actions}>
-            <MobileGetStartedModal personalization={homePageCopy.personalization} />
+            {isCampaignOne ? (
+              <a className={styles.campaignCta} href={campaignOneOffer.href}>
+                Get Started
+              </a>
+            ) : (
+              <MobileGetStartedModal personalization={homePageCopy.personalization} />
+            )}
           </div>
         </div>
       </header>

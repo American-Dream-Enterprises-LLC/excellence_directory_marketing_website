@@ -194,12 +194,18 @@ export default async function BrandBlogPostPage({ params }: BrandBlogPostPagePro
         <aside className="editorial-rail">
           <section className="rail-note">
             <p className="section-label">Original source</p>
-            <p>
-              First published by {post.author} on the public Excellence Directory blog.
-            </p>
-            <a href={post.sourceUrl} className="brand-blog-source-link">
-              View source post
-            </a>
+            {post.sourceUrl ? (
+              <>
+                <p>
+                  First published by {post.author} on the public Excellence Directory blog.
+                </p>
+                <a href={post.sourceUrl} className="brand-blog-source-link">
+                  View source post
+                </a>
+              </>
+            ) : (
+              <p>Source material provided by {post.author} for the Excellence Directory blog.</p>
+            )}
           </section>
 
           {relatedPosts.length > 0 ? (

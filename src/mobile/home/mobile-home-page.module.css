@@ -156,6 +156,39 @@
   white-space: nowrap;
 }
 
+.campaignFoundersCta {
+  grid-template-rows: auto auto auto;
+  padding-top: 0.74rem;
+  padding-bottom: 0.72rem;
+}
+
+.campaignFoundersCta span {
+  line-height: 1.18;
+  letter-spacing: 0.06em;
+  white-space: normal;
+}
+
+.campaignFoundersCta::after,
+.campaignFoundersCta::before {
+  grid-row: 1 / span 3;
+}
+
+.campaignFoundersCta small {
+  grid-column: 1;
+  grid-row: 3;
+  color: rgba(255, 248, 239, 0.72);
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.campaignHeroTitle {
+  max-width: 11ch;
+  font-size: clamp(2rem, 10.5vw, 3.15rem);
+}
+
 @keyframes foundersCtaBorderSweep {
   0%,
   100% {
@@ -382,6 +415,67 @@
   letter-spacing: 0.09em;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+.campaignBenefits,
+.campaignVisibility {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1.3rem 1.05rem;
+  border-radius: 1.35rem;
+  background:
+    linear-gradient(135deg, rgba(255, 248, 252, 0.96), rgba(242, 239, 255, 0.92)),
+    #f7f3ff;
+}
+
+.campaignBenefits ul {
+  display: grid;
+  gap: 0.82rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.campaignBenefits li {
+  display: grid;
+  gap: 0.18rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.campaignBenefits li::before {
+  content: "";
+  position: absolute;
+  top: 0.55rem;
+  left: 0;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ca9c6a, #7d5ca4);
+}
+
+.campaignBenefits strong {
+  color: #2a2740;
+  font-size: 0.94rem;
+}
+
+.campaignBenefits span,
+.campaignVisibility p {
+  color: rgba(42, 39, 64, 0.74);
+  font-size: 0.93rem;
+  line-height: 1.58;
+}
+
+.campaignVisibility {
+  border: 1px solid rgba(147, 129, 255, 0.14);
+  background:
+    linear-gradient(135deg, rgba(255, 248, 252, 0.94), rgba(237, 245, 255, 0.94)),
+    #f4f7ff;
+}
+
+.campaignVisibilityCta {
+  width: 100%;
+  margin-top: 0.15rem;
 }
 
 .sectionBody {

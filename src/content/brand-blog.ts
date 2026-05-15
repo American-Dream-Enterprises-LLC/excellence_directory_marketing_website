@@ -7,7 +7,7 @@ type RawBrandBlogPost = {
   title: string;
   author: string;
   category: string;
-  sourceUrl: string;
+  sourceUrl?: string;
   publishedAt: string;
   updatedAt: string;
   excerpt: string;
@@ -21,6 +21,7 @@ export type BrandBlogPost = RawBrandBlogPost & {
 };
 
 const sourceBlogSlugs = new Set<string>([
+  "how-the-excellence-directory-can-help-your-church-grow",
   "what-is-the-excellence-directory",
   "5-benefits-of-hiring-christians-in-business-a-biblical-perspective",
   "five-biblical-ways-to-grow-your-business",
@@ -33,6 +34,244 @@ const sourceBlogSlugs = new Set<string>([
 ]);
 
 const allBrandBlogPosts = [
+  {
+    "slug": "how-the-excellence-directory-can-help-your-church-grow",
+    "title": "How The Excellence Directory Can Help Your Church Grow",
+    "author": "Geeta Chopra",
+    "category": "Church growth",
+    "publishedAt": "2026-05-15T03:58:32",
+    "updatedAt": "2026-05-15T03:58:32",
+    "excerpt": "The Excellence Directory gives churches a digital profile, testimony space, event listings, volunteer posts, job listings, chat, donations, and wider Christian visibility.",
+    "readTimeMinutes": 5,
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "In today's digital world, churches are no longer limited to reaching only the people within their local community. With the right tools and visibility, ministries now have the opportunity to impact lives globally, strengthen community engagement, and expand their reach beyond the four walls of the church."
+      },
+      {
+        "type": "paragraph",
+        "text": "That is exactly where The Excellence Directory comes in."
+      },
+      {
+        "type": "paragraph",
+        "text": "The Excellence Directory is more than a Christian networking platform. It is a growing digital hub designed to help churches, ministries, Christian professionals, and believers connect in meaningful ways. From outreach to recruitment, communication to visibility, The Excellence Directory offers practical tools that help churches grow spiritually, socially, and strategically."
+      },
+      {
+        "type": "heading",
+        "text": "Build a Strong Digital Presence for Your Church"
+      },
+      {
+        "type": "paragraph",
+        "text": "One of the greatest advantages of The Excellence Directory is that churches can create a robust profile that functions like a mini website within the platform."
+      },
+      {
+        "type": "paragraph",
+        "text": "Instead of spending thousands of dollars building and maintaining a separate website, churches can use The Excellence Directory to:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Share ministry information",
+          "Upload church photos and events",
+          "Display service times and locations",
+          "Highlight leadership and vision",
+          "Promote outreach initiatives"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "This allows churches to establish an online presence while saving money and increasing visibility within a trusted Christian community."
+      },
+      {
+        "type": "heading",
+        "text": "Upload Member Testimonies That Inspire Others"
+      },
+      {
+        "type": "paragraph",
+        "text": "Testimonies are powerful."
+      },
+      {
+        "type": "paragraph",
+        "text": "Revelation 12:11 reminds us that believers overcome \"by the blood of the Lamb and by the word of their testimony.\""
+      },
+      {
+        "type": "paragraph",
+        "text": "With The Excellence Directory, churches can upload individual member testimonies directly onto their profiles. These testimonies help build trust, encourage visitors, and demonstrate the transforming power of God within the congregation."
+      },
+      {
+        "type": "paragraph",
+        "text": "Real stories create real connection. When potential visitors see authentic testimonies from church members, they are more likely to engage with the ministry and feel welcomed before ever walking through the doors."
+      },
+      {
+        "type": "heading",
+        "text": "Reach More Souls With Global Visibility"
+      },
+      {
+        "type": "paragraph",
+        "text": "Church growth today requires both spiritual and digital outreach."
+      },
+      {
+        "type": "paragraph",
+        "text": "The Excellence Directory helps churches increase their visibility by placing them on a platform where believers and seekers can discover ministries worldwide. This creates opportunities to reach more souls, connect with people relocating to new cities, and minister to individuals searching for a church home."
+      },
+      {
+        "type": "paragraph",
+        "text": "Through The Excellence Directory, your church is no longer limited to local exposure. Your ministry gains access to global visibility within the Christian marketplace and faith community."
+      },
+      {
+        "type": "heading",
+        "text": "Share Events and Increase Community Engagement"
+      },
+      {
+        "type": "paragraph",
+        "text": "Church events are essential for building strong congregational relationships."
+      },
+      {
+        "type": "paragraph",
+        "text": "With The Excellence Directory, churches can upload:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Conferences",
+          "Bible studies",
+          "Worship nights",
+          "Outreach events",
+          "Community gatherings",
+          "Volunteer opportunities"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "This keeps members informed while also helping new visitors discover ways to get connected. The easier it is for people to engage with your church, the stronger the sense of community becomes."
+      },
+      {
+        "type": "heading",
+        "text": "List Volunteer Positions and Build Strong Teams"
+      },
+      {
+        "type": "paragraph",
+        "text": "Healthy churches thrive because of faithful volunteers."
+      },
+      {
+        "type": "paragraph",
+        "text": "The Excellence Directory allows churches to post volunteer opportunities directly on the platform. Whether your ministry needs greeters, musicians, media team members, administrators, or outreach support, the platform helps connect churches with believers who are ready to serve."
+      },
+      {
+        "type": "paragraph",
+        "text": "This creates a practical pathway for members to use their gifts while strengthening the church community."
+      },
+      {
+        "type": "heading",
+        "text": "Upload Jobs and Employment Opportunities"
+      },
+      {
+        "type": "paragraph",
+        "text": "Many believers desire to work in environments that reflect their faith and values."
+      },
+      {
+        "type": "paragraph",
+        "text": "Through The Excellence Directory, churches can post:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Ministry staff openings",
+          "Administrative positions",
+          "Worship team opportunities",
+          "Childcare and youth ministry roles",
+          "Faith-based employment opportunities"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "This helps churches find qualified candidates while helping believers discover purpose-driven work within Christian environments."
+      },
+      {
+        "type": "heading",
+        "text": "Real-Time Chat Creates Better Communication"
+      },
+      {
+        "type": "paragraph",
+        "text": "Communication is essential for church growth and connection."
+      },
+      {
+        "type": "paragraph",
+        "text": "The real-time chat feature on The Excellence Directory allows churches and users to connect instantly. Whether answering questions from visitors, connecting with volunteers, or building ministry relationships, this feature creates faster and more meaningful engagement."
+      },
+      {
+        "type": "paragraph",
+        "text": "People are more likely to stay connected when communication feels accessible and personal."
+      },
+      {
+        "type": "heading",
+        "text": "Receive Donations and Financial Support"
+      },
+      {
+        "type": "paragraph",
+        "text": "Ministry requires resources to continue serving communities effectively."
+      },
+      {
+        "type": "paragraph",
+        "text": "The Excellence Directory gives churches the opportunity to receive donations directly through the platform. This creates an additional avenue for supporters, members, and visitors to contribute to ministry initiatives, outreach programs, and church development efforts."
+      },
+      {
+        "type": "paragraph",
+        "text": "Digital giving options also make supporting the church more convenient for today's online audience."
+      },
+      {
+        "type": "heading",
+        "text": "Strengthen Kingdom Connection Through The Excellence Directory"
+      },
+      {
+        "type": "paragraph",
+        "text": "At its core, The Excellence Directory is about connection, visibility, and Kingdom impact."
+      },
+      {
+        "type": "paragraph",
+        "text": "Churches are not meant to operate in isolation. Through collaboration, visibility, and shared faith, ministries can grow stronger and reach more people effectively."
+      },
+      {
+        "type": "paragraph",
+        "text": "The Excellence Directory provides churches with tools that support:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Outreach",
+          "Community engagement",
+          "Volunteer recruitment",
+          "Ministry visibility",
+          "Church growth",
+          "Faith-based networking"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "It creates an ecosystem where churches and believers can connect, grow, and serve together."
+      },
+      {
+        "type": "heading",
+        "text": "Final Thoughts"
+      },
+      {
+        "type": "paragraph",
+        "text": "In an increasingly digital world, churches need tools that help them remain visible, connected, and effective in ministry."
+      },
+      {
+        "type": "paragraph",
+        "text": "The Excellence Directory offers churches an opportunity to expand their reach, strengthen communication, build community, and create a lasting impact both locally and globally."
+      },
+      {
+        "type": "paragraph",
+        "text": "From uploading testimonies and events to posting jobs and receiving donations, The Excellence Directory equips churches with modern tools designed for Kingdom growth."
+      },
+      {
+        "type": "paragraph",
+        "text": "Your church is not just a building. It is a light to the community, and The Excellence Directory helps that light shine even further."
+      }
+    ]
+  },
   {
     "slug": "what-is-the-excellence-directory",
     "title": "What is the Excellence Directory?",

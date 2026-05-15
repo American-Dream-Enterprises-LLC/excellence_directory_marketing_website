@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState, type MouseEvent as ReactMouseEvent } from "react";
+import { usePathname } from "next/navigation";
 
+import { campaignOneLaunchModal, campaignOnePath } from "@/content/campaign-one";
 import type { LaunchWaitlistModal as LaunchWaitlistModalCopy } from "@/content/landing-page-data";
 import { trackEvent } from "@/lib/analytics";
 
@@ -12,8 +14,10 @@ type LaunchWaitlistModalProps = {
 export function LaunchWaitlistModal({ modal }: LaunchWaitlistModalProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [triggerSource, setTriggerSource] = useState("unknown");
+  const pathname = usePathname();
+  const activeModal = pathname === campaignOnePath ? campaignOneLaunchModal : modal;
   const dialogRef = useRef<HTMLDivElement | null>(null);
-  const waitlistCta = modal.secondaryCta;
+  const waitlistCta = activeModal.secondaryCta;
 
   useEffect(() => {
     const handleDocumentClick = (event: MouseEvent) => {
@@ -89,21 +93,21 @@ export function LaunchWaitlistModal({ modal }: LaunchWaitlistModalProps) {
         className="launch-waitlist-dialog"
       >
         <section className="launch-waitlist-panel">
-          <p className="mini-kicker">{modal.eyebrow}</p>
-          <h2 id="launch-waitlist-title">{modal.heading}</h2>
-          <p id="launch-waitlist-body">{modal.body}</p>
+          <p className="mini-kicker">{activeModal.eyebrow}</p>
+          <h2 id="launch-waitlist-title">{activeModal.heading}</h2>
+          <p id="launch-waitlist-body">{activeModal.body}</p>
           <div className="launch-waitlist-actions">
             <a
-              href={modal.primaryCta.href}
+              href={activeModal.primaryCta.href}
               className="home-button home-button-primary"
               onClick={() => {
                 trackEvent("early_access_pricing_click", {
-                  destination: modal.primaryCta.href,
+                  destination: activeModal.primaryCta.href,
                   source: triggerSource,
                 });
               }}
             >
-              {modal.primaryCta.label}
+              {activeModal.primaryCta.label}
             </a>
             {waitlistCta ? (
               <>
