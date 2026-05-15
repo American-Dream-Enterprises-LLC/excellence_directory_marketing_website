@@ -57,9 +57,9 @@ export function MobileCampaignOnePage() {
         </ul>
       </section>
 
-      <section className={styles.newsSection} aria-labelledby="mobile-c1-problem-heading">
+      <section className={styles.newsSection} aria-labelledby="mobile-promotions-problem-heading">
         <p className={styles.newsKicker}>{campaignOne.problem.eyebrow}</p>
-        <h2 id="mobile-c1-problem-heading" className={styles.newsTitle}>
+        <h2 id="mobile-promotions-problem-heading" className={styles.newsTitle}>
           {campaignOne.problem.heading}
         </h2>
         <p className={styles.newsBody}>{campaignOne.problem.body}</p>

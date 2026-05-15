@@ -1,7 +1,7 @@
-export const campaignOnePath = "/c1";
+export const campaignOnePath = "/promotions";
 
 export const campaignOneOffer = {
-  href: "#new-stripe-link-needed",
+  href: "https://buy.stripe.com/9B65kDch05xk74q5rn53O04",
   eyebrow: "Founding member access",
   label: "Reserve your badge",
   detail: "$279/year founding rate",
