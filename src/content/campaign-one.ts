@@ -2,9 +2,8 @@ export const campaignOnePath = "/promotions";
 
 export const campaignOneOffer = {
   href: "https://buy.stripe.com/9B65kDch05xk74q5rn53O04",
-  eyebrow: "Founding member access",
-  label: "Reserve your badge",
-  detail: "$279/year founding rate",
+  label: "$279 Founders Pricing",
+  detail: "20% off original price",
 };
 
 export const campaignOneLaunchModal = {

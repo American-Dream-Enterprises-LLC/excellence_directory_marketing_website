@@ -2128,30 +2128,28 @@ code {
 }
 
 .campaign-one-founders-cta {
-  grid-template-rows: auto auto auto;
+  grid-template-rows: auto auto;
   padding-block: 0.95rem;
-}
-
-.campaign-one-founders-cta span {
-  line-height: 1.25;
-  letter-spacing: 0.1em;
-  white-space: normal;
 }
 
 .campaign-one-founders-cta::after,
 .campaign-one-founders-cta::before {
-  grid-row: 1 / span 3;
+  grid-row: 1 / span 2;
 }
 
 .campaign-one-founders-cta small {
   grid-column: 1;
-  grid-row: 3;
+  grid-row: 2;
   color: rgba(255, 248, 239, 0.72);
   font-size: 0.78rem;
   font-weight: 900;
   letter-spacing: 0.08em;
   line-height: 1.3;
   text-transform: uppercase;
+}
+
+.campaign-one-founders-cta strong {
+  grid-row: 1;
 }
 
 .home-founders-cta:hover,
