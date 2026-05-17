@@ -1,18 +1,14 @@
 import Image from "next/image";
 
 import { DeviceMockup } from "@/components/device-mockup";
-import { HomePersonaRotator } from "@/components/home-persona-rotator";
 import { YouTubeVideoPreview } from "@/components/youtube-video-preview";
 import { campaignOne } from "@/content/campaign-one";
 import { credibilityPartners } from "@/content/credibility-partners";
 import { homeVideo } from "@/content/home-video";
-import { homePageCopy, siteFrame } from "@/content/landing-page-data";
+import { siteFrame } from "@/content/landing-page-data";
 
 const credibilityPartnersTopRow = credibilityPartners.slice(0, 3);
 const credibilityPartnersBottomRow = credibilityPartners.slice(3);
-const rotatorProfiles = homePageCopy.personalization.profiles.filter(
-  (profile) => profile.showInRotator !== false,
-);
 
 function CampaignOfferCta({ className = "" }: { className?: string }) {
   return (
@@ -173,10 +169,6 @@ export function DesktopCampaignOnePage() {
             ))}
           </div>
         </div>
-      </section>
-
-      <section className="home-personalization-preview">
-        <HomePersonaRotator profiles={rotatorProfiles} />
       </section>
     </main>
   );
