@@ -7,6 +7,7 @@ import { credibilityPartners } from "@/content/credibility-partners";
 import { homePageCopy, launchWaitlistModal, siteFrame } from "@/content/landing-page-data";
 import { homeVideo } from "@/content/home-video";
 import { homeNewsMention } from "@/content/news-mentions";
+import { teamMembers } from "@/content/team-members";
 
 const credibilityPartnersTopRow = credibilityPartners.slice(0, 3);
 const credibilityPartnersBottomRow = credibilityPartners.slice(3);
@@ -161,6 +162,28 @@ export function DesktopHomePage() {
               </a>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="home-team" aria-labelledby="home-team-heading">
+        <div className="home-section-heading home-section-heading-centered">
+          <h2 id="home-team-heading">Meet the team</h2>
+        </div>
+        <div className="home-team-grid">
+          {teamMembers.map((member) => (
+            <article
+              key={member.name}
+              className={
+                member.role === "Founder"
+                  ? "home-team-card home-team-card-founder"
+                  : "home-team-card"
+              }
+            >
+              <img src={member.image} alt={member.name} loading="lazy" />
+              <h3>{member.name}</h3>
+              <p>{member.role}</p>
+            </article>
+          ))}
         </div>
       </section>
 

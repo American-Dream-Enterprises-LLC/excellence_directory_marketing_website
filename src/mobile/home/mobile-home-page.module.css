@@ -293,7 +293,7 @@
 .credibilitySection {
   display: grid;
   gap: 1.1rem;
-  margin: 0.7rem -1rem -1.8rem;
+  margin: 0.7rem -1rem 0;
   padding: 1.35rem 1rem calc(1.6rem + env(safe-area-inset-bottom));
   background:
     radial-gradient(circle at top right, rgba(255, 255, 255, 0.14), transparent 36%),
@@ -337,6 +337,80 @@
 .credibilitySection .sectionKicker {
   justify-self: center;
   text-align: center;
+}
+
+.teamSection {
+  display: grid;
+  gap: 1.05rem;
+  margin: 0.25rem -1rem -1.8rem;
+  padding: 1.35rem 1rem calc(1.6rem + env(safe-area-inset-bottom));
+  background:
+    radial-gradient(circle at top left, rgba(255, 170, 235, 0.16), transparent 36%),
+    linear-gradient(180deg, rgba(255, 248, 252, 0.95), rgba(246, 243, 255, 0.94));
+}
+
+.teamSection .sectionTitle {
+  justify-self: center;
+  text-align: center;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid rgba(147, 129, 255, 0.16);
+  border-radius: 0.9rem;
+  background: rgba(147, 129, 255, 0.16);
+}
+
+.teamCard {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 0.55rem;
+  min-height: 100%;
+  padding: 0.95rem 0.65rem 0.85rem;
+  background: rgba(255, 255, 255, 0.94);
+  text-align: center;
+}
+
+.teamCardFounder {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 248, 252, 0.98),
+    rgba(241, 238, 255, 0.82)
+  );
+}
+
+.teamCard img {
+  display: block;
+  width: min(6.9rem, 31vw);
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: top center;
+  border: 1px solid rgba(147, 129, 255, 0.2);
+  box-shadow: 0 10px 22px rgba(147, 129, 255, 0.12);
+}
+
+.teamCard h3 {
+  margin: 0.2rem 0 0;
+  color: #231d3a;
+  font-family: var(--font-heading), serif;
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.teamCard p {
+  margin: 0;
+  color: #5a3f76;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
 
 .sectionTitle {

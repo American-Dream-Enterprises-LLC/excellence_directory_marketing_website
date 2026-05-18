@@ -6,6 +6,7 @@ import { credibilityPartners } from "@/content/credibility-partners";
 import { homeVideo } from "@/content/home-video";
 import { homePageCopy, launchWaitlistModal, siteFrame } from "@/content/landing-page-data";
 import { homeNewsMention } from "@/content/news-mentions";
+import { teamMembers } from "@/content/team-members";
 import { MobileGetStartedModal } from "@/mobile/chrome/mobile-get-started-modal";
 
 import styles from "./mobile-home-page.module.css";
@@ -115,6 +116,26 @@ export function MobileHomePage() {
                 className={styles.partnerImage}
               />
             </a>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.teamSection} aria-labelledby="mobile-home-team-heading">
+        <h2 id="mobile-home-team-heading" className={styles.sectionTitle}>
+          Meet the team
+        </h2>
+        <div className={styles.teamGrid}>
+          {teamMembers.map((member) => (
+            <article
+              key={member.name}
+              className={`${styles.teamCard} ${
+                member.role === "Founder" ? styles.teamCardFounder : ""
+              }`.trim()}
+            >
+              <img src={member.image} alt={member.name} loading="lazy" />
+              <h3>{member.name}</h3>
+              <p>{member.role}</p>
+            </article>
           ))}
         </div>
       </section>

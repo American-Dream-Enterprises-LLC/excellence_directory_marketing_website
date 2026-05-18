@@ -10,9 +10,9 @@ export const campaignOneLaunchModal = {
   eyebrow: "Launching mid-June 2026",
   heading: "Excellence Directory launches in mid-June 2026.",
   body:
-    "Reserve one of the first 400 Founding Member spots for early visibility, launch recognition, and pre-launch pricing before Excellence opens to the public.",
+    "Reserve one of the first 400 Founders Pricing spots for early visibility, launch recognition, and pre-launch pricing before Excellence opens to the public.",
   primaryCta: {
-    label: "Reserve your badge",
+    label: "Reserve Founders Pricing",
     href: campaignOneOffer.href,
   },
   secondaryCta: {
@@ -25,19 +25,19 @@ export const campaignOne = {
   path: campaignOnePath,
   offer: campaignOneOffer,
   metadata: {
-    title: "Founding Member Early Access | Excellence Directory",
+    title: "Founders Pricing Early Access | Excellence Directory",
     description:
-      "Join Excellence Directory as a Founding Member and receive founding pricing, launch recognition, featured visibility, and the Founding Member Badge.",
+      "Join Excellence Directory with Founders Pricing and receive launch recognition, featured visibility, and early business access.",
   },
   hero: {
-    badgeLine: "The badge is only available to the first 400 businesses.",
-    heading: "Only Early Businesses Will Receive the Founding Member Badge.",
+    badgeLine: "Founders Pricing is only available to the first 400 businesses.",
+    heading: "Only Early Businesses Will Receive Founders Pricing.",
     dek:
-      "The badge will no longer be available after the official launch.",
+      "Founders Pricing will no longer be available after the official launch.",
     imageAlt: "Excellence Directory onboarding screen for Christian business owners.",
   },
   foundingBenefits: {
-    heading: "Your Founding Member Badge Gives You:",
+    heading: "Your Founders Pricing Gives You:",
     items: [
       {
         title: "Founding Member Recognition",
@@ -45,9 +45,9 @@ export const campaignOne = {
           "A premium reputation inside the directory, building more trust with consumers, creating more business opportunities, and positioning your company as a recognized Christian business committed to advancing Kingdom impact.",
       },
       {
-        title: "Locked-In Lifetime Pricing",
+        title: "Be a Founding Partner",
         body:
-          "20% discount locked in for life.",
+          "Join the first group of businesses helping launch Excellence Directory and grow a trusted Christian marketplace.",
       },
       {
         title: "Featured Placement",
@@ -57,7 +57,7 @@ export const campaignOne = {
       {
         title: "Official Social Media Business Introduction",
         body:
-          "Your business will be introduced on our official social media platforms as one of our Founding Member partners, giving you additional visibility and exposure to our growing Christian audience and community.",
+          "Your business will be introduced on our official social media platforms as one of our founding partners, giving you additional visibility and exposure to our growing Christian audience and community.",
       },
     ],
   },
@@ -69,7 +69,7 @@ export const campaignOne = {
       "In today's highly competitive marketplace, even the best products and services are struggling to gain visibility, and only businesses investing heavily in premium advertising manage to stand out. Many Christian-owned businesses are failing each year for this very reason.",
   },
   visibility: {
-    eyebrow: "Founding Member offer",
+    eyebrow: "Founders Pricing offer",
     heading: "There Is a Better Way to Be Seen",
     body:
       "Excellence Directory is a dedicated Christian business directory built to increase visibility for Christian business owners and connect them with customers who intentionally want to support Christian businesses.",
