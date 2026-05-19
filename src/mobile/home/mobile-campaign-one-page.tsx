@@ -73,19 +73,6 @@ export function MobileCampaignOnePage() {
         <CampaignOfferCta className={styles.campaignVisibilityCta} />
       </section>
 
-      <section className={styles.videoSection}>
-        <h2 className={`${styles.sectionTitle} ${styles.videoTitle}`}>{homeVideo.heading}</h2>
-        <YouTubeVideoPreview
-          analyticsSurface="mobile"
-          className={styles.videoShell}
-          title={homeVideo.title}
-          videoId={homeVideo.videoId}
-          startSeconds={homeVideo.startSeconds}
-          posterSrc={homeVideo.posterSrc}
-        />
-        <CampaignOfferCta className={styles.videoCta} />
-      </section>
-
       <section className={styles.credibilitySection}>
         <p className={styles.sectionKicker}>Supported by</p>
         <div className={styles.partnerGrid}>
@@ -107,6 +94,19 @@ export function MobileCampaignOnePage() {
             </a>
           ))}
         </div>
+      </section>
+
+      <section className={styles.videoSection}>
+        <h2 className={`${styles.sectionTitle} ${styles.videoTitle}`}>{homeVideo.heading}</h2>
+        <YouTubeVideoPreview
+          analyticsSurface="mobile"
+          className={styles.videoShell}
+          title={homeVideo.title}
+          videoId={homeVideo.videoId}
+          startSeconds={homeVideo.startSeconds}
+          posterSrc={homeVideo.posterSrc}
+        />
+        <CampaignOfferCta className={styles.videoCta} />
       </section>
     </main>
   );

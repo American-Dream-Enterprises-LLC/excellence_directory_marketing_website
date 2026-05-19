@@ -108,20 +108,6 @@ export function DesktopCampaignOnePage() {
         </div>
       </section>
 
-      <section className="home-video-section">
-        <div className="home-section-heading home-section-heading-centered">
-          <h2>{homeVideo.heading}</h2>
-        </div>
-        <YouTubeVideoPreview
-          analyticsSurface="desktop"
-          className="home-feature-video"
-          title={homeVideo.title}
-          videoId={homeVideo.videoId}
-          startSeconds={homeVideo.startSeconds}
-          posterSrc={homeVideo.posterSrc}
-        />
-      </section>
-
       <section className="home-credibility">
         <div className="credibility-supported-shell">
           <p className="credibility-supported-label">Supported by</p>
@@ -169,6 +155,20 @@ export function DesktopCampaignOnePage() {
             ))}
           </div>
         </div>
+      </section>
+
+      <section className="home-video-section">
+        <div className="home-section-heading home-section-heading-centered">
+          <h2>{homeVideo.heading}</h2>
+        </div>
+        <YouTubeVideoPreview
+          analyticsSurface="desktop"
+          className="home-feature-video"
+          title={homeVideo.title}
+          videoId={homeVideo.videoId}
+          startSeconds={homeVideo.startSeconds}
+          posterSrc={homeVideo.posterSrc}
+        />
       </section>
     </main>
   );
