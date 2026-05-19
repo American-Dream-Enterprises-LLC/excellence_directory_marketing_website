@@ -165,7 +165,7 @@ export function DesktopHomePage() {
         </div>
       </section>
 
-      <section className="home-team" aria-labelledby="home-team-heading">
+      <section id="team" className="home-team" aria-labelledby="home-team-heading">
         <div className="home-section-heading home-section-heading-centered">
           <h2 id="home-team-heading">Meet the team</h2>
         </div>
@@ -179,7 +179,9 @@ export function DesktopHomePage() {
                   : "home-team-card"
               }
             >
-              <img src={member.image} alt={member.name} loading="lazy" />
+              <div className="home-team-portrait">
+                <img src={member.image} alt={member.name} loading="lazy" />
+              </div>
               <h3>{member.name}</h3>
               <p>{member.role}</p>
             </article>

@@ -45,19 +45,19 @@ export const campaignOne = {
           "A premium reputation inside the directory, building more trust with consumers, creating more business opportunities, and positioning your company as a recognized Christian business committed to advancing Kingdom impact.",
       },
       {
-        title: "Be a Founding Partner",
+        title: "Get Early Exposure to Christian Consumers",
         body:
-          "Join the first group of businesses helping launch Excellence Directory and grow a trusted Christian marketplace.",
+          "Reach Christian consumers ahead of the official launch and establish your presence before the marketplace becomes more competitive.",
       },
       {
         title: "Featured Placement",
         body:
-          "This will give your business direct exposure to thousands of Christian consumers who are looking to support and intentionally hire Christian-owned businesses.",
+          "This will give your business direct exposure to countless Christian consumers who are looking to support and intentionally hire Christian-owned businesses. Even after the June 15th launch date, your business will continue to be featured, making it easier for you to connect with new Christian consumers who join the platform.",
       },
       {
         title: "Official Social Media Business Introduction",
         body:
-          "Your business will be introduced on our official social media platforms as one of our founding partners, giving you additional visibility and exposure to our growing Christian audience and community.",
+          "Your business will be introduced on our official social media platforms as one of our Founding Member partners, giving you additional visibility and exposure to our growing Christian audience and community.",
       },
     ],
   },

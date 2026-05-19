@@ -187,6 +187,20 @@
   font-size: clamp(2rem, 10.5vw, 3.15rem);
 }
 
+.campaignHeroPanel {
+  grid-template-columns: minmax(0, 1fr) minmax(5.45rem, 7.15rem);
+  gap: 1rem;
+  padding-right: 0.72rem;
+}
+
+.campaignHeroVisual {
+  transform: translateX(0.35rem);
+}
+
+.campaignHeroBody {
+  max-width: 11.45rem;
+}
+
 @keyframes foundersCtaBorderSweep {
   0%,
   100% {
@@ -288,6 +302,16 @@
   .heroPreview {
     width: min(6.7rem, 29vw);
   }
+
+  .campaignHeroPanel {
+    grid-template-columns: minmax(0, 1fr) 5.15rem;
+    gap: 0.74rem;
+    padding-right: 0.72rem;
+  }
+
+  .campaignHeroVisual {
+    transform: translateX(0.26rem);
+  }
 }
 
 .credibilitySection {
@@ -365,6 +389,7 @@
 }
 
 .teamCard {
+  position: relative;
   display: grid;
   justify-items: center;
   align-content: start;
@@ -372,7 +397,31 @@
   min-height: 100%;
   padding: 0.95rem 0.65rem 0.85rem;
   background: rgba(255, 255, 255, 0.94);
+  overflow: hidden;
   text-align: center;
+}
+
+.teamCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(circle at 18% 26%, rgba(255, 170, 235, 0.18), transparent 24%),
+    radial-gradient(circle, rgba(123, 93, 220, 0.13) 0 1px, transparent 1.5px);
+  background-size:
+    100% 100%,
+    7px 7px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+@media (hover: hover) {
+  .teamCard:hover::before {
+    animation: teamNoise 0.55s steps(3) infinite;
+    opacity: 1;
+  }
 }
 
 .teamCardFounder {
@@ -383,17 +432,68 @@
   );
 }
 
+.teamPortrait {
+  position: relative;
+  z-index: 2;
+  width: min(7.05rem, 31vw);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid rgba(147, 129, 255, 0.24);
+  background:
+    linear-gradient(135deg, rgba(255, 248, 252, 0.96), rgba(235, 231, 255, 0.96)),
+    #f7f1ff;
+  box-shadow:
+    0 12px 24px rgba(81, 56, 119, 0.12),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.58);
+  isolation: isolate;
+}
+
+.teamPortrait::before,
+.teamPortrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.teamPortrait::before {
+  z-index: 2;
+  background:
+    radial-gradient(circle, rgba(82, 61, 126, 0.22) 0 0.85px, transparent 1.25px),
+    linear-gradient(135deg, rgba(255, 170, 235, 0.18), rgba(147, 129, 255, 0.14));
+  background-size:
+    6px 6px,
+    100% 100%;
+  mix-blend-mode: multiply;
+  opacity: 0.42;
+}
+
+.teamPortrait::after {
+  z-index: 3;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 248, 252, 0.24) 0,
+      rgba(255, 248, 252, 0.24) 1px,
+      transparent 1px,
+      transparent 5px
+    );
+  opacity: 0.34;
+}
+
 .teamCard img {
   display: block;
-  width: min(6.9rem, 31vw);
-  aspect-ratio: 1;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: top center;
-  border: 1px solid rgba(147, 129, 255, 0.2);
-  box-shadow: 0 10px 22px rgba(147, 129, 255, 0.12);
+  filter: grayscale(0.18) contrast(1.08) saturate(0.86);
+  transform: scale(1.03);
 }
 
 .teamCard h3 {
+  position: relative;
+  z-index: 2;
   margin: 0.2rem 0 0;
   color: #231d3a;
   font-family: var(--font-heading), serif;
@@ -404,6 +504,8 @@
 }
 
 .teamCard p {
+  position: relative;
+  z-index: 2;
   margin: 0;
   color: #5a3f76;
   font-size: 0.62rem;
@@ -411,6 +513,32 @@
   letter-spacing: 0.1em;
   line-height: 1.2;
   text-transform: uppercase;
+}
+
+@keyframes teamNoise {
+  0% {
+    background-position:
+      0 0,
+      0 0;
+  }
+
+  33% {
+    background-position:
+      0 0,
+      18px 9px;
+  }
+
+  66% {
+    background-position:
+      0 0,
+      -12px 21px;
+  }
+
+  100% {
+    background-position:
+      0 0,
+      8px -16px;
+  }
 }
 
 .sectionTitle {

@@ -120,7 +120,7 @@ export function MobileHomePage() {
         </div>
       </section>
 
-      <section className={styles.teamSection} aria-labelledby="mobile-home-team-heading">
+      <section id="team" className={styles.teamSection} aria-labelledby="mobile-home-team-heading">
         <h2 id="mobile-home-team-heading" className={styles.sectionTitle}>
           Meet the team
         </h2>
@@ -132,7 +132,9 @@ export function MobileHomePage() {
                 member.role === "Founder" ? styles.teamCardFounder : ""
               }`.trim()}
             >
-              <img src={member.image} alt={member.name} loading="lazy" />
+              <div className={styles.teamPortrait}>
+                <img src={member.image} alt={member.name} loading="lazy" />
+              </div>
               <h3>{member.name}</h3>
               <p>{member.role}</p>
             </article>

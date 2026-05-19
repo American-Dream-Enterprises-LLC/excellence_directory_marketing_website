@@ -24,16 +24,18 @@ export function MobileCampaignOnePage() {
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
-        <div className={styles.heroPanel}>
+        <div className={`${styles.heroPanel} ${styles.campaignHeroPanel}`}>
           <div className={styles.heroCopy}>
             <CampaignOfferCta />
             <p className={styles.heroEyebrow}>{campaignOne.hero.badgeLine}</p>
             <h1 className={`${styles.heroTitle} ${styles.campaignHeroTitle}`}>
               {campaignOne.hero.heading}
             </h1>
-            <p className={styles.heroBody}>{campaignOne.hero.dek}</p>
+            <p className={`${styles.heroBody} ${styles.campaignHeroBody}`}>
+              {campaignOne.hero.dek}
+            </p>
           </div>
-          <div className={styles.heroVisual}>
+          <div className={`${styles.heroVisual} ${styles.campaignHeroVisual}`}>
             <DeviceMockup
               alt={campaignOne.hero.imageAlt}
               src="/design/mobile-onboarding-v2.png"
