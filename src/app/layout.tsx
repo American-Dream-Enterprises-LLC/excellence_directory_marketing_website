@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 
 import { JsonLd } from "@/components/json-ld";
 import { KeyboardPageScroll } from "@/components/keyboard-page-scroll";
+import { GoogleAnalytics } from "@/components/google-analytics";
 import { siteFrame } from "@/content/landing-page-data";
 import { getAbsoluteUrl, getSiteUrl, machinePaths } from "@/content/site-urls";
 import { SiteChrome } from "@/components/site-chrome";
@@ -19,6 +20,10 @@ const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-body",
 });
+
+const enableGoogleAnalytics =
+  process.env.NODE_ENV === "production" &&
+  (!process.env.VERCEL_ENV || process.env.VERCEL_ENV === "production");
 
 export const metadata: Metadata = {
   alternates: {
@@ -113,6 +118,7 @@ export default function RootLayout({
         />
         <KeyboardPageScroll />
         <SiteChrome>{children}</SiteChrome>
+        <GoogleAnalytics enabled={enableGoogleAnalytics} />
         <Analytics />
       </body>
     </html>

@@ -2433,7 +2433,9 @@ code {
 .home-credibility {
   display: grid;
   gap: 1.5rem;
-  margin: 0 calc(var(--page-gutter) * -1);
+  width: 100vw;
+  margin-right: calc(50% - 50vw);
+  margin-left: calc(50% - 50vw);
   padding: 2.4rem var(--page-gutter) 2.6rem;
   background:
     radial-gradient(circle at top right, rgba(255, 170, 235, 0.18), transparent 34%),
@@ -3321,6 +3323,8 @@ code {
 .credibility-supported-shell {
   display: grid;
   gap: 1rem;
+  width: min(1180px, 100%);
+  margin: 0 auto;
 }
 
 .credibility-supported-label {
