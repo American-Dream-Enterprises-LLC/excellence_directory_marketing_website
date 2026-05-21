@@ -1,46 +1,58 @@
 export type CredibilityPartner = {
   alt: string;
   height: number;
-  href: string;
+  href?: string;
   src: string;
   width: number;
 };
 
 export const credibilityPartners: CredibilityPartner[] = [
   {
-    alt: "Lion's Den",
-    height: 1308,
-    href: "https://www.thelionsden.us/",
-    src: "/partners/lions-den-white.png",
-    width: 1308,
-  },
-  {
-    alt: "The 700 Club",
-    height: 230,
-    href: "https://cbn.com/700club/",
-    src: "/partners/club700-white.png",
-    width: 319,
-  },
-  {
-    alt: "Christian Television Network",
-    height: 227,
-    href: "https://www.ctnonline.com/",
-    src: "/partners/ctn-white-v2.png",
-    width: 337,
+    alt: "Concerned Women for America",
+    height: 2738,
+    src: "/featured-organizations/concerned-women-for-america.png",
+    width: 2749,
   },
   {
     alt: "Faith Driven Entrepreneur",
-    height: 242,
-    href: "https://faithdrivenentrepreneur.org/",
-    src: "/partners/faith-driven-entrepreneur-white.png",
-    width: 437,
+    height: 4320,
+    src: "/featured-organizations/faith-driven-entrepreneur.png",
+    width: 7680,
   },
   {
-    alt: "FaithTech",
-    height: 118,
-    href: "https://faithtech.com/",
-    src: "/partners/faithtech-white.png",
-    width: 405,
+    alt: "Smith Creek Consulting",
+    height: 204,
+    src: "/featured-organizations/smith-creek-consulting.png",
+    width: 400,
+  },
+  {
+    alt: "The Lion's Den",
+    height: 359,
+    src: "/featured-organizations/lions-den.jpg",
+    width: 640,
+  },
+  {
+    alt: "Lore Design",
+    height: 440,
+    src: "/featured-organizations/lore-design.jpg",
+    width: 700,
+  },
+  {
+    alt: "Proverbs Payments",
+    height: 264,
+    src: "/featured-organizations/proverbs-payments.jpg",
+    width: 377,
+  },
+  {
+    alt: "Victory Assistants",
+    height: 500,
+    src: "/featured-organizations/victory-assistants.jpg",
+    width: 500,
+  },
+  {
+    alt: "My Christ Connection",
+    height: 307,
+    src: "/featured-organizations/my-christ-connection.jpg",
+    width: 750,
   },
 ];
-

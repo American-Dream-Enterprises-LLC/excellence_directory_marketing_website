@@ -38,6 +38,11 @@ export function MobileHomePage() {
               <span>Founders Pricing</span>
               <strong>Early access is open</strong>
             </a>
+            {launchWaitlistModal.secondaryCta ? (
+              <a href={launchWaitlistModal.secondaryCta.href} className={styles.waitlistLink}>
+                {launchWaitlistModal.secondaryCta.label}
+              </a>
+            ) : null}
             <h1 className={styles.heroTitle}>Find Christian businesses, jobs, events, and more.</h1>
             <p className={styles.heroBody}>{homePageCopy.leadStory.dek}</p>
             <div className={styles.platformRow} aria-label="Available on iOS and Android">
@@ -58,6 +63,39 @@ export function MobileHomePage() {
               className={styles.heroPreview}
             />
           </div>
+        </div>
+      </section>
+
+      <section className={styles.credibilitySection}>
+        <p className={styles.sectionKicker}>Featured organizations</p>
+        <div className={styles.partnerGrid}>
+          {credibilityPartners.map((partner) => {
+            const logo = (
+              <Image
+                src={partner.src}
+                alt={partner.alt}
+                width={partner.width}
+                height={partner.height}
+                className={styles.partnerImage}
+              />
+            );
+
+            return partner.href ? (
+              <a
+                key={partner.alt}
+                className={styles.partner}
+                href={partner.href}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                {logo}
+              </a>
+            ) : (
+              <div key={partner.alt} className={styles.partner}>
+                {logo}
+              </div>
+            );
+          })}
         </div>
       </section>
 
@@ -95,29 +133,6 @@ export function MobileHomePage() {
           className={styles.videoCta}
           ctaSource="mobile-video-start-selection"
         />
-      </section>
-
-      <section className={styles.credibilitySection}>
-        <p className={styles.sectionKicker}>Supported by</p>
-        <div className={styles.partnerGrid}>
-          {credibilityPartners.map((partner) => (
-            <a
-              key={partner.alt}
-              className={styles.partner}
-              href={partner.href}
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <Image
-                src={partner.src}
-                alt={partner.alt}
-                width={partner.width}
-                height={partner.height}
-                className={styles.partnerImage}
-              />
-            </a>
-          ))}
-        </div>
       </section>
 
       <section id="team" className={styles.teamSection} aria-labelledby="mobile-home-team-heading">

@@ -9,8 +9,8 @@ import { homeVideo } from "@/content/home-video";
 import { homeNewsMention } from "@/content/news-mentions";
 import { teamMembers } from "@/content/team-members";
 
-const credibilityPartnersTopRow = credibilityPartners.slice(0, 3);
-const credibilityPartnersBottomRow = credibilityPartners.slice(3);
+const credibilityPartnersTopRow = credibilityPartners.slice(0, 4);
+const credibilityPartnersBottomRow = credibilityPartners.slice(4);
 const rotatorProfiles = homePageCopy.personalization.profiles.filter(
   (profile) => profile.showInRotator !== false,
 );
@@ -36,6 +36,11 @@ export function DesktopHomePage() {
               <span>Founders Pricing</span>
               <strong>Early access is open</strong>
             </a>
+            {launchWaitlistModal.secondaryCta ? (
+              <a href={launchWaitlistModal.secondaryCta.href} className="home-hero-waitlist-link">
+                {launchWaitlistModal.secondaryCta.label}
+              </a>
+            ) : null}
             <p className="home-brand-label">{siteFrame.brand}</p>
             <h1>Find Christian businesses, jobs, events, and more.</h1>
             <p className="home-hero-body">{homePageCopy.leadStory.dek}</p>
@@ -53,6 +58,75 @@ export function DesktopHomePage() {
                 className="home-hero-phone home-hero-phone-front"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-credibility">
+        <div className="credibility-supported-shell">
+          <p className="credibility-supported-label">Featured organizations</p>
+          <div
+            className="credibility-partner-rail"
+            aria-label="Featured organizations"
+          >
+            {credibilityPartnersTopRow.map((partner) => {
+              const logo = (
+                <Image
+                  src={partner.src}
+                  alt={partner.alt}
+                  width={partner.width}
+                  height={partner.height}
+                  sizes="(min-width: 1080px) 16vw, (min-width: 768px) 28vw, 60vw"
+                  className="credibility-partner-logo"
+                />
+              );
+
+              return partner.href ? (
+                <a
+                  key={partner.alt}
+                  className="credibility-partner-mark"
+                  href={partner.href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  {logo}
+                </a>
+              ) : (
+                <div key={partner.alt} className="credibility-partner-mark">
+                  {logo}
+                </div>
+              );
+            })}
+          </div>
+          <div className="credibility-partner-rail credibility-partner-rail-secondary">
+            {credibilityPartnersBottomRow.map((partner) => {
+              const logo = (
+                <Image
+                  src={partner.src}
+                  alt={partner.alt}
+                  width={partner.width}
+                  height={partner.height}
+                  sizes="(min-width: 1080px) 18vw, (min-width: 768px) 28vw, 60vw"
+                  className="credibility-partner-logo"
+                />
+              );
+
+              return partner.href ? (
+                <a
+                  key={partner.alt}
+                  className="credibility-partner-mark"
+                  href={partner.href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  {logo}
+                </a>
+              ) : (
+                <div key={partner.alt} className="credibility-partner-mark">
+                  {logo}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -114,55 +188,6 @@ export function DesktopHomePage() {
           startSeconds={homeVideo.startSeconds}
           posterSrc={homeVideo.posterSrc}
         />
-      </section>
-
-      <section className="home-credibility">
-        <div className="credibility-supported-shell">
-          <p className="credibility-supported-label">Supported by</p>
-          <div
-            className="credibility-partner-rail"
-            aria-label="Organizations shown on the live Excellence Directory site"
-          >
-            {credibilityPartnersTopRow.map((partner) => (
-              <a
-                key={partner.alt}
-                className="credibility-partner-mark"
-                href={partner.href}
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                <Image
-                  src={partner.src}
-                  alt={partner.alt}
-                  width={partner.width}
-                  height={partner.height}
-                  sizes="(min-width: 1080px) 16vw, (min-width: 768px) 28vw, 60vw"
-                  className="credibility-partner-logo"
-                />
-              </a>
-            ))}
-          </div>
-          <div className="credibility-partner-rail credibility-partner-rail-secondary">
-            {credibilityPartnersBottomRow.map((partner) => (
-              <a
-                key={partner.alt}
-                className="credibility-partner-mark"
-                href={partner.href}
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                <Image
-                  src={partner.src}
-                  alt={partner.alt}
-                  width={partner.width}
-                  height={partner.height}
-                  sizes="(min-width: 1080px) 18vw, (min-width: 768px) 28vw, 60vw"
-                  className="credibility-partner-logo"
-                />
-              </a>
-            ))}
-          </div>
-        </div>
       </section>
 
       <section id="team" className="home-team" aria-labelledby="home-team-heading">

@@ -7,8 +7,8 @@ import { credibilityPartners } from "@/content/credibility-partners";
 import { homeVideo } from "@/content/home-video";
 import { siteFrame } from "@/content/landing-page-data";
 
-const credibilityPartnersTopRow = credibilityPartners.slice(0, 3);
-const credibilityPartnersBottomRow = credibilityPartners.slice(3);
+const credibilityPartnersTopRow = credibilityPartners.slice(0, 4);
+const credibilityPartnersBottomRow = credibilityPartners.slice(4);
 
 function CampaignOfferCta({ className = "" }: { className?: string }) {
   return (
@@ -61,6 +61,43 @@ export function DesktopCampaignOnePage() {
         </div>
       </section>
 
+      <section className="home-credibility">
+        <div className="credibility-supported-shell">
+          <p className="credibility-supported-label">Featured organizations</p>
+          <div
+            className="credibility-partner-rail"
+            aria-label="Featured organizations"
+          >
+            {credibilityPartnersTopRow.map((partner) => (
+              <div key={partner.alt} className="credibility-partner-mark">
+                <Image
+                  src={partner.src}
+                  alt={partner.alt}
+                  width={partner.width}
+                  height={partner.height}
+                  sizes="(min-width: 1080px) 16vw, (min-width: 768px) 28vw, 60vw"
+                  className="credibility-partner-logo"
+                />
+              </div>
+            ))}
+          </div>
+          <div className="credibility-partner-rail credibility-partner-rail-secondary">
+            {credibilityPartnersBottomRow.map((partner) => (
+              <div key={partner.alt} className="credibility-partner-mark">
+                <Image
+                  src={partner.src}
+                  alt={partner.alt}
+                  width={partner.width}
+                  height={partner.height}
+                  sizes="(min-width: 1080px) 18vw, (min-width: 768px) 28vw, 60vw"
+                  className="credibility-partner-logo"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="home-proof-band campaign-one-benefits">
         <div className="home-proof-copy home-reveal">
           <p className="section-kicker">{siteFrame.brand}</p>
@@ -105,55 +142,6 @@ export function DesktopCampaignOnePage() {
           <h2>{campaignOne.visibility.heading}</h2>
           <span>{campaignOne.visibility.body}</span>
           <CampaignOfferCta className="campaign-one-visibility-cta" />
-        </div>
-      </section>
-
-      <section className="home-credibility">
-        <div className="credibility-supported-shell">
-          <p className="credibility-supported-label">Supported by</p>
-          <div
-            className="credibility-partner-rail"
-            aria-label="Organizations shown on the live Excellence Directory site"
-          >
-            {credibilityPartnersTopRow.map((partner) => (
-              <a
-                key={partner.alt}
-                className="credibility-partner-mark"
-                href={partner.href}
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                <Image
-                  src={partner.src}
-                  alt={partner.alt}
-                  width={partner.width}
-                  height={partner.height}
-                  sizes="(min-width: 1080px) 16vw, (min-width: 768px) 28vw, 60vw"
-                  className="credibility-partner-logo"
-                />
-              </a>
-            ))}
-          </div>
-          <div className="credibility-partner-rail credibility-partner-rail-secondary">
-            {credibilityPartnersBottomRow.map((partner) => (
-              <a
-                key={partner.alt}
-                className="credibility-partner-mark"
-                href={partner.href}
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                <Image
-                  src={partner.src}
-                  alt={partner.alt}
-                  width={partner.width}
-                  height={partner.height}
-                  sizes="(min-width: 1080px) 18vw, (min-width: 768px) 28vw, 60vw"
-                  className="credibility-partner-logo"
-                />
-              </a>
-            ))}
-          </div>
         </div>
       </section>
 

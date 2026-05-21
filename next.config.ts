@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
         pathname: "/design/**",
       },
       {
+        pathname: "/featured-organizations/**",
+      },
+      {
         pathname: "/partners/**",
       },
       {

@@ -45,6 +45,23 @@ export function MobileCampaignOnePage() {
         </div>
       </section>
 
+      <section className={styles.credibilitySection}>
+        <p className={styles.sectionKicker}>Featured organizations</p>
+        <div className={styles.partnerGrid}>
+          {credibilityPartners.map((partner) => (
+            <div key={partner.alt} className={styles.partner}>
+              <Image
+                src={partner.src}
+                alt={partner.alt}
+                width={partner.width}
+                height={partner.height}
+                className={styles.partnerImage}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className={styles.campaignBenefits}>
         <p className={styles.newsKicker}>Excellence Directory</p>
         <h2 className={styles.sectionTitle}>{campaignOne.foundingBenefits.heading}</h2>
@@ -71,29 +88,6 @@ export function MobileCampaignOnePage() {
         <h2 className={styles.sectionTitle}>{campaignOne.visibility.heading}</h2>
         <p>{campaignOne.visibility.body}</p>
         <CampaignOfferCta className={styles.campaignVisibilityCta} />
-      </section>
-
-      <section className={styles.credibilitySection}>
-        <p className={styles.sectionKicker}>Supported by</p>
-        <div className={styles.partnerGrid}>
-          {credibilityPartners.map((partner) => (
-            <a
-              key={partner.alt}
-              className={styles.partner}
-              href={partner.href}
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <Image
-                src={partner.src}
-                alt={partner.alt}
-                width={partner.width}
-                height={partner.height}
-                className={styles.partnerImage}
-              />
-            </a>
-          ))}
-        </div>
       </section>
 
       <section className={styles.videoSection}>
