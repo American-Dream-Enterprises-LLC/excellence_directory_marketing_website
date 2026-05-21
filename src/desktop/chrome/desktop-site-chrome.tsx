@@ -25,6 +25,9 @@ export function DesktopSiteChrome({ children }: DesktopSiteChromeProps) {
             <Image src={logo} alt={siteFrame.brand} className="brand-logo-image" priority />
           </Link>
           <nav className="site-header-nav" aria-label="Primary">
+            <Link href="/" className="site-header-nav-link">
+              Home
+            </Link>
             <Link href="/blogs" className="site-header-nav-link">
               Blog
             </Link>

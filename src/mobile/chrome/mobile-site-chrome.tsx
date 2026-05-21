@@ -69,6 +69,9 @@ export function MobileSiteChrome({ children }: MobileSiteChromeProps) {
             <Image src={logo} alt={siteFrame.brand} className={styles.brandImage} priority />
           </Link>
           <nav className={styles.nav} aria-label="Primary">
+            <Link href="/" className={styles.navLink}>
+              Home
+            </Link>
             <Link href="/blogs" className={styles.navLink}>
               Blog
             </Link>
