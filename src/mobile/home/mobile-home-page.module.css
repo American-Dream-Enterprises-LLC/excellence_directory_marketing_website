@@ -424,14 +424,6 @@
   }
 }
 
-.teamCardFounder {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 248, 252, 0.98),
-    rgba(241, 238, 255, 0.82)
-  );
-}
-
 .teamPortrait {
   position: relative;
   z-index: 2;

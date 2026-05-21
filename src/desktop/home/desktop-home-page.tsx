@@ -171,14 +171,7 @@ export function DesktopHomePage() {
         </div>
         <div className="home-team-grid">
           {teamMembers.map((member) => (
-            <article
-              key={member.name}
-              className={
-                member.role === "Founder"
-                  ? "home-team-card home-team-card-founder"
-                  : "home-team-card"
-              }
-            >
+            <article key={member.name} className="home-team-card">
               <div className="home-team-portrait">
                 <img src={member.image} alt={member.name} loading="lazy" />
               </div>

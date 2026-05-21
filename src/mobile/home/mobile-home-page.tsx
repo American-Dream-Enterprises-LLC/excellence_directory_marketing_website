@@ -126,12 +126,7 @@ export function MobileHomePage() {
         </h2>
         <div className={styles.teamGrid}>
           {teamMembers.map((member) => (
-            <article
-              key={member.name}
-              className={`${styles.teamCard} ${
-                member.role === "Founder" ? styles.teamCardFounder : ""
-              }`.trim()}
-            >
+            <article key={member.name} className={styles.teamCard}>
               <div className={styles.teamPortrait}>
                 <img src={member.image} alt={member.name} loading="lazy" />
               </div>

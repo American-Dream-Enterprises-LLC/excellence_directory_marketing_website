@@ -2500,14 +2500,6 @@ code {
   opacity: 1;
 }
 
-.home-team-card-founder {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 248, 252, 0.98),
-    rgba(241, 238, 255, 0.78)
-  );
-}
-
 .home-team-portrait {
   position: relative;
   z-index: 2;
