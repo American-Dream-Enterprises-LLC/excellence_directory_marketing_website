@@ -155,6 +155,20 @@ export function DesktopHomePage() {
         </div>
       </section>
 
+      <section className="home-video-section">
+        <div className="home-section-heading home-section-heading-centered">
+          <h2>{homeVideo.heading}</h2>
+        </div>
+        <YouTubeVideoPreview
+          analyticsSurface="desktop"
+          className="home-feature-video"
+          title={homeVideo.title}
+          videoId={homeVideo.videoId}
+          startSeconds={homeVideo.startSeconds}
+          posterSrc={homeVideo.posterSrc}
+        />
+      </section>
+
       <section className="home-news-section" aria-labelledby="home-news-heading">
         <div className="home-news-inner">
           <p className="home-news-kicker">In the news</p>
@@ -174,20 +188,6 @@ export function DesktopHomePage() {
             {homeNewsMention.ctaLabel}
           </a>
         </div>
-      </section>
-
-      <section className="home-video-section">
-        <div className="home-section-heading home-section-heading-centered">
-          <h2>{homeVideo.heading}</h2>
-        </div>
-        <YouTubeVideoPreview
-          analyticsSurface="desktop"
-          className="home-feature-video"
-          title={homeVideo.title}
-          videoId={homeVideo.videoId}
-          startSeconds={homeVideo.startSeconds}
-          posterSrc={homeVideo.posterSrc}
-        />
       </section>
 
       <section id="team" className="home-team" aria-labelledby="home-team-heading">

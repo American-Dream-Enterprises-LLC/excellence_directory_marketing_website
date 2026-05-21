@@ -110,6 +110,23 @@ export function MobileHomePage() {
         </div>
       </section>
 
+      <section className={styles.videoSection}>
+        <h2 className={`${styles.sectionTitle} ${styles.videoTitle}`}>{homeVideo.heading}</h2>
+        <YouTubeVideoPreview
+          analyticsSurface="mobile"
+          className={styles.videoShell}
+          title={homeVideo.title}
+          videoId={homeVideo.videoId}
+          startSeconds={homeVideo.startSeconds}
+          posterSrc={homeVideo.posterSrc}
+        />
+        <MobileGetStartedModal
+          personalization={homePageCopy.personalization}
+          className={styles.videoCta}
+          ctaSource="mobile-video-start-selection"
+        />
+      </section>
+
       <section className={styles.newsSection} aria-labelledby="mobile-home-news-heading">
         <p className={styles.newsKicker}>In the news</p>
         <p className={styles.newsSource}>
@@ -127,23 +144,6 @@ export function MobileHomePage() {
         >
           {homeNewsMention.ctaLabel}
         </a>
-      </section>
-
-      <section className={styles.videoSection}>
-        <h2 className={`${styles.sectionTitle} ${styles.videoTitle}`}>{homeVideo.heading}</h2>
-        <YouTubeVideoPreview
-          analyticsSurface="mobile"
-          className={styles.videoShell}
-          title={homeVideo.title}
-          videoId={homeVideo.videoId}
-          startSeconds={homeVideo.startSeconds}
-          posterSrc={homeVideo.posterSrc}
-        />
-        <MobileGetStartedModal
-          personalization={homePageCopy.personalization}
-          className={styles.videoCta}
-          ctaSource="mobile-video-start-selection"
-        />
       </section>
 
       <section id="team" className={styles.teamSection} aria-labelledby="mobile-home-team-heading">

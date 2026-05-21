@@ -1,7 +1,6 @@
 export const teamMembers = [
   {
-    image:
-      "https://excellencedirectory.com/wp-content/uploads/2026/04/Gemini_Generated_Image_8ut6718ut6718ut6.png",
+    image: "/team/geeta-chopra-headshot-2026-05.jpg",
     name: "Geeta Chopra, MA",
     role: "Founder",
   },
