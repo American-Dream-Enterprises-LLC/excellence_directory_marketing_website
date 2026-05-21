@@ -62,6 +62,30 @@ export function DesktopHomePage() {
         </div>
       </section>
 
+      <section className="home-proof-band">
+        <div className="home-proof-copy home-reveal">
+          <h2>A Christian directory where faith, trust, and opportunity come together.</h2>
+          <ul className="home-proof-list">
+            <li>Find Christian businesses, churches, jobs, and events you can trust.</li>
+            <li>Help your organization get discovered by the right Christian audience.</li>
+            <li>Keep biblical values visible, practical, and easy to recognize.</li>
+          </ul>
+        </div>
+        <div className="home-proof-visuals">
+          <DeviceMockup
+            alt="Excellence Directory jobs feed view"
+            src="/design/jobs-feed.png"
+            type="browser"
+            className="home-proof-desktop home-reveal-delayed"
+          />
+          <DeviceMockup
+            alt="Excellence Directory mobile sign-in screen"
+            src="/design/mobile-signin.png"
+            className="home-proof-mobile home-reveal-late"
+          />
+        </div>
+      </section>
+
       <section className="home-credibility">
         <div className="credibility-supported-shell">
           <p className="credibility-supported-label">Featured organizations</p>
@@ -128,30 +152,6 @@ export function DesktopHomePage() {
               );
             })}
           </div>
-        </div>
-      </section>
-
-      <section className="home-proof-band">
-        <div className="home-proof-copy home-reveal">
-          <h2>A Christian directory where faith, trust, and opportunity come together.</h2>
-          <ul className="home-proof-list">
-            <li>Find Christian businesses, churches, jobs, and events you can trust.</li>
-            <li>Help your organization get discovered by the right Christian audience.</li>
-            <li>Keep biblical values visible, practical, and easy to recognize.</li>
-          </ul>
-        </div>
-        <div className="home-proof-visuals">
-          <DeviceMockup
-            alt="Excellence Directory jobs feed view"
-            src="/design/jobs-feed.png"
-            type="browser"
-            className="home-proof-desktop home-reveal-delayed"
-          />
-          <DeviceMockup
-            alt="Excellence Directory mobile sign-in screen"
-            src="/design/mobile-signin.png"
-            className="home-proof-mobile home-reveal-late"
-          />
         </div>
       </section>
 

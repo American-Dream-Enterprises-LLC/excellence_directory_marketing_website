@@ -2462,9 +2462,12 @@ code {
   margin-right: calc(50% - 50vw);
   margin-left: calc(50% - 50vw);
   padding: 2.4rem var(--page-gutter) 2.6rem;
+  border-block: 1px solid rgba(202, 156, 106, 0.18);
   background:
-    radial-gradient(circle at top right, rgba(255, 170, 235, 0.18), transparent 34%),
-    linear-gradient(135deg, #8477ff 0%, #9381ff 58%, #b790f6 100%);
+    radial-gradient(circle at top left, rgba(202, 156, 106, 0.14), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(102, 167, 151, 0.12), transparent 38%),
+    linear-gradient(135deg, #fffaf2 0%, #f5fbff 56%, #f8fff9 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78);
 }
 
 .home-team {
@@ -3353,7 +3356,7 @@ code {
 
 .credibility-supported-label {
   margin: 0;
-  color: rgba(255, 245, 252, 0.82);
+  color: rgba(42, 39, 64, 0.68);
   font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -3569,6 +3572,11 @@ code {
     min-height: 26rem;
   }
 
+  .home-proof-copy,
+  .campaign-one-benefits .home-proof-copy {
+    width: min(100%, 34rem);
+  }
+
   .home-hero-overlay {
     grid-template-columns: 1fr 1fr;
   }
@@ -3664,6 +3672,10 @@ code {
   .home-hero-content h1,
   .subscription-hero-copy h1 {
     font-size: clamp(2.2rem, 12vw, 3.5rem);
+  }
+
+  .home-proof-band {
+    padding-inline: var(--page-gutter);
   }
 
   .home-proof-visuals {

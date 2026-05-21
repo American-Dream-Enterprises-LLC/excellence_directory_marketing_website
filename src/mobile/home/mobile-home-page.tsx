@@ -66,6 +66,17 @@ export function MobileHomePage() {
         </div>
       </section>
 
+      <section className={styles.proofSection}>
+        <h2 className={styles.sectionTitle}>
+          A Christian directory where faith, trust, and opportunity come together.
+        </h2>
+        <ul className={styles.proofList}>
+          <li>Find Christian businesses, churches, jobs, and events you can trust.</li>
+          <li>Help your organization get discovered by the right Christian audience.</li>
+          <li>Keep biblical values visible, practical, and easy to recognize.</li>
+        </ul>
+      </section>
+
       <section className={styles.credibilitySection}>
         <p className={styles.sectionKicker}>Featured organizations</p>
         <div className={styles.partnerGrid}>
