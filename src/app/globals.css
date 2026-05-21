@@ -1813,7 +1813,7 @@ code {
 .site-masthead {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.95rem;
   padding: 0.72rem 0 0.66rem;
 }
@@ -1853,6 +1853,7 @@ code {
   display: inline-flex;
   align-items: center;
   gap: 0.24rem;
+  margin-left: auto;
   padding: 0.28rem;
   border: 1px solid rgba(147, 129, 255, 0.16);
   border-radius: 999px;
@@ -3688,8 +3689,9 @@ code {
 
   .site-header-nav {
     order: 3;
+    margin-left: auto;
     width: min(100%, 18rem);
-    justify-content: center;
+    justify-content: flex-end;
   }
 
   .home-page {
