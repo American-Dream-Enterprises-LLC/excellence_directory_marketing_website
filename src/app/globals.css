@@ -1887,7 +1887,7 @@ code {
     box-shadow 160ms ease;
 }
 
-.site-header-nav-link-promotions {
+.site-header-nav-link-active {
   background: #2a2740;
   color: #fff8f2;
   box-shadow: 0 10px 20px rgba(42, 39, 64, 0.14);
@@ -1900,8 +1900,8 @@ code {
   transform: translateY(-1px);
 }
 
-.site-header-nav-link-promotions:hover,
-.site-header-nav-link-promotions:focus-visible {
+.site-header-nav-link-active:hover,
+.site-header-nav-link-active:focus-visible {
   background: #171424;
   color: #fff8f2;
 }

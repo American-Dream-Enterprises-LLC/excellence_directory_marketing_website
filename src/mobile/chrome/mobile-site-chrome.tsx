@@ -20,6 +20,18 @@ type MobileSiteChromeProps = {
   children: React.ReactNode;
 };
 
+const navItems = [
+  { href: "/", label: "Home", matches: ["/"] },
+  { href: "/blogs", label: "Blog", matches: ["/blog", "/blogs", "/articles"] },
+  { href: "/promotions", label: "Promotions", matches: ["/promotions"] },
+] as const;
+
+function isNavItemActive(pathname: string, matches: readonly string[]) {
+  return matches.some(
+    (match) => pathname === match || (match !== "/" && pathname.startsWith(`${match}/`)),
+  );
+}
+
 export function MobileSiteChrome({ children }: MobileSiteChromeProps) {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const lastScrollYRef = useRef(0);
@@ -69,15 +81,20 @@ export function MobileSiteChrome({ children }: MobileSiteChromeProps) {
             <Image src={logo} alt={siteFrame.brand} className={styles.brandImage} priority />
           </Link>
           <nav className={styles.nav} aria-label="Primary">
-            <Link href="/" className={styles.navLink}>
-              Home
-            </Link>
-            <Link href="/blogs" className={styles.navLink}>
-              Blog
-            </Link>
-            <Link href="/promotions" className={`${styles.navLink} ${styles.navLinkPromotions}`}>
-              Promotions
-            </Link>
+            {navItems.map((item) => {
+              const isActive = isNavItemActive(pathname, item.matches);
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`${styles.navLink}${isActive ? ` ${styles.navLinkActive}` : ""}`}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
           <div className={styles.actions}>
             {isCampaignOne ? (

@@ -10,6 +10,7 @@ import { LaunchWaitlistModal } from "@/components/launch-waitlist-modal";
 import { PartnershipFooterCta } from "@/components/partnership-footer-cta";
 import { homePageCopy, launchWaitlistModal, siteFrame } from "@/content/landing-page-data";
 
+import { DesktopHeaderNav } from "./desktop-header-nav";
 import { DesktopPersonalizationModalController } from "./desktop-personalization-modal-controller";
 
 type DesktopSiteChromeProps = {
@@ -24,20 +25,7 @@ export function DesktopSiteChrome({ children }: DesktopSiteChromeProps) {
           <Link href="/" className="brand-lockup brand-lockup-left brand-lockup-header">
             <Image src={logo} alt={siteFrame.brand} className="brand-logo-image" priority />
           </Link>
-          <nav className="site-header-nav" aria-label="Primary">
-            <Link href="/" className="site-header-nav-link">
-              Home
-            </Link>
-            <Link href="/blogs" className="site-header-nav-link">
-              Blog
-            </Link>
-            <Link
-              href="/promotions"
-              className="site-header-nav-link site-header-nav-link-promotions"
-            >
-              Promotions
-            </Link>
-          </nav>
+          <DesktopHeaderNav />
           <span className="site-header-divider" aria-hidden="true" />
           <div className="site-header-actions">
             <a
