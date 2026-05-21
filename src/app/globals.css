@@ -2046,7 +2046,7 @@ code {
   width: min(23.4vw, 15.3rem);
   aspect-ratio: 1 / 1.34;
   pointer-events: none;
-  transform: translateY(-2.35rem);
+  transform: translateY(-2.6rem);
 }
 
 .home-brand-label,
