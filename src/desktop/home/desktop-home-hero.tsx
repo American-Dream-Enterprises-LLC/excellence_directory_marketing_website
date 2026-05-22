@@ -55,7 +55,7 @@ export const desktopHomeHeroLayout = {
   heightScale: 1.04,
   maxHeight: "70svh",
   innerPaddingTop: "5%",
-  innerPaddingBottom: "8%",
+  innerPaddingBottom: "calc(8% + 10px)",
   contentMaxHeightPx: 400,
   contentScale: 0.88,
   deviceMaxHeightPx: 400,
