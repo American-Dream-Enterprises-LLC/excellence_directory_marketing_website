@@ -9,6 +9,8 @@ import { homeVideo } from "@/content/home-video";
 import { homeNewsMention } from "@/content/news-mentions";
 import { teamMembers } from "@/content/team-members";
 
+import { DesktopHomeHero } from "./desktop-home-hero";
+
 const credibilityPartnersTopRow = credibilityPartners.slice(0, 4);
 const credibilityPartnersBottomRow = credibilityPartners.slice(4);
 const rotatorProfiles = homePageCopy.personalization.profiles.filter(
@@ -18,49 +20,20 @@ const rotatorProfiles = homePageCopy.personalization.profiles.filter(
 export function DesktopHomePage() {
   return (
     <main className="home-page">
-      <section className="home-hero">
-        <div className="home-hero-visual">
-          <Image
-            src="/design/hero-atmosphere.png"
-            alt="Atmospheric city backdrop for Excellence Directory"
-            fill
-            priority
-            sizes="100vw"
-            className="home-hero-image"
-          />
-          <div className="home-hero-scrim" />
-        </div>
-        <div className="home-hero-overlay">
-          <div className="home-hero-content home-reveal">
-            <a href={launchWaitlistModal.primaryCta.href} className="home-founders-cta">
-              <span>Founders Pricing</span>
-              <strong>Early access is open</strong>
-            </a>
-            {launchWaitlistModal.secondaryCta ? (
-              <a href={launchWaitlistModal.secondaryCta.href} className="home-hero-waitlist-link">
-                {launchWaitlistModal.secondaryCta.label}
-              </a>
-            ) : null}
-            <p className="home-brand-label">{siteFrame.brand}</p>
-            <h1>Find Christian businesses, jobs, events, and more.</h1>
-            <p className="home-hero-body">{homePageCopy.leadStory.dek}</p>
-          </div>
-          <div className="home-hero-device-column" aria-hidden="true">
-            <div className="home-hero-device-cluster">
-              <DeviceMockup
-                alt="Excellence Directory sign in screen"
-                src="/design/mobile-signin.png"
-                className="home-hero-phone home-hero-phone-back"
-              />
-              <DeviceMockup
-                alt="Excellence Directory onboarding screen"
-                src="/design/mobile-onboarding-v2.png"
-                className="home-hero-phone home-hero-phone-front"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <DesktopHomeHero frontImageAlt="Excellence Directory onboarding screen">
+        <a href={launchWaitlistModal.primaryCta.href} className="home-founders-cta">
+          <span>Founders Pricing</span>
+          <strong>Early access is open</strong>
+        </a>
+        {launchWaitlistModal.secondaryCta ? (
+          <a href={launchWaitlistModal.secondaryCta.href} className="home-hero-waitlist-link">
+            {launchWaitlistModal.secondaryCta.label}
+          </a>
+        ) : null}
+        <p className="home-brand-label">{siteFrame.brand}</p>
+        <h1 className="home-hero-title-home">Find Christian businesses, jobs, events, and more.</h1>
+        <p className="home-hero-body">{homePageCopy.leadStory.dek}</p>
+      </DesktopHomeHero>
 
       <section className="home-proof-band">
         <div className="home-proof-copy home-reveal">

@@ -7,6 +7,8 @@ import { credibilityPartners } from "@/content/credibility-partners";
 import { homeVideo } from "@/content/home-video";
 import { siteFrame } from "@/content/landing-page-data";
 
+import { DesktopHomeHero } from "./desktop-home-hero";
+
 const credibilityPartnersTopRow = credibilityPartners.slice(0, 4);
 const credibilityPartnersBottomRow = credibilityPartners.slice(4);
 
@@ -25,41 +27,12 @@ function CampaignOfferCta({ className = "" }: { className?: string }) {
 export function DesktopCampaignOnePage() {
   return (
     <main className="home-page campaign-one-page">
-      <section className="home-hero">
-        <div className="home-hero-visual">
-          <Image
-            src="/design/hero-atmosphere.png"
-            alt="Atmospheric city backdrop for Excellence Directory"
-            fill
-            priority
-            sizes="100vw"
-            className="home-hero-image"
-          />
-          <div className="home-hero-scrim" />
-        </div>
-        <div className="home-hero-overlay">
-          <div className="home-hero-content home-reveal">
-            <CampaignOfferCta />
-            <p className="home-brand-label">{campaignOne.hero.badgeLine}</p>
-            <h1>{campaignOne.hero.heading}</h1>
-            <p className="home-hero-body">{campaignOne.hero.dek}</p>
-          </div>
-          <div className="home-hero-device-column" aria-hidden="true">
-            <div className="home-hero-device-cluster">
-              <DeviceMockup
-                alt="Excellence Directory sign in screen"
-                src="/design/mobile-signin.png"
-                className="home-hero-phone home-hero-phone-back"
-              />
-              <DeviceMockup
-                alt={campaignOne.hero.imageAlt}
-                src="/design/mobile-onboarding-v2.png"
-                className="home-hero-phone home-hero-phone-front"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <DesktopHomeHero frontImageAlt={campaignOne.hero.imageAlt}>
+        <CampaignOfferCta />
+        <p className="home-brand-label">{campaignOne.hero.badgeLine}</p>
+        <h1>{campaignOne.hero.heading}</h1>
+        <p className="home-hero-body">{campaignOne.hero.dek}</p>
+      </DesktopHomeHero>
 
       <section className="home-credibility">
         <div className="credibility-supported-shell">
