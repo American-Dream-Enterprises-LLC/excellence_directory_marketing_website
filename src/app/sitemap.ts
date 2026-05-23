@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { brandBlogPosts } from "@/content/brand-blog";
+import { campaignOnePath } from "@/content/campaign-one";
 import { deskNavigation, landingPageVariants } from "@/content/landing-page-data";
 import { publicSurface } from "@/content/public-surface";
 import {
@@ -35,6 +36,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: getAbsoluteUrl("/"),
       changeFrequency: "weekly",
       priority: 1,
+    },
+    {
+      url: getAbsoluteUrl(campaignOnePath),
+      changeFrequency: "weekly",
+      priority: 0.92,
     },
     {
       url: getAbsoluteUrl(machinePaths.copyJson),
