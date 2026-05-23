@@ -16,6 +16,7 @@ import {
   siteFrame,
   type LandingPageVariant,
 } from "@/content/landing-page-data";
+import { publicSurface } from "@/content/public-surface";
 import {
   getAbsoluteUrl,
   getArticleJsonPath,
@@ -105,22 +106,26 @@ function buildBrandBlogSummary(post: (typeof brandBlogPosts)[number]) {
 }
 
 export function buildPublicCopyPayload() {
+  const machineEndpoints = {
+    articleArchive: getAbsoluteUrl(machinePaths.articleArchive),
+    articleIndex: getAbsoluteUrl(machinePaths.articleIndex),
+    copyJson: getAbsoluteUrl(machinePaths.copyJson),
+    llms: getAbsoluteUrl(machinePaths.llms),
+    rss: getAbsoluteUrl(machinePaths.rss),
+    search: getAbsoluteUrl(machinePaths.search),
+    sitemap: getAbsoluteUrl(machinePaths.sitemap),
+    ...(publicSurface.showBrandBlogLinks
+      ? { brandBlogArchive: getAbsoluteUrl(machinePaths.brandBlogArchive) }
+      : {}),
+  };
+
   return {
     schemaVersion: rawSiteCopy.schemaVersion,
     updatedAt: copyUpdatedAt,
     note: rawSiteCopy.note,
     sourceOfTruth: "projects/seo/copy.json",
     canonicalSiteUrl: getSiteUrl(),
-    machineEndpoints: {
-      articleArchive: getAbsoluteUrl(machinePaths.articleArchive),
-      articleIndex: getAbsoluteUrl(machinePaths.articleIndex),
-      brandBlogArchive: getAbsoluteUrl(machinePaths.brandBlogArchive),
-      copyJson: getAbsoluteUrl(machinePaths.copyJson),
-      llms: getAbsoluteUrl(machinePaths.llms),
-      rss: getAbsoluteUrl(machinePaths.rss),
-      search: getAbsoluteUrl(machinePaths.search),
-      sitemap: getAbsoluteUrl(machinePaths.sitemap),
-    },
+    machineEndpoints,
     siteFrame,
     homePage: rawSiteCopy.homePage,
     desks: deskNavigation.desks.map((desk) => ({
@@ -135,10 +140,12 @@ export function buildPublicCopyPayload() {
       articles: desk.variants.map((variant) => buildArticleSummary(variant)),
     })),
     articles: landingPageVariants.map((variant) => buildArticleRecord(variant)),
-    brandBlogs: brandBlogPosts.map((post) => ({
-      ...buildBrandBlogSummary(post),
-      blocks: post.blocks,
-    })),
+    brandBlogs: publicSurface.showBrandBlogLinks
+      ? brandBlogPosts.map((post) => ({
+          ...buildBrandBlogSummary(post),
+          blocks: post.blocks,
+        }))
+      : [],
   };
 }
 
@@ -187,7 +194,9 @@ export function buildLlmsText() {
     "## Canonical URLs",
     `- Home: ${getAbsoluteUrl("/")}`,
     `- Why Excellence archive: ${getAbsoluteUrl(machinePaths.articleArchive)}`,
-    `- Blog: ${getAbsoluteUrl(machinePaths.brandBlogArchive)}`,
+    ...(publicSurface.showBrandBlogLinks
+      ? [`- Blog: ${getAbsoluteUrl(machinePaths.brandBlogArchive)}`]
+      : []),
     `- Search: ${getAbsoluteUrl(machinePaths.search)}`,
     `- LLMs: ${getAbsoluteUrl(machinePaths.llms)}`,
     `- RSS: ${getAbsoluteUrl(machinePaths.rss)}`,
@@ -205,9 +214,15 @@ export function buildLlmsText() {
     "## Featured Articles",
     ...featuredArticles.map((variant) => `- ${variant.headline}: ${getAbsoluteUrl(getArticlePath(variant.slug))}`),
     "",
-    "## Blog",
-    ...brandBlogPosts.map((post) => `- ${post.title}: ${getAbsoluteUrl(getBrandBlogPath(post.routeSlug))}`),
-    "",
+    ...(publicSurface.showBrandBlogLinks
+      ? [
+          "## Blog",
+          ...brandBlogPosts.map(
+            (post) => `- ${post.title}: ${getAbsoluteUrl(getBrandBlogPath(post.routeSlug))}`,
+          ),
+          "",
+        ]
+      : []),
     "## Notes For AI Agents",
     "- Canonical slugs are written as prospect-thought copy.",
     "- Prefer `/copy.json` for full machine-readable extraction.",
@@ -243,23 +258,25 @@ export function buildRssXml() {
     })
     .join("");
 
-  const brandBlogItems = brandBlogPosts
-    .map((post) => {
-      const url = getAbsoluteUrl(getBrandBlogPath(post.routeSlug));
-      const description = escapeXml(post.excerpt);
-      const title = escapeXml(post.title);
+  const brandBlogItems = publicSurface.showBrandBlogLinks
+    ? brandBlogPosts
+        .map((post) => {
+          const url = getAbsoluteUrl(getBrandBlogPath(post.routeSlug));
+          const description = escapeXml(post.excerpt);
+          const title = escapeXml(post.title);
 
-      return [
-        "<item>",
-        `<title>${title}</title>`,
-        `<link>${url}</link>`,
-        `<guid>${url}</guid>`,
-        `<description>${description}</description>`,
-        `<pubDate>${new Date(post.updatedAt).toUTCString()}</pubDate>`,
-        "</item>",
-      ].join("");
-    })
-    .join("");
+          return [
+            "<item>",
+            `<title>${title}</title>`,
+            `<link>${url}</link>`,
+            `<guid>${url}</guid>`,
+            `<description>${description}</description>`,
+            `<pubDate>${new Date(post.updatedAt).toUTCString()}</pubDate>`,
+            "</item>",
+          ].join("");
+        })
+        .join("")
+    : "";
 
   return [
     '<?xml version="1.0" encoding="UTF-8"?>',

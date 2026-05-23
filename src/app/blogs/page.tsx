@@ -8,6 +8,7 @@ import {
   getBrandBlogReadTimeLabel,
 } from "@/content/brand-blog";
 import { siteFrame } from "@/content/landing-page-data";
+import { publicSurface } from "@/content/public-surface";
 import {
   getAbsoluteUrl,
   getBrandBlogPath,
@@ -47,6 +48,12 @@ export const metadata: Metadata = {
     type: "website",
     url: machinePaths.brandBlogArchive,
   },
+  robots: publicSurface.showBrandBlogLinks
+    ? undefined
+    : {
+        follow: false,
+        index: false,
+      },
 };
 
 export default async function BrandBlogArchivePage({

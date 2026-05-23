@@ -71,9 +71,15 @@ export function MobileHomePage() {
           A Christian directory where faith, trust, and opportunity come together.
         </h2>
         <ul className={styles.proofList}>
-          <li>Find Christian businesses, churches, jobs, and events you can trust.</li>
-          <li>Help your organization get discovered by the right Christian audience.</li>
-          <li>Keep biblical values visible, practical, and easy to recognize.</li>
+          <li>
+            Search for Christian businesses, freelancers, churches, and events near you or
+            anywhere in the world.
+          </li>
+          <li>
+            Organizations, leverage our SEO and geographic targeting to connect your business with
+            faith-based customers in your area.
+          </li>
+          <li>Explore Christian jobs, Christian employers, or find candidates to hire.</li>
         </ul>
       </section>
 

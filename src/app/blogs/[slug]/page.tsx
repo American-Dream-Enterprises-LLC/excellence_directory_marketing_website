@@ -18,6 +18,7 @@ import {
   getBrandBlogPath,
   machinePaths,
 } from "@/content/site-urls";
+import { publicSurface } from "@/content/public-surface";
 
 type BrandBlogPostPageProps = {
   params: Promise<{
@@ -82,6 +83,12 @@ export async function generateMetadata({
       description: post.excerpt,
       title: post.title,
     },
+    robots: publicSurface.showBrandBlogLinks
+      ? undefined
+      : {
+          follow: false,
+          index: false,
+        },
   };
 }
 

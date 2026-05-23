@@ -185,7 +185,7 @@
 
 .campaignFoundersCta small {
   grid-column: 1;
-  grid-row: 2;
+  grid-row: 1;
   color: rgba(255, 248, 239, 0.72);
   font-size: 0.58rem;
   font-weight: 900;
@@ -195,7 +195,7 @@
 }
 
 .campaignFoundersCta strong {
-  grid-row: 1;
+  grid-row: 2;
 }
 
 .campaignHeroTitle {

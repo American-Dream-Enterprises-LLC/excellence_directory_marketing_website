@@ -3,9 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { publicSurface } from "@/content/public-surface";
+
 const navItems = [
   { href: "/", label: "Home", matches: ["/"] },
-  { href: "/blogs", label: "Blog", matches: ["/blog", "/blogs", "/articles"] },
+  ...(publicSurface.showBrandBlogLinks
+    ? [{ href: "/blogs", label: "Blog", matches: ["/blog", "/blogs", "/articles"] }]
+    : []),
   { href: "/promotions", label: "Promotions", matches: ["/promotions"] },
 ] as const;
 

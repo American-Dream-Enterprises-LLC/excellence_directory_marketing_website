@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { brandBlogPosts } from "@/content/brand-blog";
 import { deskNavigation, landingPageVariants } from "@/content/landing-page-data";
+import { publicSurface } from "@/content/public-surface";
 import {
   getAbsoluteUrl,
   getArticlePath,
@@ -12,6 +13,23 @@ import {
 } from "@/content/site-urls";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const brandBlogArchive = publicSurface.showBrandBlogLinks
+    ? [
+        {
+          url: getAbsoluteUrl(machinePaths.brandBlogArchive),
+          changeFrequency: "weekly" as const,
+          priority: 0.82,
+        },
+      ]
+    : [];
+  const brandBlogEntries = publicSurface.showBrandBlogLinks
+    ? brandBlogPosts.map((post) => ({
+        url: getAbsoluteUrl(getBrandBlogPath(post.routeSlug)),
+        changeFrequency: "monthly" as const,
+        priority: 0.62,
+      }))
+    : [];
+
   return [
     {
       url: getAbsoluteUrl("/"),
@@ -28,11 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.95,
     },
-    {
-      url: getAbsoluteUrl(machinePaths.brandBlogArchive),
-      changeFrequency: "weekly",
-      priority: 0.82,
-    },
+    ...brandBlogArchive,
     {
       url: getAbsoluteUrl(machinePaths.articleIndex),
       changeFrequency: "daily",
@@ -58,11 +72,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: 0.8,
     })),
-    ...brandBlogPosts.map((post) => ({
-      url: getAbsoluteUrl(getBrandBlogPath(post.routeSlug)),
-      changeFrequency: "monthly" as const,
-      priority: 0.62,
-    })),
+    ...brandBlogEntries,
     ...landingPageVariants.map((variant) => ({
       url: getAbsoluteUrl(getArticleJsonPath(variant.slug)),
       changeFrequency: "weekly" as const,

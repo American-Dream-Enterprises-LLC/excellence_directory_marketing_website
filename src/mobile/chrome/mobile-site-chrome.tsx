@@ -11,6 +11,7 @@ import { LaunchWaitlistModal } from "@/components/launch-waitlist-modal";
 import { campaignOneOffer, campaignOnePath } from "@/content/campaign-one";
 import { homePageCopy, siteFrame } from "@/content/landing-page-data";
 import { launchWaitlistModal } from "@/content/landing-page-data";
+import { publicSurface } from "@/content/public-surface";
 
 import { MobileGetStartedModal } from "./mobile-get-started-modal";
 
@@ -22,7 +23,9 @@ type MobileSiteChromeProps = {
 
 const navItems = [
   { href: "/", label: "Home", matches: ["/"] },
-  { href: "/blogs", label: "Blog", matches: ["/blog", "/blogs", "/articles"] },
+  ...(publicSurface.showBrandBlogLinks
+    ? [{ href: "/blogs", label: "Blog", matches: ["/blog", "/blogs", "/articles"] }]
+    : []),
   { href: "/promotions", label: "Promotions", matches: ["/promotions"] },
 ] as const;
 
