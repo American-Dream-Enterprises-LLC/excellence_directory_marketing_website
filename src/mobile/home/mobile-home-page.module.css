@@ -354,9 +354,7 @@
   gap: 1.05rem;
   margin: 0.25rem -1rem -1.8rem;
   padding: 1.35rem 1rem calc(1.6rem + env(safe-area-inset-bottom));
-  background:
-    radial-gradient(circle at top left, rgba(255, 170, 235, 0.16), transparent 36%),
-    linear-gradient(180deg, rgba(255, 248, 252, 0.95), rgba(246, 243, 255, 0.94));
+  background: transparent;
 }
 
 .teamSection .sectionTitle {
@@ -570,6 +568,7 @@
 .newsSection {
   display: grid;
   gap: 0.52rem;
+  margin-inline: -1rem;
   padding: 1.25rem 1.05rem 1.3rem;
   border-top: 1px solid rgba(147, 129, 255, 0.2);
   border-bottom: 1px solid rgba(147, 129, 255, 0.16);
