@@ -14,8 +14,8 @@ function CampaignOfferCta({ className = "" }: { className?: string }) {
       className={`${styles.foundersCta} ${styles.campaignFoundersCta} ${className}`.trim()}
       href={campaignOne.offer.href}
     >
-      <small>{campaignOne.offer.detail}</small>
-      <strong>{campaignOne.offer.label}</strong>
+      <small>{campaignOne.offer.label}</small>
+      <strong>{campaignOne.offer.detail}</strong>
     </a>
   );
 }
