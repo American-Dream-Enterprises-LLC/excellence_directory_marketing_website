@@ -58,6 +58,23 @@ export function MobileHomePage() {
         </div>
       </section>
 
+      <section className={styles.videoSection}>
+        <h2 className={`${styles.sectionTitle} ${styles.videoTitle}`}>{homeVideo.heading}</h2>
+        <YouTubeVideoPreview
+          analyticsSurface="mobile"
+          className={styles.videoShell}
+          title={homeVideo.title}
+          videoId={homeVideo.videoId}
+          startSeconds={homeVideo.startSeconds}
+          posterSrc={homeVideo.posterSrc}
+        />
+        <MobileGetStartedModal
+          personalization={homePageCopy.personalization}
+          className={styles.videoCta}
+          ctaSource="mobile-video-start-selection"
+        />
+      </section>
+
       <section className={styles.proofSection}>
         <h2 className={styles.sectionTitle}>
           A Christian directory where faith, trust, and opportunity come together.
@@ -106,23 +123,6 @@ export function MobileHomePage() {
             );
           })}
         </div>
-      </section>
-
-      <section className={styles.videoSection}>
-        <h2 className={`${styles.sectionTitle} ${styles.videoTitle}`}>{homeVideo.heading}</h2>
-        <YouTubeVideoPreview
-          analyticsSurface="mobile"
-          className={styles.videoShell}
-          title={homeVideo.title}
-          videoId={homeVideo.videoId}
-          startSeconds={homeVideo.startSeconds}
-          posterSrc={homeVideo.posterSrc}
-        />
-        <MobileGetStartedModal
-          personalization={homePageCopy.personalization}
-          className={styles.videoCta}
-          ctaSource="mobile-video-start-selection"
-        />
       </section>
 
       <section className={styles.newsSection} aria-labelledby="mobile-home-news-heading">
