@@ -5,32 +5,27 @@ export const teamMembers = [
     role: "Founder",
   },
   {
-    image:
-      "https://excellencedirectory.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-23-at-10.27.53-AM.jpeg",
+    image: "/team/jane-chopra-team-2026-05.jpg",
     name: "Jane Chopra, MSC.",
     role: "Board of Advisors",
   },
   {
-    image:
-      "https://excellencedirectory.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-23-at-10.27.51-AM.jpeg",
+    image: "/team/ted-lee-team-2026-05.jpg",
     name: "Ted Lee, Pastor",
     role: "Board of Advisors",
   },
   {
-    image:
-      "https://excellencedirectory.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-23-at-10.27.38-AM.jpeg",
+    image: "/team/stephen-dalfonso-team-2026-05.jpg",
     name: "Deacon Stephen D'Alfonso, Esq",
     role: "Board of Advisors",
   },
   {
-    image:
-      "https://excellencedirectory.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-23-at-10.27.51-AM-1.jpeg",
+    image: "/team/hannah-robinson-team-2026-05.jpg",
     name: "Hannah Robinson, MBA",
     role: "Board of Advisors",
   },
   {
-    image:
-      "https://excellencedirectory.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-23-at-10.27.39-AM.jpeg",
+    image: "/team/mike-willbanks-team-2026-05.jpg",
     name: "Mike Willbanks, CTO",
     role: "Board of Advisors",
   },
