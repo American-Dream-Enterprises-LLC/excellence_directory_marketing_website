@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import { DeviceMockup } from "@/components/device-mockup";
 import { YouTubeVideoPreview } from "@/components/youtube-video-preview";
 import { campaignOne } from "@/content/campaign-one";
 import { credibilityPartners } from "@/content/credibility-partners";
@@ -34,13 +33,6 @@ export function MobileCampaignOnePage() {
             <p className={`${styles.heroBody} ${styles.campaignHeroBody}`}>
               {campaignOne.hero.dek}
             </p>
-          </div>
-          <div className={`${styles.heroVisual} ${styles.campaignHeroVisual}`}>
-            <DeviceMockup
-              alt={campaignOne.hero.imageAlt}
-              src="/design/mobile-onboarding-v2.png"
-              className={styles.heroPreview}
-            />
           </div>
         </div>
       </section>

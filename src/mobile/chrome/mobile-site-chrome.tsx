@@ -6,12 +6,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import logo from "../../../logo.webp";
+import logoSilhouette from "../../../logo_silhouette.png";
 
 import { LaunchWaitlistModal } from "@/components/launch-waitlist-modal";
 import { campaignOneOffer, campaignOnePath } from "@/content/campaign-one";
 import { homePageCopy, siteFrame } from "@/content/landing-page-data";
 import { launchWaitlistModal } from "@/content/landing-page-data";
-import { publicSurface } from "@/content/public-surface";
 
 import { MobileGetStartedModal } from "./mobile-get-started-modal";
 
@@ -20,20 +20,6 @@ import styles from "./mobile-site-chrome.module.css";
 type MobileSiteChromeProps = {
   children: React.ReactNode;
 };
-
-const navItems = [
-  { href: "/", label: "Home", matches: ["/"] },
-  ...(publicSurface.showBrandBlogLinks
-    ? [{ href: "/blogs", label: "Blog", matches: ["/blog", "/blogs", "/articles"] }]
-    : []),
-  { href: "/promotions", label: "Promotions", matches: ["/promotions"] },
-] as const;
-
-function isNavItemActive(pathname: string, matches: readonly string[]) {
-  return matches.some(
-    (match) => pathname === match || (match !== "/" && pathname.startsWith(`${match}/`)),
-  );
-}
 
 export function MobileSiteChrome({ children }: MobileSiteChromeProps) {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
@@ -83,22 +69,6 @@ export function MobileSiteChrome({ children }: MobileSiteChromeProps) {
           <Link href="/" className={styles.brand}>
             <Image src={logo} alt={siteFrame.brand} className={styles.brandImage} priority />
           </Link>
-          <nav className={styles.nav} aria-label="Primary">
-            {navItems.map((item) => {
-              const isActive = isNavItemActive(pathname, item.matches);
-
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`${styles.navLink}${isActive ? ` ${styles.navLinkActive}` : ""}`}
-                  aria-current={isActive ? "page" : undefined}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </nav>
           <div className={styles.actions}>
             {isCampaignOne ? (
               <a className={styles.campaignCta} href={campaignOneOffer.href}>
@@ -112,6 +82,31 @@ export function MobileSiteChrome({ children }: MobileSiteChromeProps) {
       </header>
 
       <div className={styles.main}>{children}</div>
+      <footer className={styles.footer}>
+        <div className={styles.footerShell}>
+          <Image
+            src={logoSilhouette}
+            alt="Excellence Directory logo"
+            className={styles.footerLogo}
+          />
+          <span className={styles.footerLabel}>EXCELLENCE DIRECTORY</span>
+          <p className={styles.footerStatement}>
+            Christ-centered discovery should feel trustworthy before the first call, search, or
+            introduction.
+          </p>
+          {isCampaignOne ? (
+            <a className={styles.footerCta} href={campaignOneOffer.href}>
+              Get Started
+            </a>
+          ) : (
+            <MobileGetStartedModal
+              personalization={homePageCopy.personalization}
+              className={styles.footerCta}
+              ctaSource="mobile-footer"
+            />
+          )}
+        </div>
+      </footer>
       <LaunchWaitlistModal modal={launchWaitlistModal} />
     </div>
   );

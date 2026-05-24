@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import { DeviceMockup } from "@/components/device-mockup";
 import { YouTubeVideoPreview } from "@/components/youtube-video-preview";
 import { credibilityPartners } from "@/content/credibility-partners";
 import { homeVideo } from "@/content/home-video";
@@ -55,13 +54,6 @@ export function MobileHomePage() {
                 <span>Android</span>
               </span>
             </div>
-          </div>
-          <div className={styles.heroVisual}>
-            <DeviceMockup
-              alt="Excellence Directory onboarding screen"
-              src="/design/mobile-onboarding-v2.png"
-              className={styles.heroPreview}
-            />
           </div>
         </div>
       </section>
