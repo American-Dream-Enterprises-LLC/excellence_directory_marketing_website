@@ -7,6 +7,7 @@ import { KeyboardPageScroll } from "@/components/keyboard-page-scroll";
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { siteFrame } from "@/content/landing-page-data";
 import { getAbsoluteUrl, getSiteUrl, machinePaths } from "@/content/site-urls";
+import { CssTuningRuntime } from "@/components/css-tuning-runtime";
 import { SiteChrome } from "@/components/site-chrome";
 
 import "./globals.css";
@@ -117,6 +118,7 @@ export default function RootLayout({
           }}
         />
         <KeyboardPageScroll />
+        <CssTuningRuntime />
         <SiteChrome>{children}</SiteChrome>
         <GoogleAnalytics enabled={enableGoogleAnalytics} />
         <Analytics />

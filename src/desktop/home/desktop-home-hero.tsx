@@ -4,6 +4,7 @@ import Image from "next/image";
 import { DeviceMockup } from "@/components/device-mockup";
 
 type HeroSpacingValue =
+  | "0"
   | `${number}%`
   | `-${number}%`
   | `${number}rem`
@@ -54,8 +55,8 @@ const PHONE_FRONT_ROTATION_DEGREES = 7;
 export const desktopHomeHeroLayout = {
   heightScale: 1.04,
   maxHeight: "70svh",
-  innerPaddingTop: "5%",
-  innerPaddingBottom: "calc(8% + 15px)",
+  innerPaddingTop: "0",
+  innerPaddingBottom: "0",
   contentMaxHeightPx: 400,
   contentScale: 0.88,
   deviceMaxHeightPx: 400,

@@ -1987,8 +1987,8 @@ code {
   --home-hero-header-offset: 6.8rem;
   --home-hero-min-height: calc((100svh - var(--home-hero-header-offset)) * 1.04);
   --home-hero-max-height: 70svh;
-  --home-hero-inner-padding-top: 3%;
-  --home-hero-inner-padding-bottom: 13%;
+  --home-hero-inner-padding-top: 0;
+  --home-hero-inner-padding-bottom: 0;
   --home-hero-content-max-height: var(--home-hero-desktop-content-max-height, 400px);
   --home-hero-content-font-size: var(--home-hero-desktop-content-font-size, 1rem);
   --home-hero-content-width: var(--home-hero-desktop-content-width, min(34vw, 30rem));
@@ -3620,6 +3620,139 @@ code {
   font-size: 1.35rem;
 }
 
+.css-tuning-page {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: 2rem var(--page-gutter) 5rem;
+}
+
+.css-tuning-shell {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.css-tuning-header {
+  display: flex;
+  gap: 1rem;
+  align-items: end;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.css-tuning-header h1 {
+  margin: 0.1rem 0 0;
+  color: var(--ink);
+  font-family: var(--font-heading), serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 600;
+  line-height: 0.95;
+}
+
+.css-tuning-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  justify-content: flex-end;
+}
+
+.css-tuning-link,
+.css-tuning-reset {
+  display: inline-flex;
+  min-height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.95rem;
+  border: 1px solid rgba(42, 39, 64, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.css-tuning-reset {
+  cursor: pointer;
+}
+
+.css-tuning-link:hover,
+.css-tuning-link:focus-visible,
+.css-tuning-reset:hover,
+.css-tuning-reset:focus-visible {
+  border-color: rgba(42, 39, 64, 0.34);
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+.css-tuning-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.css-tuning-group {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.css-tuning-group h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.css-tuning-fields {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.css-tuning-field {
+  display: grid;
+  gap: 0.38rem;
+}
+
+.css-tuning-field span {
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.css-tuning-field input {
+  width: 100%;
+  min-height: 2.65rem;
+  padding: 0 0.75rem;
+  border: 1px solid rgba(42, 39, 64, 0.18);
+  border-radius: 0.45rem;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.css-tuning-field input:focus {
+  border-color: rgba(114, 95, 255, 0.64);
+  box-shadow: 0 0 0 3px rgba(114, 95, 255, 0.14);
+}
+
+.css-tuning-field code {
+  color: rgba(42, 39, 64, 0.62);
+  font-size: 0.76rem;
+  overflow-wrap: anywhere;
+}
+
 .home-reveal,
 .home-reveal-delayed,
 .home-reveal-late {
@@ -3693,6 +3826,28 @@ code {
 }
 
 @media (max-width: 720px) {
+  .css-tuning-page {
+    padding-top: 1.4rem;
+  }
+
+  .css-tuning-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .css-tuning-actions {
+    justify-content: stretch;
+  }
+
+  .css-tuning-link,
+  .css-tuning-reset {
+    flex: 1 1 8rem;
+  }
+
+  .css-tuning-grid {
+    grid-template-columns: 1fr;
+  }
+
   .blog-feature,
   .home-proof-band,
   .home-final-cta,
