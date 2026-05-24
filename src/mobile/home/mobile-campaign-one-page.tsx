@@ -37,19 +37,6 @@ export function MobileCampaignOnePage() {
         </div>
       </section>
 
-      <section className={styles.videoSection}>
-        <h2 className={`${styles.sectionTitle} ${styles.videoTitle}`}>{homeVideo.heading}</h2>
-        <YouTubeVideoPreview
-          analyticsSurface="mobile"
-          className={styles.videoShell}
-          title={homeVideo.title}
-          videoId={homeVideo.videoId}
-          startSeconds={homeVideo.startSeconds}
-          posterSrc={homeVideo.posterSrc}
-        />
-        <CampaignOfferCta className={styles.videoCta} />
-      </section>
-
       <section className={styles.credibilitySection}>
         <p className={styles.sectionKicker}>Featured organizations</p>
         <div className={styles.partnerGrid}>
@@ -65,6 +52,19 @@ export function MobileCampaignOnePage() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className={styles.videoSection}>
+        <h2 className={`${styles.sectionTitle} ${styles.videoTitle}`}>{homeVideo.heading}</h2>
+        <YouTubeVideoPreview
+          analyticsSurface="mobile"
+          className={styles.videoShell}
+          title={homeVideo.title}
+          videoId={homeVideo.videoId}
+          startSeconds={homeVideo.startSeconds}
+          posterSrc={homeVideo.posterSrc}
+        />
+        <CampaignOfferCta className={styles.videoCta} />
       </section>
 
       <section className={styles.campaignBenefits}>
