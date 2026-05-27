@@ -82,9 +82,9 @@ export const campaignOne = {
     items: [
       {
         quote:
-          "This platform is a tailored data driven vehicle that resonates deeply within target markets for the consumer and business owner!",
-        name: "Pastor Ted Lee",
-        role: "The Lord's Church of Pittsburgh",
+          "It's a wonderful resource for the Christian community and others to find honest vendors to meet their needs!",
+        name: "Pastor Joanne Radke",
+        role: "The 700 Club",
       },
       {
         quote:
