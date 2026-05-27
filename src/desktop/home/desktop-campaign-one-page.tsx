@@ -131,6 +131,28 @@ export function DesktopCampaignOnePage() {
           posterSrc={homeVideo.posterSrc}
         />
       </section>
+
+      <section
+        className="campaign-one-testimonials-section"
+        aria-labelledby="campaign-one-testimonials-heading"
+      >
+        <div className="campaign-one-testimonials-heading">
+          <p className="home-news-kicker">{campaignOne.testimonials.eyebrow}</p>
+          <h2 id="campaign-one-testimonials-heading">{campaignOne.testimonials.heading}</h2>
+          <p>{campaignOne.testimonials.body}</p>
+        </div>
+        <div className="campaign-one-testimonials-grid">
+          {campaignOne.testimonials.items.map((testimonial) => (
+            <figure key={testimonial.name} className="campaign-one-testimonial">
+              <blockquote>{testimonial.quote}</blockquote>
+              <figcaption>
+                <strong>{testimonial.name}</strong>
+                <span>{testimonial.role}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }

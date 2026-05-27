@@ -74,4 +74,36 @@ export const campaignOne = {
     body:
       "Excellence Directory is a dedicated Christian business directory built to increase visibility for Christian business owners and connect them with customers who intentionally want to support Christian businesses.",
   },
+  testimonials: {
+    eyebrow: "Trusted voices",
+    heading: "Leaders are already seeing the need for Excellence.",
+    body:
+      "Pastors, founders, and Christian professionals have shared why a values-aligned directory can help people choose with more confidence.",
+    items: [
+      {
+        quote:
+          "This platform is a tailored data driven vehicle that resonates deeply within target markets for the consumer and business owner!",
+        name: "Pastor Ted Lee",
+        role: "The Lord's Church of Pittsburgh",
+      },
+      {
+        quote:
+          "In ministry, often congregants ask me for Christian business or contractor recommendations for work they need done. It's encouraging to see a place where Christians can now connect with other fellow believers for help in this area.",
+        name: "Pastor Ryan Hawkins",
+        role: "Evangelical Community Church",
+      },
+      {
+        quote:
+          "This Christian business directory is truly one of a kind, it's so refreshing to be able to find trusted professionals, search for churches, Christian jobs, and connect with like-minded believers all over the world!",
+        name: "Timothy Sanders",
+        role: "Entrepreneur and Writer",
+      },
+      {
+        quote:
+          "Excellence is offering a great tool for Kingdom Impact by connecting believers in the marketplace with shared values.",
+        name: "The Lion's Den",
+        role: "Kingdom business community",
+      },
+    ],
+  },
 };
