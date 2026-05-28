@@ -7,6 +7,9 @@ import { homeVideo } from "@/content/home-video";
 
 import styles from "./mobile-home-page.module.css";
 
+const testimonialSpotlight = campaignOne.testimonials.items[0];
+const compactTestimonials = campaignOne.testimonials.items.slice(1);
+
 function CampaignOfferCta({ className = "" }: { className?: string }) {
   return (
     <a
@@ -80,6 +83,35 @@ export function MobileCampaignOnePage() {
         </ul>
       </section>
 
+      <section
+        className={styles.campaignTestimonials}
+        aria-labelledby="mobile-promotions-testimonials-heading"
+      >
+        <p className={styles.newsKicker}>{campaignOne.testimonials.eyebrow}</p>
+        <h2 id="mobile-promotions-testimonials-heading" className={styles.sectionTitle}>
+          {campaignOne.testimonials.heading}
+        </h2>
+        <p className={styles.sectionBody}>{campaignOne.testimonials.body}</p>
+        <figure className={styles.testimonialSpotlight}>
+          <blockquote>{testimonialSpotlight.quote}</blockquote>
+          <figcaption>
+            <strong>{testimonialSpotlight.name}</strong>
+            <span>{testimonialSpotlight.role}</span>
+          </figcaption>
+        </figure>
+        <div className={styles.testimonialRail} aria-label="More testimonial excerpts">
+          {compactTestimonials.map((testimonial) => (
+            <figure key={testimonial.name} className={styles.testimonialTile}>
+              <blockquote>{testimonial.quote}</blockquote>
+              <figcaption>
+                <strong>{testimonial.name}</strong>
+                <span>{testimonial.role}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
       <section className={styles.newsSection} aria-labelledby="mobile-promotions-problem-heading">
         <p className={styles.newsKicker}>{campaignOne.problem.eyebrow}</p>
         <h2 id="mobile-promotions-problem-heading" className={styles.newsTitle}>
@@ -93,28 +125,6 @@ export function MobileCampaignOnePage() {
         <h2 className={styles.sectionTitle}>{campaignOne.visibility.heading}</h2>
         <p>{campaignOne.visibility.body}</p>
         <CampaignOfferCta className={styles.campaignVisibilityCta} />
-      </section>
-
-      <section
-        className={styles.campaignTestimonials}
-        aria-labelledby="mobile-promotions-testimonials-heading"
-      >
-        <p className={styles.newsKicker}>{campaignOne.testimonials.eyebrow}</p>
-        <h2 id="mobile-promotions-testimonials-heading" className={styles.sectionTitle}>
-          {campaignOne.testimonials.heading}
-        </h2>
-        <p className={styles.sectionBody}>{campaignOne.testimonials.body}</p>
-        <div className={styles.testimonialList}>
-          {campaignOne.testimonials.items.map((testimonial) => (
-            <figure key={testimonial.name} className={styles.testimonial}>
-              <blockquote>{testimonial.quote}</blockquote>
-              <figcaption>
-                <strong>{testimonial.name}</strong>
-                <span>{testimonial.role}</span>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
       </section>
     </main>
   );

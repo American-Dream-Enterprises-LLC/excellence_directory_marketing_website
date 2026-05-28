@@ -88,21 +88,69 @@ export const campaignOne = {
       },
       {
         quote:
-          "In ministry, often congregants ask me for Christian business or contractor recommendations for work they need done. It's encouraging to see a place where Christians can now connect with other fellow believers for help in this area.",
+          "We are so excited for the launch of this platform to source trusted professionals in every industry!",
+        name: "Pastor William Green",
+        role: "President, The Mordecai Mission",
+      },
+      {
+        quote:
+          "It is a blessing to have more Christian companies like this one who provides great services in a time of uncertainty in the world.",
+        name: "Minister Diane Lopez",
+        role: "Activist, New York City",
+      },
+      {
+        quote:
+          "In ministry, often congregants ask me for Christian business or contractor recommendations for work they need done. It's encouraging to see a place where Christians can now connect with other fellow believers for help in this area. It's a great resource to have!",
         name: "Pastor Ryan Hawkins",
         role: "Evangelical Community Church",
       },
       {
         quote:
+          "The Excellence Directory is an app I use on a daily basis. It provides me with clarity that I am supporting local, Christian businesses that are making a positive impact in our community.",
+        name: "Tate Orpen",
+        role: "Account Manager, South Africa",
+      },
+      {
+        quote:
           "This Christian business directory is truly one of a kind, it's so refreshing to be able to find trusted professionals, search for churches, Christian jobs, and connect with like-minded believers all over the world!",
         name: "Timothy Sanders",
-        role: "Entrepreneur and Writer",
+        role: "Entrepreneur and Writer, The Bronx",
+      },
+      {
+        quote:
+          "When I moved to a new city, I was at a loss not being able to find a home church. This app will definitely connect many new believers across regions they are located.",
+        name: "Darilang Mawrie",
+        role: "PhD Research Associate, Bangalore, India",
+      },
+      {
+        quote:
+          "In a marketplace flooded with choices, Excellence offers customers the opportunity to do business with organizations whose principles and beliefs mirror their own. This connection fosters trust, enhances satisfaction, and encourages long-term loyalty.",
+        name: "Teresa Dial",
+        role: "Small Business Owner, North Carolina",
+      },
+      {
+        quote:
+          "The Excellence App is an incredibly valuable tool for connecting with like-minded, faith-based businesses. I appreciate being able to search for companies I can trust, those committed to operating with integrity, honesty, and shared values.",
+        name: "Viviana Moreno",
+        role: "Producer, Christian Television Network",
       },
       {
         quote:
           "Excellence is offering a great tool for Kingdom Impact by connecting believers in the marketplace with shared values.",
         name: "The Lion's Den",
         role: "Kingdom business community",
+      },
+      {
+        quote:
+          "As business owners, we have the opportunity to interact with a diverse range of people daily. Our businesses are a ministry the Father has given us. This app is an excellent tool to connect, support, and fund the spreading of His Word.",
+        name: "Sarah Williams",
+        role: "President, Debarim Publishing, Oklahoma",
+      },
+      {
+        quote:
+          "This platform is a tailored data driven vehicle that resonates deeply within target markets for the consumer and business owner!",
+        name: "Pastor Ted Lee",
+        role: "The Lord's Church of Pittsburgh",
       },
     ],
   },

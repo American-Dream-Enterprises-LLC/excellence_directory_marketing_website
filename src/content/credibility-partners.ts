@@ -55,4 +55,10 @@ export const credibilityPartners: CredibilityPartner[] = [
     src: "/featured-organizations/my-christ-connection.jpg",
     width: 750,
   },
+  {
+    alt: "West Trail Carpentry LLC",
+    height: 1156,
+    src: "/featured-organizations/west-trail-carpentry.png",
+    width: 1200,
+  },
 ];
