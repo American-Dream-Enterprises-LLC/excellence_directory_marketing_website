@@ -4140,6 +4140,10 @@ code {
     order: 2;
   }
 
+  .campaign-one-page .home-hero-device-column {
+    display: none;
+  }
+
   .home-hero-device-cluster {
     width: var(--home-hero-device-width);
     aspect-ratio: 1 / 1.34;
@@ -4174,6 +4178,10 @@ code {
 
   .home-proof-band {
     padding-inline: var(--page-gutter);
+  }
+
+  .campaign-one-page .campaign-one-benefits .home-proof-visuals {
+    display: none;
   }
 
   .home-proof-visuals {
@@ -4218,6 +4226,43 @@ code {
   .subscription-plan-list,
   .subscription-story-grid {
     grid-template-columns: 1fr;
+  }
+
+  .campaign-one-page .credibility-supported-shell {
+    gap: 0.62rem;
+  }
+
+  .campaign-one-page .credibility-partner-rail,
+  .campaign-one-page .credibility-partner-rail-secondary {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 0.62rem;
+  }
+
+  .campaign-one-page .credibility-partner-mark {
+    grid-column: span 3;
+    min-height: 3.75rem;
+    padding: 0.62rem 0.72rem;
+    border-radius: 0.9rem;
+  }
+
+  .campaign-one-page .credibility-partner-logo {
+    max-height: 2.55rem;
+  }
+
+  .campaign-one-page .credibility-partner-rail .credibility-partner-mark:nth-child(1),
+  .campaign-one-page .credibility-partner-rail-secondary .credibility-partner-mark:nth-child(1),
+  .campaign-one-page .credibility-partner-rail-secondary .credibility-partner-mark:nth-child(2),
+  .campaign-one-page .credibility-partner-rail-secondary .credibility-partner-mark:nth-child(3) {
+    grid-column: span 2;
+  }
+
+  .campaign-one-page .credibility-partner-rail .credibility-partner-mark:nth-child(2),
+  .campaign-one-page .credibility-partner-rail-secondary .credibility-partner-mark:nth-child(4) {
+    grid-column: span 4;
+  }
+
+  .campaign-one-page .credibility-partner-rail .credibility-partner-mark:nth-child(5) {
+    grid-column: span 6;
   }
 
   .home-team-portrait {

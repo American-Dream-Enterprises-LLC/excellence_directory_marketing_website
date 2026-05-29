@@ -94,17 +94,13 @@ export function MobileSiteChrome({ children }: MobileSiteChromeProps) {
             Christ-centered discovery should feel trustworthy before the first call, search, or
             introduction.
           </p>
-          {isCampaignOne ? (
-            <a className={styles.footerCta} href={campaignOneOffer.href}>
-              Get Started
-            </a>
-          ) : (
+          {!isCampaignOne ? (
             <MobileGetStartedModal
               personalization={homePageCopy.personalization}
               className={styles.footerCta}
               ctaSource="mobile-footer"
             />
-          )}
+          ) : null}
         </div>
       </footer>
       <LaunchWaitlistModal modal={launchWaitlistModal} />
