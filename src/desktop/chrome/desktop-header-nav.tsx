@@ -3,15 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { publicSurface } from "@/content/public-surface";
-
-const navItems = [
-  { href: "/", label: "Home", matches: ["/"] },
-  ...(publicSurface.showBrandBlogLinks
-    ? [{ href: "/blogs", label: "Blog", matches: ["/blog", "/blogs", "/articles"] }]
-    : []),
-  { href: "/promotions", label: "Promotions", matches: ["/promotions"] },
-] as const;
+const blogPathMatches = ["/blog", "/blogs", "/articles", "/why-excellence"] as const;
 
 function isNavItemActive(pathname: string, matches: readonly string[]) {
   return matches.some(
@@ -21,6 +13,14 @@ function isNavItemActive(pathname: string, matches: readonly string[]) {
 
 export function DesktopHeaderNav() {
   const pathname = usePathname();
+  const showBlogLink = pathname === "/" || isNavItemActive(pathname, blogPathMatches);
+  const navItems = [
+    { href: "/", label: "Home", matches: ["/"] },
+    ...(showBlogLink
+      ? [{ href: "/blogs", label: "Blogs", matches: blogPathMatches }]
+      : []),
+    { href: "/promotions", label: "Promotions", matches: ["/promotions"] },
+  ] as const;
 
   return (
     <nav className="site-header-nav" aria-label="Primary">

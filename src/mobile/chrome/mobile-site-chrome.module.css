@@ -54,6 +54,26 @@
   grid-area: actions;
   display: flex;
   align-items: center;
+  gap: 0.5rem;
+}
+
+.blogLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.35rem;
+  padding: 0 0.78rem;
+  border: 1px solid rgba(147, 129, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #2a2740;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .campaignCta {

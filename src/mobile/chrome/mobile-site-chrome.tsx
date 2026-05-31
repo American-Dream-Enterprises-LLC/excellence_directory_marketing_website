@@ -70,6 +70,11 @@ export function MobileSiteChrome({ children }: MobileSiteChromeProps) {
             <Image src={logo} alt={siteFrame.brand} className={styles.brandImage} priority />
           </Link>
           <div className={styles.actions}>
+            {!isCampaignOne ? (
+              <Link className={styles.blogLink} href="/blogs">
+                Blogs
+              </Link>
+            ) : null}
             {isCampaignOne ? (
               <a className={styles.campaignCta} href={campaignOneOffer.href}>
                 Get Started
