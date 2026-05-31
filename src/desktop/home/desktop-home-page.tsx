@@ -10,6 +10,7 @@ import { homeNewsMention } from "@/content/news-mentions";
 import { teamMembers } from "@/content/team-members";
 
 import { DesktopHomeHero } from "./desktop-home-hero";
+import { DesktopTestimonialsSection } from "./desktop-testimonials-section";
 
 const credibilityPartnersTopRow = credibilityPartners.slice(0, 4);
 const credibilityPartnersBottomRow = credibilityPartners.slice(4);
@@ -133,6 +134,8 @@ export function DesktopHomePage() {
           </div>
         </div>
       </section>
+
+      <DesktopTestimonialsSection headingId="home-testimonials-heading" />
 
       <section className="home-video-section">
         <div className="home-section-heading home-section-heading-centered">

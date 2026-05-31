@@ -8,13 +8,10 @@ import { homeVideo } from "@/content/home-video";
 import { siteFrame } from "@/content/landing-page-data";
 
 import { DesktopHomeHero } from "./desktop-home-hero";
+import { DesktopTestimonialsSection } from "./desktop-testimonials-section";
 
 const credibilityPartnersTopRow = credibilityPartners.slice(0, 5);
 const credibilityPartnersBottomRow = credibilityPartners.slice(5);
-const testimonialSpotlight = campaignOne.testimonials.items[0];
-const testimonialRows = [0, 1, 2].map((rowIndex) =>
-  campaignOne.testimonials.items.filter((_, testimonialIndex) => testimonialIndex % 3 === rowIndex),
-);
 
 function CampaignOfferCta({ className = "" }: { className?: string }) {
   return (
@@ -103,58 +100,7 @@ export function DesktopCampaignOnePage() {
         </div>
       </section>
 
-      <section
-        className="campaign-one-testimonials-section"
-        aria-labelledby="campaign-one-testimonials-heading"
-      >
-        <div className="campaign-one-testimonials-heading">
-          <p className="home-news-kicker">{campaignOne.testimonials.eyebrow}</p>
-          <h2 id="campaign-one-testimonials-heading">{campaignOne.testimonials.heading}</h2>
-          <p>{campaignOne.testimonials.body}</p>
-        </div>
-        <div className="campaign-one-testimonials-stage">
-          <figure className="campaign-one-testimonial-spotlight">
-            <blockquote>{testimonialSpotlight.quote}</blockquote>
-            <figcaption>
-              <strong>{testimonialSpotlight.name}</strong>
-              <span>{testimonialSpotlight.role}</span>
-            </figcaption>
-          </figure>
-          <div className="campaign-one-testimonial-orbit" aria-label="All testimonial excerpts">
-            {testimonialRows.map((row, rowIndex) => (
-              <div
-                key={`testimonial-row-${rowIndex}`}
-                className="campaign-one-testimonial-lane"
-              >
-                <div className="campaign-one-testimonial-track">
-                  {row.map((testimonial) => (
-                    <figure key={testimonial.name} className="campaign-one-testimonial-tile">
-                      <blockquote>{testimonial.quote}</blockquote>
-                      <figcaption>
-                        <strong>{testimonial.name}</strong>
-                        <span>{testimonial.role}</span>
-                      </figcaption>
-                    </figure>
-                  ))}
-                  {row.map((testimonial) => (
-                    <figure
-                      key={`${testimonial.name}-repeat`}
-                      className="campaign-one-testimonial-tile"
-                      aria-hidden="true"
-                    >
-                      <blockquote>{testimonial.quote}</blockquote>
-                      <figcaption>
-                        <strong>{testimonial.name}</strong>
-                        <span>{testimonial.role}</span>
-                      </figcaption>
-                    </figure>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <DesktopTestimonialsSection />
 
       <section className="home-news-section campaign-one-problem-section">
         <div className="home-news-inner">

@@ -9,6 +9,7 @@ import { teamMembers } from "@/content/team-members";
 import { MobileGetStartedModal } from "@/mobile/chrome/mobile-get-started-modal";
 
 import styles from "./mobile-home-page.module.css";
+import { MobileTestimonialsSection } from "./mobile-testimonials-section";
 
 function AppleMark() {
   return (
@@ -124,6 +125,8 @@ export function MobileHomePage() {
           })}
         </div>
       </section>
+
+      <MobileTestimonialsSection headingId="mobile-home-testimonials-heading" />
 
       <section className={styles.newsSection} aria-labelledby="mobile-home-news-heading">
         <p className={styles.newsKicker}>In the news</p>
