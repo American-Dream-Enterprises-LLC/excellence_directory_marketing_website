@@ -1,4 +1,4 @@
-const productionSiteUrl = "https://info.excellencedirectory.com";
+const productionSiteUrl = "https://excellencedirectory.com";
 
 export const machinePaths = {
   articleArchive: "/why-excellence",
