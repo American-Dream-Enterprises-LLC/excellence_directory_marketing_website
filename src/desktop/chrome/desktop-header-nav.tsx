@@ -17,7 +17,7 @@ export function DesktopHeaderNav() {
   const navItems = [
     { href: "/", label: "Home", matches: ["/"] },
     ...(showBlogLink
-      ? [{ href: "/blogs", label: "Blogs", matches: blogPathMatches }]
+      ? [{ href: "/blog", label: "Blogs", matches: blogPathMatches }]
       : []),
     { href: "/promotions", label: "Promotions", matches: ["/promotions"] },
   ] as const;

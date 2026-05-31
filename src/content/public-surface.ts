@@ -1,3 +1,3 @@
 export const publicSurface = {
-  showBrandBlogLinks: false,
+  showBrandBlogLinks: true,
 } as const;

@@ -71,7 +71,7 @@ export function MobileSiteChrome({ children }: MobileSiteChromeProps) {
           </Link>
           <div className={styles.actions}>
             {!isCampaignOne ? (
-              <Link className={styles.blogLink} href="/blogs">
+              <Link className={styles.blogLink} href="/blog">
                 Blogs
               </Link>
             ) : null}
