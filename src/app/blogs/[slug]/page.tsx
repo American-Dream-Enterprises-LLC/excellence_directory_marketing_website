@@ -182,6 +182,7 @@ export default async function BrandBlogPostPage({ params }: BrandBlogPostPagePro
                 <span>{getBrandBlogReadTimeLabel(post)}</span>
               </p>
               <h1>{post.title}</h1>
+              <p className="article-author-line">By: {post.author}</p>
               <p className="hero-supporting">{post.excerpt}</p>
             </div>
           </section>

@@ -427,6 +427,14 @@ code {
   line-height: 1.6;
 }
 
+.article-author-line {
+  margin: 0.72rem 0 0;
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
 .article-meta-line,
 .desk-page-breadcrumb {
   display: flex;
