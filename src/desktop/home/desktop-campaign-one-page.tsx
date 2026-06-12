@@ -10,9 +10,6 @@ import { siteFrame } from "@/content/landing-page-data";
 import { DesktopHomeHero } from "./desktop-home-hero";
 import { DesktopTestimonialsSection } from "./desktop-testimonials-section";
 
-const credibilityPartnersTopRow = credibilityPartners.slice(0, 5);
-const credibilityPartnersBottomRow = credibilityPartners.slice(5);
-
 function CampaignOfferCta({ className = "" }: { className?: string }) {
   return (
     <a
@@ -35,35 +32,21 @@ export function DesktopCampaignOnePage() {
         <p className="home-hero-body">{campaignOne.hero.dek}</p>
       </DesktopHomeHero>
 
-      <section className="home-credibility">
+      <section id="featured-organizations" className="home-credibility">
         <div className="credibility-supported-shell">
           <p className="credibility-supported-label">Featured organizations</p>
           <div
             className="credibility-partner-rail"
             aria-label="Featured organizations"
           >
-            {credibilityPartnersTopRow.map((partner) => (
+            {credibilityPartners.map((partner) => (
               <div key={partner.alt} className="credibility-partner-mark">
                 <Image
                   src={partner.src}
                   alt={partner.alt}
                   width={partner.width}
                   height={partner.height}
-                  sizes="(min-width: 1080px) 16vw, (min-width: 768px) 28vw, 60vw"
-                  className="credibility-partner-logo"
-                />
-              </div>
-            ))}
-          </div>
-          <div className="credibility-partner-rail credibility-partner-rail-secondary">
-            {credibilityPartnersBottomRow.map((partner) => (
-              <div key={partner.alt} className="credibility-partner-mark">
-                <Image
-                  src={partner.src}
-                  alt={partner.alt}
-                  width={partner.width}
-                  height={partner.height}
-                  sizes="(min-width: 1080px) 18vw, (min-width: 768px) 28vw, 60vw"
+                  sizes="(min-width: 1080px) 24vw, (min-width: 768px) 42vw, 84vw"
                   className="credibility-partner-logo"
                 />
               </div>

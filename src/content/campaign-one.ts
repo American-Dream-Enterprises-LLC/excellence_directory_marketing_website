@@ -75,8 +75,8 @@ export const campaignOne = {
       "Excellence Directory is a dedicated Christian business directory built to increase visibility for Christian business owners and connect them with customers who intentionally want to support Christian businesses.",
   },
   testimonials: {
-    eyebrow: "Trusted voices",
-    heading: "Leaders are already seeing the need for Excellence.",
+    eyebrow: "What people are saying",
+    heading: "Real Testimonies from Real People",
     body:
       "Pastors, founders, and Christian professionals have shared why a values-aligned directory can help people choose with more confidence.",
     items: [

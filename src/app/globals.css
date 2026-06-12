@@ -3616,15 +3616,9 @@ code {
 
 .credibility-partner-rail {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.9rem;
   align-items: stretch;
-}
-
-.credibility-partner-rail-secondary {
-  width: 100%;
-  margin: 0 auto;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .credibility-partner-mark {
@@ -4240,14 +4234,11 @@ code {
     gap: 0.62rem;
   }
 
-  .campaign-one-page .credibility-partner-rail,
-  .campaign-one-page .credibility-partner-rail-secondary {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+  .campaign-one-page .credibility-partner-rail {
     gap: 0.62rem;
   }
 
   .campaign-one-page .credibility-partner-mark {
-    grid-column: span 3;
     min-height: 3.75rem;
     padding: 0.62rem 0.72rem;
     border-radius: 0.9rem;
@@ -4255,22 +4246,6 @@ code {
 
   .campaign-one-page .credibility-partner-logo {
     max-height: 2.55rem;
-  }
-
-  .campaign-one-page .credibility-partner-rail .credibility-partner-mark:nth-child(1),
-  .campaign-one-page .credibility-partner-rail-secondary .credibility-partner-mark:nth-child(1),
-  .campaign-one-page .credibility-partner-rail-secondary .credibility-partner-mark:nth-child(2),
-  .campaign-one-page .credibility-partner-rail-secondary .credibility-partner-mark:nth-child(3) {
-    grid-column: span 2;
-  }
-
-  .campaign-one-page .credibility-partner-rail .credibility-partner-mark:nth-child(2),
-  .campaign-one-page .credibility-partner-rail-secondary .credibility-partner-mark:nth-child(4) {
-    grid-column: span 4;
-  }
-
-  .campaign-one-page .credibility-partner-rail .credibility-partner-mark:nth-child(5) {
-    grid-column: span 6;
   }
 
   .home-team-portrait {

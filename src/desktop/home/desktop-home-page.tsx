@@ -12,8 +12,6 @@ import { teamMembers } from "@/content/team-members";
 import { DesktopHomeHero } from "./desktop-home-hero";
 import { DesktopTestimonialsSection } from "./desktop-testimonials-section";
 
-const credibilityPartnersTopRow = credibilityPartners.slice(0, 4);
-const credibilityPartnersBottomRow = credibilityPartners.slice(4);
 const rotatorProfiles = homePageCopy.personalization.profiles.filter(
   (profile) => profile.showInRotator !== false,
 );
@@ -66,51 +64,21 @@ export function DesktopHomePage() {
         </div>
       </section>
 
-      <section className="home-credibility">
+      <section id="featured-organizations" className="home-credibility">
         <div className="credibility-supported-shell">
           <p className="credibility-supported-label">Featured organizations</p>
           <div
             className="credibility-partner-rail"
             aria-label="Featured organizations"
           >
-            {credibilityPartnersTopRow.map((partner) => {
+            {credibilityPartners.map((partner) => {
               const logo = (
                 <Image
                   src={partner.src}
                   alt={partner.alt}
                   width={partner.width}
                   height={partner.height}
-                  sizes="(min-width: 1080px) 16vw, (min-width: 768px) 28vw, 60vw"
-                  className="credibility-partner-logo"
-                />
-              );
-
-              return partner.href ? (
-                <a
-                  key={partner.alt}
-                  className="credibility-partner-mark"
-                  href={partner.href}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  {logo}
-                </a>
-              ) : (
-                <div key={partner.alt} className="credibility-partner-mark">
-                  {logo}
-                </div>
-              );
-            })}
-          </div>
-          <div className="credibility-partner-rail credibility-partner-rail-secondary">
-            {credibilityPartnersBottomRow.map((partner) => {
-              const logo = (
-                <Image
-                  src={partner.src}
-                  alt={partner.alt}
-                  width={partner.width}
-                  height={partner.height}
-                  sizes="(min-width: 1080px) 18vw, (min-width: 768px) 28vw, 60vw"
+                  sizes="(min-width: 1080px) 24vw, (min-width: 768px) 42vw, 84vw"
                   className="credibility-partner-logo"
                 />
               );

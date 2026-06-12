@@ -38,7 +38,7 @@ export function MobileCampaignOnePage() {
         </div>
       </section>
 
-      <section className={styles.credibilitySection}>
+      <section id="featured-organizations" className={styles.credibilitySection}>
         <p className={styles.sectionKicker}>Featured organizations</p>
         <div className={styles.partnerMosaic} aria-label="Featured organizations">
           {credibilityPartners.map((partner) => (
