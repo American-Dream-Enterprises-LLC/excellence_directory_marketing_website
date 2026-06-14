@@ -21,6 +21,7 @@ export type BrandBlogPost = RawBrandBlogPost & {
 };
 
 const sourceBlogSlugs = new Set<string>([
+  "how-do-i-advertise-on-the-excellence-directory",
   "why-christian-consumers-should-use-the-excellence-directory",
   "what-makes-the-excellence-directory-stand-out",
   "benefits-of-listing-your-church-on-the-excellence-directory",
@@ -39,6 +40,357 @@ const sourceBlogSlugs = new Set<string>([
 ]);
 
 const allBrandBlogPosts = [
+  {
+    "slug": "how-do-i-advertise-on-the-excellence-directory",
+    "title": "How Do I Advertise on The Excellence Directory?",
+    "author": "Devin Pugh",
+    "category": "Advertising guide",
+    "publishedAt": "2026-06-13T20:15:28",
+    "updatedAt": "2026-06-13T20:15:28",
+    "excerpt": "Learn how businesses, churches, ministries, and organizations can advertise on The Excellence Directory through Excellent News, Trending Events, Trending Jobs, Kingdom Partners, Featured Organizations, and Special Promotions.",
+    "readTimeMinutes": 5,
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "One of the greatest challenges Christian businesses, churches, and ministries face today is visibility."
+      },
+      {
+        "type": "paragraph",
+        "text": "You may offer exceptional products and services, lead with integrity, and genuinely desire to serve others well. Yet if people don't know you exist, they cannot support what you've built."
+      },
+      {
+        "type": "paragraph",
+        "text": "This is where The Excellence Directory comes in."
+      },
+      {
+        "type": "paragraph",
+        "text": "Advertising on The Excellence Directory isn't simply about placing your name in another online listing. It's about positioning your organization before a growing community of believers who are intentionally seeking faith-aligned businesses, churches, ministries, events, and professionals they can trust."
+      },
+      {
+        "type": "paragraph",
+        "text": "Whether you're launching a business, promoting an event, hiring employees, or sharing your ministry's mission, The Excellence Directory provides advertising opportunities designed to help you connect with the people you're called to serve."
+      },
+      {
+        "type": "heading",
+        "text": "Step 1: Determine Your Advertising Goals"
+      },
+      {
+        "type": "paragraph",
+        "text": "Before selecting an advertising placement, take a moment to identify your objectives."
+      },
+      {
+        "type": "paragraph",
+        "text": "Ask yourself:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Do I want to increase brand awareness?",
+          "Am I trying to generate new leads?",
+          "Do I need to recruit employees or volunteers?",
+          "Am I promoting an event?",
+          "Do I want to establish credibility and trust?",
+          "Am I introducing a new product or service?",
+          "Do I want to reach Christian consumers specifically?"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "The answers to these questions will help determine which advertising opportunities on The Excellence Directory are the best fit for your organization."
+      },
+      {
+        "type": "paragraph",
+        "text": "Advertising is most effective when it is intentional."
+      },
+      {
+        "type": "heading",
+        "text": "Step 2: Choose the Advertising Opportunities That Support Your Mission"
+      },
+      {
+        "type": "paragraph",
+        "text": "One of the things that makes The Excellence Directory different is that advertisers aren't limited to a standard banner ad or basic listing. Each placement is designed with a specific purpose in mind."
+      },
+      {
+        "type": "heading",
+        "text": "Excellent News: Tell Your Story"
+      },
+      {
+        "type": "paragraph",
+        "text": "People connect with stories."
+      },
+      {
+        "type": "paragraph",
+        "text": "The Excellent News section allows businesses, churches, and ministries to share updates that build trust and deepen engagement."
+      },
+      {
+        "type": "paragraph",
+        "text": "Use this placement to highlight:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Business milestones",
+          "Ministry updates",
+          "Product launches",
+          "Community initiatives",
+          "Customer success stories",
+          "Educational insights",
+          "Testimonies of God's faithfulness"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Rather than simply promoting what you do, Excellent News gives you the opportunity to share why you do it."
+      },
+      {
+        "type": "paragraph",
+        "text": "Best for: Thought leadership, storytelling, and relationship building."
+      },
+      {
+        "type": "heading",
+        "text": "Trending Events: Fill the Room"
+      },
+      {
+        "type": "paragraph",
+        "text": "You've invested time, prayer, and resources into planning your event. Don't let it remain hidden within your existing circle."
+      },
+      {
+        "type": "paragraph",
+        "text": "The Trending Events section helps increase visibility for:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Conferences",
+          "Worship nights",
+          "Bible studies",
+          "Retreats",
+          "Workshops",
+          "Networking events",
+          "Community outreach initiatives",
+          "Fundraisers"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "This placement introduces your event to people who are already searching for opportunities to connect and engage."
+      },
+      {
+        "type": "paragraph",
+        "text": "Best for: Churches, ministries, nonprofits, speakers, and event organizers."
+      },
+      {
+        "type": "heading",
+        "text": "Trending Jobs: Reach Faith-Based Talent"
+      },
+      {
+        "type": "paragraph",
+        "text": "Finding qualified candidates who share your values can be difficult."
+      },
+      {
+        "type": "paragraph",
+        "text": "The Trending Jobs feature allows businesses and ministries to showcase opportunities directly to Christian professionals seeking meaningful employment."
+      },
+      {
+        "type": "paragraph",
+        "text": "Advertise:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Full-time positions",
+          "Part-time roles",
+          "Ministry openings",
+          "Leadership opportunities",
+          "Internship programs",
+          "Volunteer-to-staff pathways"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "This placement helps you connect with individuals who understand the importance of integrity, stewardship, and purpose-driven work."
+      },
+      {
+        "type": "paragraph",
+        "text": "Best for: Employers, churches, ministries, and organizations building mission-focused teams."
+      },
+      {
+        "type": "heading",
+        "text": "Kingdom Partners: Expand Your Influence Through Collaboration"
+      },
+      {
+        "type": "paragraph",
+        "text": "Kingdom impact is rarely accomplished alone."
+      },
+      {
+        "type": "paragraph",
+        "text": "The Kingdom Partners section highlights organizations committed to serving others and advancing God's work through partnership."
+      },
+      {
+        "type": "paragraph",
+        "text": "This placement provides opportunities to:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Increase credibility",
+          "Build strategic relationships",
+          "Collaborate on initiatives",
+          "Expand community impact",
+          "Connect with like-minded organizations"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Sometimes growth comes not through competition, but through collaboration."
+      },
+      {
+        "type": "paragraph",
+        "text": "Best for: Churches, nonprofits, ministries, and organizations with a heart for community impact."
+      },
+      {
+        "type": "heading",
+        "text": "Featured Organizations: Increase Your Visibility"
+      },
+      {
+        "type": "paragraph",
+        "text": "If you want premium exposure, the Featured Organizations placement helps your profile stand out."
+      },
+      {
+        "type": "paragraph",
+        "text": "Featured organizations receive additional attention from users exploring the platform, making it easier for potential customers, members, or supporters to discover your work."
+      },
+      {
+        "type": "paragraph",
+        "text": "Benefits include:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Increased profile traffic",
+          "Enhanced visibility",
+          "Greater brand recognition",
+          "More engagement opportunities",
+          "Stronger positioning within the community"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "When consumers have options, visibility matters."
+      },
+      {
+        "type": "paragraph",
+        "text": "Best for: Businesses, ministries, churches, and organizations seeking greater awareness."
+      },
+      {
+        "type": "heading",
+        "text": "Special Promotions: Highlight What's Happening Now"
+      },
+      {
+        "type": "paragraph",
+        "text": "Need to create urgency?"
+      },
+      {
+        "type": "paragraph",
+        "text": "The Special Promotions section allows you to spotlight time-sensitive opportunities."
+      },
+      {
+        "type": "paragraph",
+        "text": "Perfect for:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Holiday campaigns",
+          "Limited-time offers",
+          "Registration deadlines",
+          "Membership drives",
+          "Seasonal promotions",
+          "Product launches",
+          "Special announcements"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "This placement helps your audience take action while the opportunity is still available."
+      },
+      {
+        "type": "paragraph",
+        "text": "Best for: Businesses and organizations running campaigns with specific timelines."
+      },
+      {
+        "type": "heading",
+        "text": "Step 3: Build a Profile That Works for You"
+      },
+      {
+        "type": "paragraph",
+        "text": "Advertising doesn't stop with placement. One of the most powerful assets on The Excellence Directory is your profile itself."
+      },
+      {
+        "type": "paragraph",
+        "text": "Think of it as a website within a website."
+      },
+      {
+        "type": "paragraph",
+        "text": "Your profile can include:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Your logo",
+          "Professional biographies",
+          "Contact information",
+          "Photos and videos",
+          "Testimonials",
+          "Portfolio examples",
+          "Favorite Scriptures",
+          "Personal testimonies",
+          "Service descriptions",
+          "Event details"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Instead of a simple listing, your profile becomes a dynamic marketing tool that helps consumers understand both what you do and who you are."
+      },
+      {
+        "type": "paragraph",
+        "text": "Trust grows through transparency."
+      },
+      {
+        "type": "heading",
+        "text": "Step 4: Reach the Right Audience"
+      },
+      {
+        "type": "paragraph",
+        "text": "Unlike broad advertising platforms that require you to compete for attention in crowded spaces, The Excellence Directory connects you with a community already seeking Christian businesses, churches, ministries, and professionals."
+      },
+      {
+        "type": "paragraph",
+        "text": "You're not advertising to everyone. You're connecting with people who value faith, integrity, and excellence. That distinction matters."
+      },
+      {
+        "type": "heading",
+        "text": "Final Thoughts"
+      },
+      {
+        "type": "paragraph",
+        "text": "Advertising on The Excellence Directory is about more than exposure, it's about stewardship."
+      },
+      {
+        "type": "paragraph",
+        "text": "It's about sharing your story through Excellent News, filling seats through Trending Events, building teams through Trending Jobs, strengthening collaboration through Kingdom Partners, increasing awareness through Featured Organizations, and creating momentum through Special Promotions."
+      },
+      {
+        "type": "paragraph",
+        "text": "Most importantly, it's about connecting with the people God has called you to serve."
+      },
+      {
+        "type": "paragraph",
+        "text": "Whether you're a business owner, pastor, ministry leader, nonprofit director, or entrepreneur, The Excellence Directory provides practical tools to help you grow your influence while remaining rooted in faith. Build your profile, and choose the placements that align with your mission. Tell your story boldly, and let The Excellence Directory help you turn visibility into meaningful Kingdom impact."
+      }
+    ]
+  },
   {
     "slug": "why-christian-consumers-should-use-the-excellence-directory",
     "title": "Why Christian Consumers Should Use The Excellence Directory",
